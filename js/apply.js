@@ -10,7 +10,8 @@ if (currentPage == null || currentPage.toString().length < 1) {
     currentPage = 1;
 }
 
-$( "#start-date" ).datepicker();
+$("#start-date").datepicker();
+$("#end-date").datepicker();
 
 $(document).ready(function () {
     $.ajax({
@@ -22,8 +23,8 @@ $(document).ready(function () {
             var applyNum = result.applyNum;
 
             //设置分页
-            if(applyNum > 0 ){
-                pageNum = Math.ceil(applyNum/itemsNumberPerPage);
+            if (applyNum > 0) {
+                pageNum = Math.ceil(applyNum / itemsNumberPerPage);
             }
             if (currentPage == 1) {
                 $("ul.pagination li:first").attr("class", "disabled");

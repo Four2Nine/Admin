@@ -7,5 +7,5 @@ require ROOT_PATH . 'common\global.func.php';
 require ROOT_PATH . 'common\mysql.func.php';
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PWD', '');
+define('DB_PWD', 'QFynXANCxVdXm2q7');
 define('DB_NAME', 'db_acp');

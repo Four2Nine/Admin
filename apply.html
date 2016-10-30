@@ -116,27 +116,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3>导出报名表</h3>
-                </div>
-                <div class="panel-body">
-
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label for="start-date">开始日期：</label>
-                            <input class="form-control" id="start-date" type="text" readonly="readonly">
-                        </div>
-                    </form>
-                    <button type="submit" class="btn btn-primary">确认导出</button>
-                </div>
-            </div>
-        </div>
-    </div><!--/.row-->
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-primary">
+            <div class="panel panel-info">
                 <div class="panel-heading"><strong>报名表</strong></div>
                 <div class="panel-body table-responsive">
 
@@ -176,6 +156,42 @@
         </div>
     </div><!--/.row-->
 
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <strong>导出报名表</strong>
+                </div>
+                <div class="panel-body">
+
+                    <form id="export-form" role="form" method="post">
+                        <div class="form-group">
+                            <label for="status">审核状态</label>
+                            <select id="status" class="form-control col-lg-3">
+                                <option value="-1" selected="selected">全部</option>
+                                <option value="0">待审核</option>
+                                <option value="1">审核中</option>
+                                <option value="2">审核通过</option>
+                            </select>
+                        </div>
+                        &nbsp;
+                        <div class="form-group">
+                            <label for="start-date">开始日期：</label>
+                            <input class="form-control col-lg-3" id="start-date" type="text" readonly="readonly">
+                        </div>
+                        &nbsp;
+                        <div class="form-group">
+                            <label for="end-date">结束日期：</label>
+                            <input class="form-control col-lg-3" id="end-date" type="text" readonly="readonly">
+                        </div>
+                        &nbsp;
+                        <br>
+                        <button type="submit" class="btn btn-primary">确认导出</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!--/.row-->
 </div><!--/.main-->
 
 <script src="js/jquery-1.11.1.min.js"></script>
@@ -187,7 +203,7 @@
 <script src="js/apply.js"></script>
 <script>
     !function ($) {
-        $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
             $(this).find('em:first').toggleClass("glyphicon-minus");
         });
         $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");

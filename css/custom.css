@@ -7,3 +7,7 @@
 .cu-logo:hover {
     color: white !important;
 }
+
+.login-panel {
+    margin-top: 20px;
+}
