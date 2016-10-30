@@ -10,6 +10,8 @@ if (currentPage == null || currentPage.toString().length < 1) {
     currentPage = 1;
 }
 
+$( "#start-date" ).datepicker();
+
 $(document).ready(function () {
     $.ajax({
         url: "/Admin/controller/apply.con.php",

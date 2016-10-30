@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/datepicker3.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
     <!--Icons-->
@@ -120,7 +121,13 @@
                     <h3>导出报名表</h3>
                 </div>
                 <div class="panel-body">
-                    <p>在这里设置导出的时间段，到处报名表类型</p>
+
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="start-date">开始日期：</label>
+                            <input class="form-control" id="start-date" type="text" readonly="readonly">
+                        </div>
+                    </form>
                     <button type="submit" class="btn btn-primary">确认导出</button>
                 </div>
             </div>
@@ -172,6 +179,8 @@
 </div><!--/.main-->
 
 <script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/datepicker-zh-CN.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/com.fun.js"></script>
