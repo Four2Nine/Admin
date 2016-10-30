@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>报名表 | Dashboard</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/datepicker3.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!--Icons-->
+    <script src="js/lumino.glyphs.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand cu-logo" href="dashboard.html"><span>theACP</span>Admin</a>
+        </div>
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <ul class="nav menu">
+        <li>
+            <a href="dashboard.html">
+                <svg class="glyph stroked dashboard-dial">
+                    <use xlink:href="#stroked-dashboard-dial"></use>
+                </svg>
+                首页
+            </a>
+        </li>
+
+        <li>
+            <a href="admin.html">
+                <svg class="glyph stroked calendar">
+                    <use xlink:href="#stroked-calendar"></use>
+                </svg>
+                管理员</a>
+        </li>
+
+        <li class="active">
+            <a href="apply.html">
+                <svg class="glyph stroked line-graph">
+                    <use xlink:href="#stroked-line-graph"></use>
+                </svg>
+                报名表
+            </a>
+        </li>
+
+        <li>
+            <a href="slider.html">
+                <svg class="glyph stroked table">
+                    <use xlink:href="#stroked-table"></use>
+                </svg>
+                轮播图
+            </a>
+        </li>
+
+        <li>
+            <a href="users.html">
+                <svg class="glyph stroked pencil">
+                    <use xlink:href="#stroked-pencil"></use>
+                </svg>
+                会员
+            </a>
+        </li>
+
+        <li>
+            <a href="project.html">
+                <svg class="glyph stroked app-window">
+                    <use xlink:href="#stroked-app-window"></use>
+                </svg>
+                项目
+            </a>
+        </li>
+
+        <li role="presentation" class="divider"></li>
+
+        <li>
+            <a href="index.html">
+                <svg class="glyph stroked male-user">
+                    <use xlink:href="#stroked-male-user"></use>
+                </svg>
+                退出登录
+            </a>
+        </li>
+    </ul>
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">报名表</h1>
+        </div>
+    </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>导出报名表</h3>
+                </div>
+                <div class="panel-body">
+                    <p>在这里设置导出的时间段，到处报名表类型</p>
+                    <button type="submit" class="btn btn-primary">确认导出</button>
+                </div>
+            </div>
+        </div>
+    </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><strong>报名表</strong></div>
+                <div class="panel-body table-responsive">
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>项目ID</td>
+                            <td>姓名</td>
+                            <td>手机号</td>
+                            <td>邮箱</td>
+                            <td>微信号</td>
+                            <td>申请状态</td>
+                            <td>详情</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="8">正在加载数据...</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="8">
+
+                                <ul class="pager">
+                                    <li class="previous disabled"><a href="#">&larr; Older</a></li>
+                                    <li id="current-page-slash-all-page"><a>./.</a></li>
+                                    <li class="next disabled"><a href="#">Newer &rarr;</a></li>
+                                </ul>
+
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!--/.row-->
+
+</div><!--/.main-->
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/apply.js"></script>
+<script>
+    !function ($) {
+        $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+            $(this).find('em:first').toggleClass("glyphicon-minus");
+        });
+        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+    }(window.jQuery);
+
+    $(window).on('resize', function () {
+        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+    });
+    $(window).on('resize', function () {
+        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+    });
+</script>
+</body>
+</html>

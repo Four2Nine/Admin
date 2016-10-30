@@ -1,0 +1,9 @@
+.cu-logo {
+    font-family: FontAwesome, Helvetica, Arial, sans-serif !important;
+    font-weight: bolder;
+    color: white;
+}
+
+.cu-logo:hover {
+    color: white !important;
+}

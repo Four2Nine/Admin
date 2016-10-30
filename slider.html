@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>轮播图 | Dashboard</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/datepicker3.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!--Icons-->
+    <script src="js/lumino.glyphs.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand cu-logo" href="dashboard.html"><span>theACP</span>Admin</a>
+        </div>
+
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <ul class="nav menu">
+        <li>
+            <a href="dashboard.html">
+                <svg class="glyph stroked dashboard-dial">
+                    <use xlink:href="#stroked-dashboard-dial"></use>
+                </svg>
+                首页
+            </a>
+        </li>
+
+        <li>
+            <a href="admin.html">
+                <svg class="glyph stroked calendar">
+                    <use xlink:href="#stroked-calendar"></use>
+                </svg>
+                管理员</a>
+        </li>
+
+        <li>
+            <a href="apply.html">
+                <svg class="glyph stroked line-graph">
+                    <use xlink:href="#stroked-line-graph"></use>
+                </svg>
+                报名表
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="slider.html">
+                <svg class="glyph stroked table">
+                    <use xlink:href="#stroked-table"></use>
+                </svg>
+                轮播图
+            </a>
+        </li>
+
+        <li>
+            <a href="users.html">
+                <svg class="glyph stroked pencil">
+                    <use xlink:href="#stroked-pencil"></use>
+                </svg>
+                会员
+            </a>
+        </li>
+
+        <li>
+            <a href="project.html">
+                <svg class="glyph stroked app-window">
+                    <use xlink:href="#stroked-app-window"></use>
+                </svg>
+                项目
+            </a>
+        </li>
+
+        <li role="presentation" class="divider"></li>
+
+        <li>
+            <a href="index.html">
+                <svg class="glyph stroked male-user">
+                    <use xlink:href="#stroked-male-user"></use>
+                </svg>
+                退出登录
+            </a>
+        </li>
+    </ul>
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">轮播图</h1>
+        </div>
+    </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>轮播图信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media"></div>
+                    <div class="media col-lg-4">
+                        <a class="media-left thumbnail">
+                            <img src="images/slider/bg1.jpg" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Amarasiri Coordinator's Project(ACP)</h4>
+                            ACP旨在解开众多大象身上的重重枷锁，享受本属于它们 的自由；让每一位有志工之心的人得以施展自己的力量；
+                            同时深入体验并了解斯里兰卡——这颗印度洋上的 眼泪。
+                            <br>
+                            <br>
+                            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                修改轮播图信息
+                            </button>
+                        </div>
+                    </div>
+                    <div class="media col-lg-4">
+                        <a class="media-left thumbnail">
+                            <img src="images/slider/bg2.jpg" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">生活于我，不只是一场英雄梦</h4>
+                            大象、瀑布、徒步、泰北烹饪课程、庙宇探寻……远离繁华 的闹市，在泰国清迈，志愿者们将真正体会到原汁原味的
+                            泰国自然风光。
+                            <br>
+                            <br>
+                            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                修改轮播图信息
+                            </button>
+                        </div>
+                    </div>
+                    <div class="media col-lg-4">
+                        <a class="media-left thumbnail">
+                            <img src="images/slider/bg3.jpg" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">大象保护、泰北文化深度体验</h4>
+                            ACP团队每位成员均多次参加国际志工活动，用心做小， 用心做好。
+                            <br><br>
+                            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                修改轮播图信息
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">修改轮播图信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label>标题</label>
+                            <input type="text" class="form-control" placeholder="标题">
+                            <span class="help-block">不填写则不修改</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>副标题</label>
+                            <input type="text" class="form-control" placeholder="副标题">
+                            <span class="help-block">不填写则不修改</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">轮播图片</label>
+                            <input type="file" id="exampleInputFile">
+                            <span class="help-block">不上传则不修改</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消修改</button>
+                    <button type="submit" class="btn btn-primary">确认修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    <!--/.main-->
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    !function ($) {
+        $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+            $(this).find('em:first').toggleClass("glyphicon-minus");
+        });
+        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+    }(window.jQuery);
+
+    $(window).on('resize', function () {
+        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+    });
+    $(window).on('resize', function () {
+        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+    });
+</script>
+</body>
+</html>
