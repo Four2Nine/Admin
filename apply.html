@@ -155,11 +155,10 @@
                         <tr>
                             <td colspan="8">
 
-                                <ul class="pager">
-                                    <li class="previous disabled"><a href="#">&larr; Older</a></li>
-                                    <li id="current-page-slash-all-page"><a>./.</a></li>
-                                    <li class="next disabled"><a href="#">Newer &rarr;</a></li>
-                                </ul>
+                                <ul class="pagination pagination-sm">
+                                    <li onclick="prevPage()"><a>&lt;&lt;</a></li>
+                                    <li onclick="nextPage()"><a>&gt;&gt;</a></li>
+                                </ul><!--/.pagination-->
 
                             </td>
                         </tr>
@@ -175,6 +174,7 @@
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/com.fun.js"></script>
 <script src="js/apply.js"></script>
 <script>
     !function ($) {

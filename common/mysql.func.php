@@ -175,38 +175,6 @@ FROM `tb_apply` LIMIT ?, ?";
     $stmt->close();
     $con->close();
     return $result;
-
-//    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
-//    $con->query("SET NAMES UTF8;");
-//    $sql = "SELECT `id`, `project_id`, `name`, `phone_number`, `email`, `wechat`, `status`
-//FROM `tb_apply` LIMIT ".$start.", ".$num;
-//    echo $sql;
-//
-//    $data = mysqli_query($con, $sql);
-//    $con->close();
-//
-//    $result = array();
-//    while ($row=$data->fetch_object()) {
-//        $item = array();
-//        $item['id'] = $row->id;
-//        $item['project_id'] = $row->project_id;
-//        $item['name'] = $row->name;
-//        $item['phone_number'] = $row->phone_number;
-//        $item['email'] = $row->email;
-//        $item['wechat'] = $row->wechat;
-//        switch ($row->status) {
-//            case 0:
-//                $item['status'] = "待审核";
-//                break;
-//            case 1:
-//                $item['status'] = "审核中";
-//                break;
-//            case 2:
-//                $item['status'] = "审核通过";
-//        }
-//        $result[$row->id] = $item;
-//    }
-//    return $result;
 }
 
 function getApplyCount()

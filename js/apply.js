@@ -2,55 +2,85 @@
  * Created by liuyang on 2016/10/28.
  */
 
+var itemsNumberPerPage = 30;
 var pageNum = 1;
-var itemNum = 10;
+var currentPage = getQueryString("p");
+
+if (currentPage == null || currentPage.toString().length < 1) {
+    currentPage = 1;
+}
 
 $(document).ready(function () {
-
     $.ajax({
-        url: "/admin/controller/apply.con.php",
+        url: "/Admin/controller/apply.con.php",
         type: "get",
-        data: {currentPage: 1},
+        data: {currentPage: currentPage},
         success: function (data) {
             var result = JSON.parse(data);
+            var applyNum = result.applyNum;
 
-            pageNum = Math.ceil(result.pageNum/itemNum);
-            currentPage = result.currentPage;
-            if (currentPage != 1) {
-                $(".previous").attr("class", "previous");
-            } else {
-                $(".previous").attr("class", "previous disabled");
+            //设置分页
+            if(applyNum > 0 ){
+                pageNum = Math.ceil(applyNum/itemsNumberPerPage);
             }
-            if (currentPage != pageNum) {
-                $(".next").attr("class", "next");
-            } else {
-                $(".next").attr("class", "next disabled");
+            if (currentPage == 1) {
+                $("ul.pagination li:first").attr("class", "disabled");
             }
-            $("#current-page-slash-all-page").find("a").html(currentPage+"/"+pageNum);
 
-            if (result.apply_info_status != CORRECT) {
+            if (currentPage == pageNum) {
+                $("ul.pagination li:last").attr("class", "disabled");
+            }
 
-            } else {
-                if (result.apply_info.length == 0) {
-                    $("table tbody>tr>td").html("暂时没有报名表");
+            for (var i = 1; i <= pageNum; i++) {
+
+                if (i == currentPage) {
+                    $("ul.pagination li:eq(-2)").after(
+                        "<li class='active' onclick='goPage(" + i + ")'><a>" + i + "</a></li>"
+                    );
                 } else {
-                    var html = "";
-                    for (var item in result.apply_info) {
-                        html += "<tr>" +
-                            "<td>" + item + "</td>" +
-                            "<td>" + result.apply_info[item + ""]['project_id'] + "</td>" +
-                            "<td>" + result.apply_info[item + ""]['name'] + "</td>" +
-                            "<td>" + result.apply_info[item + ""]['phone_number'] + "</td>" +
-                            "<td>" + result.apply_info[item + ""]['email'] + "</td>" +
-                            "<td>" + result.apply_info[item + ""]['wechat'] + "</td>" +
-                            "<td>" + result.apply_info[item + ""]['status'] + "</td>" +
-                            "<td><span class='glyphicon glyphicon-list-alt'></span></td>" +
-                            "</tr>";
-                    }
-
-                    $("table tbody").html(html).fadeIn(300);
+                    $("ul.pagination li:eq(-2)").after(
+                        "<li onclick='goPage(" + i + ")'><a>" + i + "</a></li>"
+                    );
                 }
+
+            } //end-for
+
+
+            //显示报名表格的内容
+            if (applyNum == 0) {
+                $("table tbody>tr>td").html("暂时没有报名表");
+            } else {
+                var html = "";
+                for (var item in result.applyInfo) {
+                    html += "<tr>" +
+                        "<td>" + item + "</td>" +
+                        "<td>" + result.applyInfo[item + ""]['project_id'] + "</td>" +
+                        "<td>" + result.applyInfo[item + ""]['name'] + "</td>" +
+                        "<td>" + result.applyInfo[item + ""]['phone_number'] + "</td>" +
+                        "<td>" + result.applyInfo[item + ""]['email'] + "</td>" +
+                        "<td>" + result.applyInfo[item + ""]['wechat'] + "</td>" +
+                        "<td>" + result.applyInfo[item + ""]['status'] + "</td>" +
+                        "<td><span class='glyphicon glyphicon-list-alt'></span></td>" +
+                        "</tr>";
+                }
+
+                $("table tbody").html(html).fadeIn(300);
             }
+
         }
     });
 });
+
+function goPage(page) {
+    location.href = "/Admin/apply.html?p=" + page;
+}
+
+function prevPage() {
+    var page = Math.max(currentPage - 1, 1);
+    location.href = "/Admin/apply.html?p=" + page;
+}
+
+function nextPage() {
+    var page = Math.min(pageNum, currentPage + 1);
+    location.href = "/Admin/apply.html?p=" + page;
+}
