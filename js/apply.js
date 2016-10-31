@@ -36,13 +36,14 @@ $(document).ready(function () {
         success: function (data) {
             var result = JSON.parse(data);
             var applyNum = result.applyNum;
+            $("#cu-apply-num").html("&nbsp;"+applyNum+"&nbsp;张报名表");
 
             //设置分页
             if (applyNum > 0) {
                 pageNum = Math.ceil(applyNum / itemsNumberPerPage);
             }
             if (currentPage == 1) {
-                $("ul.pagination li:first").attr("class", "disabled");
+                $("ul.pagination li:eq(1)").attr("class", "disabled");
             }
 
             if (currentPage == pageNum) {
