@@ -63,7 +63,7 @@ $(document).ready(function () {
                         "<td>" + result.applyInfo[item + ""]['email'] + "</td>" +
                         "<td>" + result.applyInfo[item + ""]['wechat'] + "</td>" +
                         "<td>" + result.applyInfo[item + ""]['status'] + "</td>" +
-                        "<td><span class='glyphicon glyphicon-list-alt'></span></td>" +
+                        "<td><span class='glyphicon glyphicon-list-alt' onclick='showDetail(" + item + ")'></span></td>" +
                         "</tr>";
                 }
 
@@ -86,4 +86,16 @@ function prevPage() {
 function nextPage() {
     var page = Math.min(pageNum, currentPage + 1);
     location.href = "/Admin/apply.html?p=" + page;
+}
+
+// 根据报名表id，获取报名表的详细信息
+function showDetail(id) {
+    $.ajax({
+        url: "Admin/controller/apply.detail.con.php",
+        data: {id:id},
+        type: "post",
+        success: function (data) {
+
+        }
+    })
 }
