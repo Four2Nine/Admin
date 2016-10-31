@@ -51,7 +51,7 @@ $(document).ready(function () {
 
             //显示报名表格的内容
             if (applyNum == 0) {
-                $("table tbody>tr>td").html("暂时没有报名表");
+                $("#cu-apply-table").find("tbody>tr>td").html("暂时没有报名表");
             } else {
                 var html = "";
                 for (var item in result.applyInfo) {
@@ -63,11 +63,12 @@ $(document).ready(function () {
                         "<td>" + result.applyInfo[item + ""]['email'] + "</td>" +
                         "<td>" + result.applyInfo[item + ""]['wechat'] + "</td>" +
                         "<td>" + result.applyInfo[item + ""]['status'] + "</td>" +
-                        "<td><span class='glyphicon glyphicon-list-alt' onclick='showDetail(" + item + ")'></span></td>" +
+                        "<td><button class='glyphicon glyphicon-list-alt' onclick='showDetail(" + item + ")'  " +
+                        "data-toggle='modal' data-target='#myModal'></button></td>" +
                         "</tr>";
                 }
 
-                $("table tbody").html(html).fadeIn(300);
+                $("#cu-apply-table").find("tbody").html(html).fadeIn(300);
             }
 
         }
@@ -91,11 +92,19 @@ function nextPage() {
 // 根据报名表id，获取报名表的详细信息
 function showDetail(id) {
     $.ajax({
-        url: "Admin/controller/apply.detail.con.php",
-        data: {id:id},
+        url: "/Admin/controller/apply.detail.con.php",
+        data: {id: id},
         type: "post",
         success: function (data) {
-
+            var result = JSON.parse(data);
+            var html = "";
+            for (var item in result.applyDetail) {
+                html += "<tr>" +
+                    "<td>" + item + "</td>" +
+                    "<td>" + result.applyDetail[item] + "</td>" +
+                    "</tr>";
+            }
+            $("#cu-apply-detail-table").find("tbody").html(html);
         }
     })
 }

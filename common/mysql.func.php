@@ -191,3 +191,15 @@ function getApplyCount()
     return $count;
 }
 
+function getApplyDetail($id)
+{
+    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT * FROM `tb_apply` WHERE `id` = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bindParam(1, $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $result = $stmt->fetchObject();
+    return $result;
+}
