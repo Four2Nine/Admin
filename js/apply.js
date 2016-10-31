@@ -10,8 +10,23 @@ if (currentPage == null || currentPage.toString().length < 1) {
     currentPage = 1;
 }
 
-$("#start-date").datepicker();
-$("#end-date").datepicker();
+var startDate = $("#start-date");
+var endDate = $("#end-date");
+
+startDate.datepicker({
+    showButtonPanel: true,
+    changeMonth: true,
+    changeYear: true,
+    dateFormat:"yy-mm-dd",
+    autoSize: true
+});
+endDate.datepicker({
+    showButtonPanel: true,
+    changeMonth: true,
+    changeYear: true,
+    dateFormat:"yy-mm-dd",
+    autoSize: true
+});
 
 $(document).ready(function () {
     $.ajax({

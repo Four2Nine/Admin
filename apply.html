@@ -164,10 +164,10 @@
                 </div>
                 <div class="panel-body">
 
-                    <form id="export-form" role="form" method="post">
+                    <form id="export-form" role="form" method="post" action="controller/apply.export.con.php">
                         <div class="form-group">
                             <label for="status">审核状态</label>
-                            <select id="status" class="form-control col-lg-3">
+                            <select id="status" name="status" class="form-control col-lg-3">
                                 <option value="-1" selected="selected">全部</option>
                                 <option value="0">待审核</option>
                                 <option value="1">审核中</option>
@@ -177,12 +177,16 @@
                         &nbsp;
                         <div class="form-group">
                             <label for="start-date">开始日期：</label>
-                            <input class="form-control col-lg-3" id="start-date" type="text" readonly="readonly">
+                            <input class="form-control col-lg-3" id="start-date" name="start" type="text" readonly="readonly">
+                            <br>
+                            <span id="cu-start-date" class="cu-default-fb"></span>
                         </div>
                         &nbsp;
                         <div class="form-group">
                             <label for="end-date">结束日期：</label>
-                            <input class="form-control col-lg-3" id="end-date" type="text" readonly="readonly">
+                            <input class="form-control col-lg-3" id="end-date" name="end" type="text" readonly="readonly">
+                            <br>
+                            <span id="cu-end-date" class="cu-default-fb"></span>
                         </div>
                         &nbsp;
                         <br>

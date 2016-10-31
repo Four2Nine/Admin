@@ -203,3 +203,27 @@ function getApplyDetail($id)
     $result = $stmt->fetchObject();
     return $result;
 }
+
+
+function getExportedData($status, $start, $end)
+{
+    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
+    $con->query("SET NAMES UTF8;");
+
+    if ($status == "-1") {
+        $sql = "SELECT * FROM `tb_apply` WHERE `apply_time` > ? AND `apply_time` < ? ";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(1, $start, PDO::PARAM_STR);
+        $stmt->bindParam(2, $end, PDO::PARAM_STR);
+    } else {
+        $sql = "SELECT * FROM `tb_apply` WHERE `apply_time` > ? AND `apply_time` < ? AND `status` = ?";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(1, $start, PDO::PARAM_STR);
+        $stmt->bindParam(2, $end, PDO::PARAM_STR);
+        $stmt->bindParam(3, $status, PDO::PARAM_STR);
+    }
+
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
