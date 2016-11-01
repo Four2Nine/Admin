@@ -28,6 +28,36 @@ endDate.datepicker({
     autoSize: true
 });
 
+$("#check_pass").click(function () {
+    //审核通过
+    $.ajax({
+        url: "/Admin/controller/apply.check.con.php",
+        data: {check:1},
+        type: "post",
+        success: function (data) {
+            if (data == 1) {
+                $("#myModal").modal("hide");
+                location.href = "/Admin/apply.html";
+            }
+        }
+    })
+});
+
+$("#check_refuse").click(function () {
+   //审核拒绝
+    $.ajax({
+        url: "/Admin/controller/apply.check.con.php",
+        data: {check:2},
+        type: "post",
+        success: function (data) {
+            if (data == 1) {
+                $("#myModal").modal("hide");
+                location.href = "/Admin/apply.html";
+            }
+        }
+    })
+});
+
 $(document).ready(function () {
     $.ajax({
         url: "/Admin/controller/apply.con.php",
@@ -115,10 +145,177 @@ function showDetail(id) {
             var result = JSON.parse(data);
             var html = "";
             for (var item in result.applyDetail) {
-                html += "<tr>" +
-                    "<td>" + item + "</td>" +
-                    "<td>" + result.applyDetail[item] + "</td>" +
-                    "</tr>";
+                if (item == "project_id") {
+                    html += "<tr>" +
+                        "<td>项目ID</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                } else if (item == "name"){
+                    html += "<tr>" +
+                        "<td>姓名</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "gender"){
+                    html += "<tr>" +
+                        "<td>性别</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "nationality"){
+                    html += "<tr>" +
+                        "<td>国籍</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "phone_number"){
+                    html += "<tr>" +
+                        "<td>手机号</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "email"){
+                    html += "<tr>" +
+                        "<td>邮箱</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "wechat"){
+                    html += "<tr>" +
+                        "<td>微信号</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "id_card_number"){
+                    html += "<tr>" +
+                        "<td>身份证号</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "passport_number"){
+                    html += "<tr>" +
+                        "<td>护照号</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "province"){
+                    html += "<tr>" +
+                        "<td>现居省份</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "post_address"){
+                    html += "<tr>" +
+                        "<td>邮寄地址</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "city_of_departure"){
+                    html += "<tr>" +
+                        "<td>出发城市</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "emergency_contact_name"){
+                    html += "<tr>" +
+                        "<td>紧急联系人</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "emergency_contact_phone_number"){
+                    html += "<tr>" +
+                        "<td>紧急联系人电话</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "occupation"){
+                    html += "<tr>" +
+                        "<td>身份</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "duration"){
+                    html += "<tr>" +
+                        "<td>项目时长</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "start_date"){
+                    html += "<tr>" +
+                        "<td>预计开始时间</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "diet_requirement"){
+                    html += "<tr>" +
+                        "<td>特殊饮食要求</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }else if (item == "medical_history"){
+                    var medical_history = result.applyDetail[item]=="";
+                    if (medical_history) {
+                        html += "<tr>" +
+                        "<td>历史重大疾病</td>" +
+                        "<td>" + "无" + "</td>" +
+                        "</tr>";
+                    } else {
+                        html += "<tr>" +
+                            "<td>历史重大疾病</td>" +
+                            "<td>" + result.applyDetail[item] + "</td>" +
+                            "</tr>";
+                    }
+                }else if (item == "is_first_go_abroad"){
+                    html += "<tr>" +
+                        "<td>是否第一次出国</td>" +
+                        "<td>" + result.applyDetail[item]==1?"是":"否" + "</td>" +
+                        "</tr>";
+                }else if (item == "english_level"){
+                    var english_level = "";
+                    switch (result.applyDetail[item]) {
+                        case "0":
+                            english_level = "高中";
+                            break;
+                        case "1":
+                            english_level = "大学英语四级";
+                            break;
+                        case "2":
+                            english_level = "大学英语六级";
+                            break;
+                    }
+
+                    html += "<tr>" +
+                        "<td>英语水平</td>" +
+                        "<td>" + english_level + "</td>" +
+                        "</tr>";
+                }else if (item == "is_need_insurance"){
+                    var need = "需要";
+                    if (result.applyDetail[item] == 0) {
+                        need = "不需要";
+                    }
+
+                    html += "<tr>" +
+                        "<td>是否需要签证保险业协助办理</td>" +
+                        "<td>" + need + "</td>" +
+                        "</tr>";
+                }else if (item == "interview_date"){
+                    var interview_date = result.applyDetail[item];
+                    if (interview_date == "") {
+                        interview_date = "未申请面试";
+                    }
+                    html += "<tr>" +
+                        "<td>面试时间</td>" +
+                        "<td>" + interview_date + "</td>" +
+                        "</tr>";
+                }else if (item == "status"){
+
+                    var status = "";
+                    switch (result.applyDetail[item]) {
+                        case "0":
+                            status = "待审核";
+                            break;
+                        case "1":
+                            status = "审核通过";
+                            break;
+                        case "2":
+                            status = "审核拒绝";
+                            break;
+                    }
+
+                    html += "<tr>" +
+                        "<td>审核状态</td>" +
+                        "<td>" + status + "</td>" +
+                        "</tr>";
+                } else if (item == "apply_time"){
+                    html += "<tr>" +
+                        "<td>报名表时间</td>" +
+                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "</tr>";
+                }
+
             }
             $("#cu-apply-detail-table").find("tbody").html(html);
         }

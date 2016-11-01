@@ -156,7 +156,7 @@
                     <form id="export-form" class="col-lg-12 form-inline" role="form" method="post"
                           action="controller/apply.export.con.php">
                         <div class="form-group col-lg-3">
-                            <select id="status" name="status" class="form-control">
+                            <select id="status" name="status" class="form-control" title="审核">
                                 <option value="-1" selected="selected">请选择</option>
                                 <option value="0">待审核</option>
                                 <option value="1">审核中</option>
@@ -195,8 +195,8 @@
                 <table class="table table-responsive table-bordered" id="cu-apply-detail-table">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Value</th>
+                        <th>列</th>
+                        <th>值</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -204,6 +204,8 @@
                 </table>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="check_pass">审核通过</button>
+                <button type="button" class="btn btn-danger" id="check_refuse">审核拒绝</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
             </div>
         </div>

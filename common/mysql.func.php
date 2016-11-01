@@ -165,10 +165,10 @@ FROM `tb_apply` LIMIT ?, ?";
                 $item['status'] = "待审核";
                 break;
             case 1:
-                $item['status'] = "审核中";
+                $item['status'] = "审核通过";
                 break;
             case 2:
-                $item['status'] = "审核通过";
+                $item['status'] = "审核拒绝";
         }
         $result[$id] = $item;
     }
@@ -226,4 +226,21 @@ function getExportedData($status, $start, $end)
     $stmt->execute();
     $result = $stmt->fetchAll();
     return $result;
+}
+
+function checkApply($check) {
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "UPDATE `tb_apply` SET `status` = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param('i', $check);
+
+    $stmt->execute();
+    $stmt->store_result();
+
+    $affected_rows = $stmt->affected_rows;
+
+    $stmt->close();
+    $con->close();
+    return $affected_rows;
 }
