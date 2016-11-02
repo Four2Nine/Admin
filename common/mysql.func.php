@@ -228,12 +228,12 @@ function getExportedData($status, $start, $end)
     return $result;
 }
 
-function checkApply($check) {
+function checkApply($id, $check) {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
     $con->query("SET NAMES UTF8;");
-    $sql = "UPDATE `tb_apply` SET `status` = ?";
+    $sql = "UPDATE `tb_apply` SET `status` = ? WHERE `id`=?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param('i', $check);
+    $stmt->bind_param('ii', $check, $id);
 
     $stmt->execute();
     $stmt->store_result();

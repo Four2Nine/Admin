@@ -30,9 +30,11 @@ endDate.datepicker({
 
 $("#check_pass").click(function () {
     //审核通过
+    var id = $("#apply-id").attr("value");
+    if(id=="") return false;
     $.ajax({
         url: "/Admin/controller/apply.check.con.php",
-        data: {check:1},
+        data: {check:1, id:id},
         type: "post",
         success: function (data) {
             if (data == 1) {
@@ -44,10 +46,12 @@ $("#check_pass").click(function () {
 });
 
 $("#check_refuse").click(function () {
-   //审核拒绝
+    //审核拒绝
+    var id = $("#apply-id").attr("value");
+    if(id=="") return false;
     $.ajax({
         url: "/Admin/controller/apply.check.con.php",
-        data: {check:2},
+        data: {check:2, id:id},
         type: "post",
         success: function (data) {
             if (data == 1) {
@@ -137,6 +141,8 @@ function nextPage() {
 
 // 根据报名表id，获取报名表的详细信息
 function showDetail(id) {
+
+    $("#apply-id").attr("value", id);
     $.ajax({
         url: "/Admin/controller/apply.detail.con.php",
         data: {id: id},
@@ -299,9 +305,11 @@ function showDetail(id) {
                             break;
                         case "1":
                             status = "审核通过";
+                            $("#check_pass").hide();
                             break;
                         case "2":
                             status = "审核拒绝";
+                            $("#check_refuse").hide();
                             break;
                     }
 

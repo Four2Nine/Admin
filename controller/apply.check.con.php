@@ -10,6 +10,7 @@ require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
 require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
 
 $check = $_POST['check'];
+$id = $_POST['id'];
 
-echo checkApply($check);
+echo checkApply($id, $check);
 exit;
