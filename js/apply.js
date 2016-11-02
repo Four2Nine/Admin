@@ -141,6 +141,8 @@ function nextPage() {
 
 // 根据报名表id，获取报名表的详细信息
 function showDetail(id) {
+    $("#check_pass").show();
+    $("#check_refuse").show();
 
     $("#apply-id").attr("value", id);
     $.ajax({
@@ -222,9 +224,22 @@ function showDetail(id) {
                         "<td>" + result.applyDetail[item] + "</td>" +
                         "</tr>";
                 }else if (item == "occupation"){
+                    var occupation = "";
+                    switch (result.applyDetail[item]) {
+                        case "0":
+                            occupation = "高中生";
+                            break;
+                        case "1":
+                            occupation = "大学及以上";
+                            break;
+                        case "2":
+                            occupation = "工作";
+                            break;
+                    }
+
                     html += "<tr>" +
                         "<td>身份</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + occupation + "</td>" +
                         "</tr>";
                 }else if (item == "duration"){
                     html += "<tr>" +
