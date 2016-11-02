@@ -210,17 +210,50 @@ function getExportedData($status, $start, $end)
     $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
     $con->query("SET NAMES UTF8;");
 
-    if ($status == "-1") {
-        $sql = "SELECT * FROM `tb_apply` WHERE `apply_time` > ? AND `apply_time` < ? ";
-        $stmt = $con->prepare($sql);
-        $stmt->bindParam(1, $start, PDO::PARAM_STR);
-        $stmt->bindParam(2, $end, PDO::PARAM_STR);
-    } else {
-        $sql = "SELECT * FROM `tb_apply` WHERE `apply_time` > ? AND `apply_time` < ? AND `status` = ?";
-        $stmt = $con->prepare($sql);
-        $stmt->bindParam(1, $start, PDO::PARAM_STR);
-        $stmt->bindParam(2, $end, PDO::PARAM_STR);
-        $stmt->bindParam(3, $status, PDO::PARAM_STR);
+    $bind_flag = 0;
+    $sql = "SELECT * FROM `tb_apply` WHERE 1 ";
+    if ($start != "") {
+        $bind_flag += 1;
+        $sql .= "AND `apply_time` > ? ";
+    }
+
+    if ($end != "") {
+        $bind_flag += 2;
+        $sql .= "AND `apply_time` < ? ";
+    }
+
+    if ($status != "-1") {
+        $bind_flag += 4;
+        $sql .= "AND `status` = ? ";
+    }
+    $stmt = $con->prepare($sql);
+    switch ($bind_flag) {
+        case 1:
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            break;
+        case 2:
+            $stmt->bindParam(1, $end, PDO::PARAM_STR);
+            break;
+        case 3:
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            $stmt->bindParam(2, $end, PDO::PARAM_STR);
+            break;
+        case 4:
+            $stmt->bindParam(1, $status, PDO::PARAM_STR);
+            break;
+        case 5:
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            $stmt->bindParam(2, $status, PDO::PARAM_STR);
+            break;
+        case 6:
+            $stmt->bindParam(1, $end, PDO::PARAM_STR);
+            $stmt->bindParam(2, $status, PDO::PARAM_STR);
+            break;
+        case 7:
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            $stmt->bindParam(2, $end, PDO::PARAM_STR);
+            $stmt->bindParam(3, $status, PDO::PARAM_STR);
+            break;
     }
 
     $stmt->execute();
