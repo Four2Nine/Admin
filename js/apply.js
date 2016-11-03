@@ -141,8 +141,8 @@ function nextPage() {
 
 // 根据报名表id，获取报名表的详细信息
 function showDetail(id) {
-    $("#check_pass").show();
-    $("#check_refuse").show();
+    $("#check_pass").hide();
+    $("#check_refuse").hide();
 
     $("#apply-id").attr("value", id);
     $.ajax({
@@ -320,16 +320,16 @@ function showDetail(id) {
                             break;
                         case "1":
                             status = "审核通过";
-                            $("#check_pass").hide();
+                            $("#check_refuse").show();
                             break;
                         case "2":
                             status = "审核拒绝";
-                            $("#check_refuse").hide();
                             break;
                     }
 
                     html += "<tr>" +
                         "<td>审核状态</td>" +
+                            $("#check_pass").show();
                         "<td>" + status + "</td>" +
                         "</tr>";
                 } else if (item == "apply_time"){
