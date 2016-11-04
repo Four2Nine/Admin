@@ -121,49 +121,54 @@
                 </div>
                 <div class="panel-body">
                     <div class="media"></div>
+
                     <div class="media col-lg-4">
                         <a class="media-left thumbnail">
-                            <img src="images/slider/bg1.jpg" alt="">
+                            <img src="" alt="">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">Amarasiri Coordinator's Project(ACP)</h4>
-                            ACP旨在解开众多大象身上的重重枷锁，享受本属于它们 的自由；让每一位有志工之心的人得以施展自己的力量；
-                            同时深入体验并了解斯里兰卡——这颗印度洋上的 眼泪。
+                            <h4 class="media-heading"></h4>
+                            <p></p>
                             <br>
                             <br>
-                            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                            <button id="update1" class="btn btn-primary btn-xs" onclick="loadModal(1)"
+                                    data-toggle="modal" data-target="#myModal">
                                 修改轮播图信息
                             </button>
                         </div>
                     </div>
+
                     <div class="media col-lg-4">
                         <a class="media-left thumbnail">
-                            <img src="images/slider/bg2.jpg" alt="">
+                            <img src="" alt="">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">生活于我，不只是一场英雄梦</h4>
-                            大象、瀑布、徒步、泰北烹饪课程、庙宇探寻……远离繁华 的闹市，在泰国清迈，志愿者们将真正体会到原汁原味的
-                            泰国自然风光。
+                            <h4 class="media-heading"></h4>
+                            <p></p>
                             <br>
                             <br>
-                            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                            <button id="update2"class="btn btn-primary btn-xs" onclick="loadModal(2)"
+                                    data-toggle="modal" data-target="#myModal">
                                 修改轮播图信息
                             </button>
                         </div>
                     </div>
+
                     <div class="media col-lg-4">
                         <a class="media-left thumbnail">
-                            <img src="images/slider/bg3.jpg" alt="">
+                            <img src="" alt="">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">大象保护、泰北文化深度体验</h4>
-                            ACP团队每位成员均多次参加国际志工活动，用心做小， 用心做好。
+                            <h4 class="media-heading"></h4>
+                            <p></p>
                             <br><br>
-                            <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                            <button id="update3" class="btn btn-primary btn-xs" onclick="loadModal(3)"
+                                    data-toggle="modal" data-target="#myModal">
                                 修改轮播图信息
                             </button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -177,30 +182,41 @@
                     <h4 class="modal-title" id="myModalLabel">修改轮播图信息</h4>
                 </div>
                 <div class="modal-body">
-                    <form role="form">
+                    <form role="form"id="model-form" method="post" enctype="multipart/form-data">
+
+                        <input id="slider-id" type="hidden" name="slider_id" value="">
+                        <!--接受修改按钮的传参数-->
+
+
                         <div class="form-group">
                             <label>标题</label>
-                            <input type="text" class="form-control" placeholder="标题">
+                            <input type="text" id="title" class="form-control" name="title"  placeholder="标题" >
                             <span class="help-block">不填写则不修改</span>
                         </div>
 
                         <div class="form-group">
                             <label>副标题</label>
-                            <input type="text" class="form-control" placeholder="副标题">
+                            <input type="text" id="subtitle" class="form-control" name="subtitle"  placeholder="副标题">
                             <span class="help-block">不填写则不修改</span>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputFile">轮播图片</label>
-                            <input type="file" id="exampleInputFile">
+                            <input type="file" name = "pictures" id="exampleInputFile">
+                            <!--上传要有name-->
                             <span class="help-block">不上传则不修改</span>
+                        </div>
+                        <!--<button type="submit" id="submitimg" onclick="checkimg()"class="btn btn-primary">确认修改</button>-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消修改</button>
+                            <button type="submit" id="submitimg" class="btn btn-primary">确认修改</button>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消修改</button>
-                    <button type="submit" class="btn btn-primary">确认修改</button>
-                </div>
+                <!--<div class="modal-footer">-->
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">取消修改</button>-->
+                    <!--<button type="submit" id="submitimg" onclick="checkimg()"class="btn btn-primary">确认修改</button>-->
+                <!--</div>-->
             </div>
         </div>
     </div>
@@ -209,6 +225,7 @@
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/slider.js"></script>
 <script>
     !function ($) {
         $(document).on("click","ul.nav li.parent > a > span.icon", function(){

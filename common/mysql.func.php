@@ -191,3 +191,47 @@ function getApplyCount()
     return $count;
 }
 
+function getSliderInfo(){
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT * FROM `tb_slider`";              //???可能有问题
+    $stmt = $con->prepare($sql);   //预处理
+    $stmt->execute();
+    $stmt->store_result();
+
+    $stmt->bind_result($id, $img_path, $title, $subtitle);
+
+    $result = array();
+    while ($stmt->fetch()) {          //fetch指针
+        $item = array();
+        $item['id'] = $id;
+        $item['img_path'] = $img_path;
+        $item['title'] = $title;
+        $item['subtitle'] = $subtitle;
+
+        $result[$id] = $item;  //将每条item放入result数组中
+    }
+    $stmt->close();
+    $con->close();
+    return $result;
+
+}
+
+function updateSliderInfo($img_path,$title,$subtitle,$id){
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+
+    $sql = "UPDATE `tb_slider` SET `img_path`=?, `title`=?, `subtitle`=? WHERE `id`=?";
+
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("sssi", $img_path,$title,$subtitle, $id);
+    $stmt->execute();
+
+    $stmt->execute();
+    $stmt->store_result();
+    $affected_rows = $stmt->affected_rows;
+
+    $stmt->close();
+    $con->close();
+    return $affected_rows;
+}
