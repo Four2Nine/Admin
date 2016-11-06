@@ -116,9 +116,11 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-info">
+
                 <div class="panel-heading"><strong>管理员列表</strong></div>
-                <div class="panel-body table-responsive">
-                    <table class="table table-striped">
+                    <span id="cu-apply-num" class="label label-success"></span><!--自己加的 -->
+                <div class="panel table-responsive cu-panel">
+                    <table class="table table-striped" id="cu-admin-table">
                         <thead>
                         <tr>
                             <th>#ID</th>
@@ -127,41 +129,21 @@
                             <th>操作</th>
                         </tr>
                         </thead>
+
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>admin1</td>
-                            <td>是</td>
-                            <td>
-                                <a><span class="glyphicon glyphicon-eye-open"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-pencil"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-minus-sign"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-remove"></span></a>
-                            </td>
+                            <td colspan="8">正在加载数据...</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>admin2</td>
-                            <td>否</td>
-                            <td>
-                                <a><span class="glyphicon glyphicon-eye-open"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-pencil"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-minus-sign"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-remove"></span></a>
-                            </td>
-                        </tr>
+
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
     </div><!--/.row-->
+
+
 
     <div class="row">
         <div class="col-lg-6">
@@ -206,7 +188,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/com.fun.js"></script>
-<script src="js/admin_register.js"></script>
+<script src="js/admin.js"></script>
 <script>
     !function ($) {
         $(document).on("click","ul.nav li.parent > a > span.icon", function(){

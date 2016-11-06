@@ -322,3 +322,43 @@ function updateSliderInfo($img_path,$title,$subtitle,$id){
     $con->close();
     return $affected_rows;
 }
+
+
+/***
+ *显示管理员信息
+ *
+ */
+
+function getAdminInfo()
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT `id`, `username`, `is_active`FROM `tb_admin` ";
+
+    $stmt = $con->prepare($sql);
+    // $stmt->bind_param("ii", $start, $num);
+    $stmt->execute();
+
+    $stmt->store_result();
+    $stmt->bind_result($id, $username, $is_active);
+
+    $result = array();
+    while ($stmt->fetch()) {
+        $item = array();
+        $item['id'] = $id;
+        $item['username'] = $username;
+        $item['is_active'] = $is_active;
+        switch ($is_active) {
+            case 0:
+                $item['is_active'] = "否";
+                break;
+            case 1:
+                $item['is_active'] = "是";
+                break;
+        }
+        $result[$id] = $item;
+    }
+    $stmt->close();
+    $con->close();
+    return $result;
+}

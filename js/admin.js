@@ -49,7 +49,7 @@ $(document).ready(function () {
 
         // Fire off the request to /form.php
         $.ajax({
-            url: "/acpAdmin/controller/admin_register.con.php",
+            url: "/Admin/controller/admin.con.php",
             type: "post",
             data: serializedData,
             success: function (data) {
@@ -94,4 +94,51 @@ $(document).ready(function () {
     $("#password_confirm").blur(function () {
         checkPasswordConfirm($(this).val(), $("#password").val());
     });
+
+    $.ajax({
+        url: "/Admin/controller/adminInfo.con.php",
+
+
+
+        success: function (data) {
+                var result = JSON.parse(data);
+
+                var html = "";
+                for (var item in result.adminInfo) {
+                    html += "<tr>" +
+
+                        "<td>" + result.adminInfo[item + ""]['id'] + "</td>" +
+                        "<td>" + result.adminInfo[item + ""]['username'] + "</td>" +
+                        "<td>" + result.adminInfo[item + ""]['is_active'] + "</td>" +
+                        "<td><button class='glyphicon glyphicon-minus-sign' onclick='disableAdmin(" + result.adminInfo[item + ""]['id']  + ","+ result.adminInfo[item + ""]['is_active'] +")' ></button>" +
+                        "<button class='glyphicon glyphicon-remove' onclick='removeAdmin(" + result.adminInfo[item + ""]['id']  + ")' ></button></td>" +
+
+                        "</tr>";
+                }
+
+                $("#cu-admin-table").find("tbody").html(html).fadeIn(300);
+            }
+
+    });
 });
+
+function disableAdmin(id,is_active) {
+    $.ajax({
+        url: "/Admin/controller/admin.disable.con.php",
+        data: {id: id,is_active:is_active},
+        type: "post",
+
+
+        success: function (data) {
+            if(data==1)
+            {
+                location.href="/Admin/admin.html";
+            }
+
+
+        }
+
+    })
+}
+
+

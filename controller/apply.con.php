@@ -17,5 +17,6 @@ $result = array();
 $result['applyNum'] = getApplyCount();
 $result['applyInfo'] = getApplyInfo(($currentPage - 1) * $itemsNumberPerPage, $itemsNumberPerPage);
 
+
 echo json_encode($result);
 exit;
