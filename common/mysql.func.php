@@ -348,14 +348,6 @@ function getAdminInfo()
         $item['id'] = $id;
         $item['username'] = $username;
         $item['is_active'] = $is_active;
-        switch ($is_active) {
-            case 0:
-                $item['is_active'] = "否";
-                break;
-            case 1:
-                $item['is_active'] = "是";
-                break;
-        }
         $result[$id] = $item;
     }
     $stmt->close();
