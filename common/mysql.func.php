@@ -165,10 +165,10 @@ FROM `tb_apply` LIMIT ?, ?";
                 $item['status'] = "待审核";
                 break;
             case 1:
-                $item['status'] = "审核中";
+                $item['status'] = "审核通过";
                 break;
             case 2:
-                $item['status'] = "审核通过";
+                $item['status'] = "审核拒绝";
         }
         $result[$id] = $item;
     }
@@ -191,44 +191,86 @@ function getApplyCount()
     return $count;
 }
 
-function getSliderInfo(){
-    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+function getApplyDetail($id)
+{
+    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
     $con->query("SET NAMES UTF8;");
-    $sql = "SELECT * FROM `tb_slider`";              //???可能有问题
-    $stmt = $con->prepare($sql);   //预处理
+    $sql = "SELECT * FROM `tb_apply` WHERE `id` = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bindParam(1, $id, PDO::PARAM_INT);
     $stmt->execute();
-    $stmt->store_result();
 
-    $stmt->bind_result($id, $img_path, $title, $subtitle);
-
-    $result = array();
-    while ($stmt->fetch()) {          //fetch指针
-        $item = array();
-        $item['id'] = $id;
-        $item['img_path'] = $img_path;
-        $item['title'] = $title;
-        $item['subtitle'] = $subtitle;
-
-        $result[$id] = $item;  //将每条item放入result数组中
-    }
-    $stmt->close();
-    $con->close();
+    $result = $stmt->fetchObject();
     return $result;
-
 }
 
-function updateSliderInfo($img_path,$title,$subtitle,$id){
-    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+
+function getExportedData($status, $start, $end)
+{
+    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
     $con->query("SET NAMES UTF8;");
 
-    $sql = "UPDATE `tb_slider` SET `img_path`=?, `title`=?, `subtitle`=? WHERE `id`=?";
+    $bind_flag = 0;
+    $sql = "SELECT * FROM `tb_apply` WHERE 1 ";
+    if ($start != "") {
+        $bind_flag += 1;
+        $sql .= "AND `apply_time` > ? ";
+    }
 
+    if ($end != "") {
+        $bind_flag += 2;
+        $sql .= "AND `apply_time` < ? ";
+    }
+
+    if ($status != "-1") {
+        $bind_flag += 4;
+        $sql .= "AND `status` = ? ";
+    }
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("sssi", $img_path,$title,$subtitle, $id);
+    switch ($bind_flag) {
+        case 1:
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            break;
+        case 2:
+            $stmt->bindParam(1, $end, PDO::PARAM_STR);
+            break;
+        case 3:
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            $stmt->bindParam(2, $end, PDO::PARAM_STR);
+            break;
+        case 4:
+            $stmt->bindParam(1, $status, PDO::PARAM_STR);
+            break;
+        case 5:
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            $stmt->bindParam(2, $status, PDO::PARAM_STR);
+            break;
+        case 6:
+            $stmt->bindParam(1, $end, PDO::PARAM_STR);
+            $stmt->bindParam(2, $status, PDO::PARAM_STR);
+            break;
+        case 7:
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            $stmt->bindParam(2, $end, PDO::PARAM_STR);
+            $stmt->bindParam(3, $status, PDO::PARAM_STR);
+            break;
+    }
+
     $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+function checkApply($id, $check) {
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "UPDATE `tb_apply` SET `status` = ? WHERE `id`=?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param('ii', $check, $id);
 
     $stmt->execute();
     $stmt->store_result();
+
     $affected_rows = $stmt->affected_rows;
 
     $stmt->close();

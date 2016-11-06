@@ -168,23 +168,31 @@
             <div class="panel panel-success">
                 <div class="panel-heading"><strong>添加管理员</strong></div>
                 <div class="panel-body">
-                    <form role="form">
+
+                    <div class="alert alert-danger cu-notification" role="alert"></div><!--自己加的-->
+                    <div class="alert alert-success cu-notification" role="alert"></div><!--自己加的-->
+
+
+                    <form role="form" id="register-form" method="post">
                         <div class="form-group">
                             <label>登录名</label>
-                            <input type="text" class="form-control" placeholder="登录名">
+                            <input type="text" class="form-control" placeholder="支持字母数字中文和下划线" id="username" name="username">
+                            <div> <span class="cu-error" id="username-error" style="color:red"></span></div>
                         </div>
 
                         <div class="form-group">
                             <label>密码</label>
-                            <input type="password" class="form-control" placeholder="密码">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码至少6位">
+                            <div><span class="cu-error" id="password-error" style="color:red"></span></div>
                         </div>
 
                         <div class="form-group">
                             <label>密码确认</label>
-                            <input type="password" class="form-control" placeholder="密码确认">
+                            <input type="password" name="password_confirm" id="password_confirm"class="form-control" placeholder="请再次输入密码">
+                            <div> <span class="cu-error" id="password-confirm-error" style="color:red"></span></div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">确认添加</button>
+                        <button type="submit" class="btn btn-primary"  id="register-btn">确认添加</button>
                     </form>
                 </div>
             </div>
@@ -197,6 +205,8 @@
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/com.fun.js"></script>
+<script src="js/admin_register.js"></script>
 <script>
     !function ($) {
         $(document).on("click","ul.nav li.parent > a > span.icon", function(){
