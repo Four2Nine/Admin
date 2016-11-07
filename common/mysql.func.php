@@ -333,14 +333,14 @@ function getAdminInfo()
 {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
     $con->query("SET NAMES UTF8;");
-    $sql = "SELECT `id`, `username`, `is_active`FROM `tb_admin` ";
+    $sql = "SELECT `id`, `username`, `is_active`,`is_boss` FROM `tb_admin` ";
 
     $stmt = $con->prepare($sql);
     // $stmt->bind_param("ii", $start, $num);
     $stmt->execute();
 
     $stmt->store_result();
-    $stmt->bind_result($id, $username, $is_active);
+    $stmt->bind_result($id, $username, $is_active,$is_boss);
 
     $result = array();
     while ($stmt->fetch()) {
@@ -348,6 +348,7 @@ function getAdminInfo()
         $item['id'] = $id;
         $item['username'] = $username;
         $item['is_active'] = $is_active;
+        $item['is_boss'] = $is_boss;
         $result[$id] = $item;
     }
     $stmt->close();

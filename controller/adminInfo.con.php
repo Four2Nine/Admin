@@ -12,7 +12,5 @@ require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
 $result = array();
 
 $result['adminInfo'] = getAdminInfo();
-
-
 echo json_encode($result);
 exit;
