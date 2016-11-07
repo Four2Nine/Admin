@@ -177,11 +177,104 @@ FROM `tb_apply` LIMIT ?, ?";
     return $result;
 }
 
+function getUsersInfo($start, $num)
+{
+
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT `id`, `username`, `password`, `balance` 
+FROM `tb_user` LIMIT ?, ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("ii", $start, $num);
+    $stmt->execute();
+
+    $stmt->store_result();
+    $stmt->bind_result($id, $username, $password, $balance);
+
+    $result = array();
+    while ($stmt->fetch()) {
+        $item = array();
+        $item['id'] = $id;
+        $item['username'] = $username;
+        $item['password'] = $password;
+        $item['balance'] = $balance;
+
+
+        $result[$id] = $item;
+    }
+    $stmt->close();
+    $con->close();
+    return $result;
+}
+
+
+
+function getProjectInfo($start, $num)
+{
+
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT `id`, `acpname`, `acpcity`, `acpdate`, `acpday`, `acppushdate` 
+FROM `tb_project` LIMIT ?, ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("ii", $start, $num);
+    $stmt->execute();
+
+    $stmt->store_result();
+    $stmt->bind_result($id, $acpname, $acpcity, $acpdate, $acpday, $acppushdate);
+
+    $result = array();
+    while ($stmt->fetch()) {
+        $item = array();
+        $item['id'] = $id;
+        $item['acpname'] = $acpname;
+        $item['acpcity'] = $acpcity;
+        $item['acpdate'] = $acpdate;
+        $item['acpday'] = $acpday;
+        $item['acppushdate'] = $acppushdate;
+
+        $result[$id] = $item;
+    }
+    $stmt->close();
+    $con->close();
+    return $result;
+}
+
+
+function getUsersCount()
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT * FROM `tb_user`";
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+    $stmt->store_result();
+    $count = $stmt->num_rows;
+    $stmt->close();
+    $con->close();
+    return $count;
+}
+
+
 function getApplyCount()
 {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
     $con->query("SET NAMES UTF8;");
     $sql = "SELECT * FROM `tb_apply`";
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+    $stmt->store_result();
+    $count = $stmt->num_rows;
+    $stmt->close();
+    $con->close();
+    return $count;
+}
+
+function getProjectCount()
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT * FROM `tb_project`";
     $stmt = $con->prepare($sql);
     $stmt->execute();
     $stmt->store_result();
@@ -203,6 +296,34 @@ function getApplyDetail($id)
     $result = $stmt->fetchObject();
     return $result;
 }
+
+function getProjectDetail($id)
+{
+    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT * FROM `tb_project` WHERE `id` = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bindParam(1, $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $result = $stmt->fetchObject();
+    return $result;
+}
+
+function getupvipDetail($id)
+{
+    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
+    $con->query("SET NAMES UTF8;");
+    $sql = "SELECT * FROM `tb_user` WHERE `id` = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bindParam(1, $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $result = $stmt->fetchObject();
+    return $result;
+}
+
+
 
 
 function getExportedData($status, $start, $end)
@@ -276,6 +397,80 @@ function checkApply($id, $check) {
     $stmt->close();
     $con->close();
     return $affected_rows;
+}
+
+function updateproject($id, $acpname, $acpcity, $acpdate, $acpday, $acptheme, $acpbright) {
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "UPDATE `tb_project` SET `acpname` = ?, `acpcity` = ?, `acpdate` = ?, `acpday` = ?, `acptheme` = ?, `acpbright` = ? WHERE `id`=?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("sssissi", $acpname, $acpcity, $acpdate, $acpday, $acptheme, $acpbright, $id);
+
+    $stmt->execute();
+    $stmt->store_result();
+
+    $affected_rows = $stmt->affected_rows;
+
+    $stmt->close();
+    $con->close();
+    return $affected_rows;
+}
+
+function updatevip($id, $token, $username, $password, $balance) {
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "UPDATE `tb_user` SET `token` = ?, `username` = ?, `password` = ?, `balance` = ? WHERE `id`=?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("ssssi", $token, $username, $password, $balance, $id);
+
+    $stmt->execute();
+    $stmt->store_result();
+
+    $affected_rows = $stmt->affected_rows;
+
+    $stmt->close();
+    $con->close();
+    return $affected_rows;
+}
+
+function deleProjectDetail($id)
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "DELETE FROM `tb_project` WHERE `id` = ?";
+
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param('i', $id);
+
+    $stmt->execute();
+    $stmt->store_result();
+
+    $affected_rows = $stmt->affected_rows;
+
+    $stmt->close();
+    $con->close();
+    return $affected_rows;
+
+}
+
+function deleupvipDetail($id)
+{
+    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+    $con->query("SET NAMES UTF8;");
+    $sql = "DELETE FROM `tb_user` WHERE `id` = ?";
+
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param('i', $id);
+
+    $stmt->execute();
+    $stmt->store_result();
+
+    $affected_rows = $stmt->affected_rows;
+
+    $stmt->close();
+    $con->close();
+    return $affected_rows;
+
 }
 
 function getSliderInfo(){
