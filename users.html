@@ -118,135 +118,74 @@
             <div class="panel panel-primary">
                 <div class="panel-heading"><strong>会员列表</strong></div>
                 <div class="panel-body table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>#ID</th>
-                            <th>会员名</th>
-                            <th>余额</th>
-                            <th>注册时间</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>liuyang</td>
-                            <td>999.00</td>
-                            <td>2016-10-28 12:15:46</td>
-                            <td>
-                                <a><span class="glyphicon glyphicon-eye-open"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-pencil"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-minus-sign"></span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>liuyang</td>
-                            <td>999.00</td>
-                            <td>2016-10-28 12:15:46</td>
-                            <td>
-                                <a><span class="glyphicon glyphicon-eye-open"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-pencil"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-minus-sign"></span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>liuyang</td>
-                            <td>999.00</td>
-                            <td>2016-10-28 12:15:46</td>
-                            <td>
-                                <a><span class="glyphicon glyphicon-eye-open"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-pencil"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-minus-sign"></span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>liuyang</td>
-                            <td>999.00</td>
-                            <td>2016-10-28 12:15:46</td>
-                            <td>
-                                <a><span class="glyphicon glyphicon-eye-open"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-pencil"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-minus-sign"></span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>liuyang</td>
-                            <td>999.00</td>
-                            <td>2016-10-28 12:15:46</td>
-                            <td>
-                                <a><span class="glyphicon glyphicon-eye-open"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-pencil"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-minus-sign"></span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>liuyang</td>
-                            <td>999.00</td>
-                            <td>2016-10-28 12:15:46</td>
-                            <td>
-                                <a><span class="glyphicon glyphicon-eye-open"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-pencil"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-minus-sign"></span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>liuyang</td>
-                            <td>999.00</td>
-                            <td>2016-10-28 12:15:46</td>
-                            <td>
-                                <a><span class="glyphicon glyphicon-eye-open"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-pencil"></span></a>
-                                &nbsp;
-                                <a><span class="glyphicon glyphicon-minus-sign"></span></a>
-                            </td>
-                        </tr>
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <td colspan="5">
-                                <ul class="pagination">
-                                    <li><a href="#">&laquo;</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&raquo;</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        </tfoot>
-                    </table>
+                   <table class="table" id="cu-apply-table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>余额</th>
+                        <th>删除会员</th>
+                        <th>修改信息</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="8">正在加载数据...</td>
+                    </tr>
+                    </tbody>
+                </table>
                 </div>
+                <ul class="pagination pagination-sm">
+                <li onclick="prevPage()"><a>&lt;&lt;</a></li>
+                <li onclick="nextPage()"><a>&gt;&gt;</a></li>
+            </ul><!--/.pagination-->
             </div>
         </div>
     </div><!--/.row-->
 
 </div>    <!--/.main-->
 
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">会员详情</h4>
+            </div>
+            <div class="modal-body">
+            <form id="upvip-form" role="form" method="post">
+                <input class="hidden" name="upvipid" id="upvip-id" value="" />
+                <table class="table table-responsive table-bordered" id="cu-apply-detail-table">
+                    <thead>
+                    <tr>
+                        <th>项目条目</th>
+                        <th>内容</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" id="upvip">提交修改</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
 <script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/datepicker-zh-CN.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/com.fun.js"></script>
+<script src="js/users.js"></script>
 <script>
     !function ($) {
         $(document).on("click","ul.nav li.parent > a > span.icon", function(){
