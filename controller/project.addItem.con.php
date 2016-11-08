@@ -5,7 +5,7 @@
 require 'connection.db.php';
 require 'Constant.php';
 
-$name = $_POST['aname'];
+$aname = $_POST['aname'];
 $city = $_POST['acity'];
 $date = $_POST['adate'];
 $day = $_POST['aday'];
@@ -63,7 +63,7 @@ $sql = "INSERT INTO `tb_project` (
 //绑定变量
 $stmt = $con->prepare($sql);
 $stmt->bind_param('sssissssss',
-    $name,
+    $aname,
     $city,
     $date,
     $day,
