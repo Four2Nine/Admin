@@ -12,21 +12,15 @@ require 'connection.db.php';
 require 'Constant.php';
 
 $id = $_POST["id"];
-$is_boss = $_POST["is_boss"];
 
-//如果是超级管理员则不能被禁用
-if ($is_boss == 1) {
-    echo Constant::$_NO_PERMISSION;
-} else {
-    $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
-    $con->query("SET NAMES UTF8;");
-    $sql = "DELETE FROM `tb_admin`  WHERE `id`=?";
-    $stmt = $con->prepare($sql);
-    $stmt->bind_param('i', $id);
-    $stmt->execute();
-    $stmt->store_result();
-    $affected_rows = $stmt->affected_rows;
-    $stmt->close();
-    $con->close();
-    echo $affected_rows;
-}
+$con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+$con->query("SET NAMES UTF8;");
+$sql = "DELETE FROM `tb_admin`  WHERE `id`=?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param('i', $id);
+$stmt->execute();
+$stmt->store_result();
+$affected_rows = $stmt->affected_rows;
+$stmt->close();
+$con->close();
+echo $affected_rows;

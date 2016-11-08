@@ -111,17 +111,26 @@ $(document).ready(function () {
                 var is_boss = result[item + ""]['is_boss'];
 
 
-                html += "<tr>" +
-                    "<td>" + id + "</td>" +
-                    "<td>" + result[item + ""]['username'] + "</td>" +
-                    "<td>" + activeStr + "</td>" +
-                    "<td>" +
-                    "<button class='glyphicon glyphicon-minus-sign' " +
-                    "onclick='disableAdmin(" + id + "," + is_active + "," + is_boss + ")' ></button>" +
-                    "<button class='glyphicon glyphicon-remove' " +
-                    "onclick='removeAdmin(" + id + "," + is_boss + ")' ></button>" +
-                    "</td>" +
-                    "</tr>";
+                if (is_boss == 1) {
+                    html += "<tr>" +
+                        "<td>" + id + "</td>" +
+                        "<td>" + result[item + ""]['username'] + "</td>" +
+                        "<td>" + activeStr + "</td>" +
+                        "<td>超级管理员不能操作</td>" +
+                        "</tr>";
+                } else {
+                    html += "<tr>" +
+                        "<td>" + id + "</td>" +
+                        "<td>" + result[item + ""]['username'] + "</td>" +
+                        "<td>" + activeStr + "</td>" +
+                        "<td>" +
+                        "<button class='glyphicon glyphicon-minus-sign' " +
+                        "onclick='disableAdmin(" + id + "," + is_active + ")' ></button>" +
+                        "<button class='glyphicon glyphicon-remove' " +
+                        "onclick='removeAdmin(" + id + ")' ></button>" +
+                        "</td>" +
+                        "</tr>";
+                }
             }
 
             $("#cu-admin-table").find("tbody").html(html).fadeIn(300);
@@ -131,47 +140,53 @@ $(document).ready(function () {
     });
 });
 
-function disableAdmin(id, is_active, is_boss) {
+function disableAdmin(id, is_active) {
     $.ajax({
         url: "/Admin/controller/admin.disable.con.php",
-        data: {id: id, is_active: is_active, is_boss: is_boss},
+        data: {id: id, is_active: is_active},
         type: "post",
 
 
         success: function (data) {
-            if (data == NO_PERMISSION) {
-                $(".alert-fail").html(
-                    errorCode2errorInfo(data)
-                ).show();
-
-                setTimeout(function () {
-                    $(".cu-notification").fadeOut();
-                }, 1000);
-            } else if (data == 1) {
+            if (data == 1) {
                 location.href = "/Admin/admin.html";
             }
+            // if (parseInt(data) == NO_PERMISSION) {
+            //     $(".cu-panel").find(".alert-danger").html(
+            //         "error"+errorCode2errorInfo(parseInt(data))
+            //     ).show();
+            //
+            //     setTimeout(function () {
+            //         $(".cu-notification").fadeOut();
+            //     }, 1000);
+            // } else if (data == 1) {
+            //     location.href = "/Admin/admin.html";
+            // }
         }//success
 
     });//ajax
 }
 
 
-function removeAdmin(id, is_boss) {
+function removeAdmin(id) {
     $.ajax({
         url: "/Admin/controller/admin.remove.con.php",
-        data: {id: id, is_boss: is_boss},
+        data: {id: id},
         type: "post",
         success: function (data) {
-            if (data == NO_PERMISSION) {
-                $(".alert-fail").html(
-                    errorCode2errorInfo(data)
-                ).show();
-                setTimeout(function () {
-                    $(".cu-notification").fadeOut();
-                }, 1000);
-            } else if (data == 1) {
+            if (data == 1) {
                 location.href = "/Admin/admin.html";
             }
+            // if (parseInt(data) == NO_PERMISSION) {
+            //     $(".cu-panel").find(".alert-danger").html(
+            //         "error"+errorCode2errorInfo(parseInt(data))
+            //     ).show();
+            //     setTimeout(function () {
+            //         $(".cu-notification").fadeOut();
+            //     }, 1000);
+            // } else if (data == 1) {
+            //     location.href = "/Admin/admin.html";
+            // }
         }//success
     });//ajax
 }
