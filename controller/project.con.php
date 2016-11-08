@@ -38,10 +38,10 @@ $stmt->bind_param("ii", $start, $itemsNumberPerPage);
 $stmt->execute();
 
 $stmt->store_result();
-
+$stmt->bind_result($id, $name, $city, $date, $day, $pushDate);
 $result['applyInfo'] = array();
 while ($stmt->fetch()) {
-    $stmt->bind_result($id, $name, $city, $date, $day, $pushDate);
+
     $item = array();
     $item['id'] = $id;
     $item['acpname'] = $name;
