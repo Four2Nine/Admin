@@ -16,7 +16,9 @@ $result = array();  //存储返回值，登录是否成功
 
 $data['username'] = $_POST["username"];
 $data['password'] = md5($_POST["password"] . Constant::$_SALT);
-
+//连接数据库，并设置字符编码
+$con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+$con->query("SET NAMES UTF8;");
 //表中是否存在相同用户名
 $sql = "SELECT * FROM `tb_admin` WHERE `username` = ? LIMIT 1";
 $stmt = $con->prepare($sql);
