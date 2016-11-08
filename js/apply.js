@@ -64,7 +64,7 @@ $("#check_refuse").click(function () {
 
 $(document).ready(function () {
     $.ajax({
-        url: "/Admin/controller/apply.con.php",
+        url: "/Admin/controller/apply.list.con.php",
         type: "get",
         data: {currentPage: currentPage},
         success: function (data) {
@@ -152,80 +152,80 @@ function showDetail(id) {
         success: function (data) {
             var result = JSON.parse(data);
             var html = "";
-            for (var item in result.applyDetail) {
+            for (var item in result) {
                 if (item == "project_id") {
                     html += "<tr>" +
                         "<td>项目ID</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 } else if (item == "name"){
                     html += "<tr>" +
                         "<td>姓名</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "gender"){
                     html += "<tr>" +
                         "<td>性别</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "nationality"){
                     html += "<tr>" +
                         "<td>国籍</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "phone_number"){
                     html += "<tr>" +
                         "<td>手机号</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "email"){
                     html += "<tr>" +
                         "<td>邮箱</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "wechat"){
                     html += "<tr>" +
                         "<td>微信号</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "id_card_number"){
                     html += "<tr>" +
                         "<td>身份证号</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "passport_number"){
                     html += "<tr>" +
                         "<td>护照号</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "province"){
                     html += "<tr>" +
                         "<td>现居省份</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "post_address"){
                     html += "<tr>" +
                         "<td>邮寄地址</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "city_of_departure"){
                     html += "<tr>" +
                         "<td>出发城市</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "emergency_contact_name"){
                     html += "<tr>" +
                         "<td>紧急联系人</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "emergency_contact_phone_number"){
                     html += "<tr>" +
                         "<td>紧急联系人电话</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "occupation"){
                     var occupation = "";
-                    switch (result.applyDetail[item]) {
+                    switch (result[item]) {
                         case "0":
                             occupation = "高中生";
                             break;
@@ -244,20 +244,20 @@ function showDetail(id) {
                 }else if (item == "duration"){
                     html += "<tr>" +
                         "<td>项目时长</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "start_date"){
                     html += "<tr>" +
                         "<td>预计开始时间</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "diet_requirement"){
                     html += "<tr>" +
                         "<td>特殊饮食要求</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }else if (item == "medical_history"){
-                    var medical_history = result.applyDetail[item]=="";
+                    var medical_history = result[item] == "";
                     if (medical_history) {
                         html += "<tr>" +
                         "<td>历史重大疾病</td>" +
@@ -266,17 +266,17 @@ function showDetail(id) {
                     } else {
                         html += "<tr>" +
                             "<td>历史重大疾病</td>" +
-                            "<td>" + result.applyDetail[item] + "</td>" +
+                            "<td>" + result[item] + "</td>" +
                             "</tr>";
                     }
                 }else if (item == "is_first_go_abroad"){
                     html += "<tr>" +
                         "<td>是否第一次出国</td>" +
-                        "<td>" + result.applyDetail[item]==1?"是":"否" + "</td>" +
+                    "<td>" + result[item] == 1 ? "是" : "否" + "</td>" +
                         "</tr>";
                 }else if (item == "english_level"){
                     var english_level = "";
-                    switch (result.applyDetail[item]) {
+                    switch (result[item]) {
                         case "0":
                             english_level = "高中";
                             break;
@@ -294,7 +294,7 @@ function showDetail(id) {
                         "</tr>";
                 }else if (item == "is_need_insurance"){
                     var need = "需要";
-                    if (result.applyDetail[item] == 0) {
+                    if (result[item] == 0) {
                         need = "不需要";
                     }
 
@@ -303,7 +303,7 @@ function showDetail(id) {
                         "<td>" + need + "</td>" +
                         "</tr>";
                 }else if (item == "interview_date"){
-                    var interview_date = result.applyDetail[item];
+                    var interview_date = result[item];
                     if (interview_date == "") {
                         interview_date = "未申请面试";
                     }
@@ -314,7 +314,7 @@ function showDetail(id) {
                 }else if (item == "status"){
 
                     var status = "";
-                    switch (result.applyDetail[item]) {
+                    switch (result[item]) {
                         case "0":
                             status = "待审核";
                             break;
@@ -335,7 +335,7 @@ function showDetail(id) {
                 } else if (item == "apply_time"){
                     html += "<tr>" +
                         "<td>报名表时间</td>" +
-                        "<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" + result[item] + "</td>" +
                         "</tr>";
                 }
 

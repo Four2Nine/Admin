@@ -286,7 +286,7 @@ function getProjectCount()
 
 function getApplyDetail($id)
 {
-    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
+    $con = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PWD);
     $con->query("SET NAMES UTF8;");
     $sql = "SELECT * FROM `tb_apply` WHERE `id` = ?";
     $stmt = $con->prepare($sql);
@@ -299,7 +299,7 @@ function getApplyDetail($id)
 
 function getProjectDetail($id)
 {
-    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
+    $con = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PWD);
     $con->query("SET NAMES UTF8;");
     $sql = "SELECT * FROM `tb_project` WHERE `id` = ?";
     $stmt = $con->prepare($sql);
@@ -312,7 +312,7 @@ function getProjectDetail($id)
 
 function getupvipDetail($id)
 {
-    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
+    $con = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PWD);
     $con->query("SET NAMES UTF8;");
     $sql = "SELECT * FROM `tb_user` WHERE `id` = ?";
     $stmt = $con->prepare($sql);
@@ -328,7 +328,7 @@ function getupvipDetail($id)
 
 function getExportedData($status, $start, $end)
 {
-    $con = new PDO('mysql:host=localhost;dbname=db_acp', DB_USER, DB_PWD);
+    $con = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PWD);
     $con->query("SET NAMES UTF8;");
 
     $bind_flag = 0;

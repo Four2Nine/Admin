@@ -1,21 +1,38 @@
 <?php
 /*
-  DZ
-  会员
+ * 修改会员信息
+ * DZ
  */
 
-require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
-require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
+require 'connection.db.php';
+require 'global.func.php';
+require 'Constant.php';
 
-$result = array();
-$result['username'] = $_POST["username"];
-$result['password'] = $_POST["password"];
-$result['balance'] = $_POST["balance"];
-$result['upvipid'] = $_POST["upvipid"];
-$result['password'] = md5($result['password'] . Constant::$_SALT);
-$token = generateToken($result['username'], $result['password'], Constant::$_SALT);
+$id = $_POST["upvipid"];
+$name = $_POST["username"];
+$password = $_POST["password"];
+$balance = $_POST["balance"];
+
+$password = md5($password . Constant::$_SALT);
+
+$token = generateToken($name, $password, Constant::$_SALT);
 $result['token'] = $token;
-$resl = updatevip($result['upvipid'],$result['token'],$result['username'], $result['password'], $result['balance']);
 
-echo $resl;
+//修改该会员的信息
+$con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+$con->query("SET NAMES UTF8;");
+
+$sql = "UPDATE `tb_user` SET `token` = ?, `username` = ?, `password` = ?, `balance` = ? WHERE `id`=?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("ssssi", $token, $name, $password, $balance, $id);
+
+$stmt->execute();
+$stmt->store_result();
+
+$affected_rows = $stmt->affected_rows;
+
+$stmt->close();
+$con->close();
+
+echo $affected_rows;
 exit;

@@ -1,22 +1,43 @@
 <?php
 /*
-  DZ
- 
+ * 修改项目信息
+ *
+ * DZ
  */
 
-require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
-require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
+require 'connection.db.php';
+require 'Constant.php';
 
 $result = array();
-$result['acpname'] = $_POST["acpname"];
-$result['acpcity'] = $_POST["acpcity"];
-$result['acpdate'] = $_POST["acpdate"];
-$result['acpday'] = $_POST["acpday"];
-$result['acptheme'] = $_POST["acptheme"];
-$result['acpbright'] = $_POST["acpbright"];
-$result['projectid'] = $_POST["projectid"];
+$id = $_POST["projectid"];
+$name = $_POST["acpname"];
+$city = $_POST["acpcity"];
+$date = $_POST["acpdate"];
+$day = $_POST["acpday"];
+$theme = $_POST["acptheme"];
+$bright = $_POST["acpbright"];
 
-$resl = updateproject($result['projectid'],$result['acpname'], $result['acpcity'], $result['acpdate'], $result['acpday'], $result['acptheme'], $result['acpbright']);
+$con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+$con->query("SET NAMES UTF8;");
+$sql = "UPDATE `tb_project` SET 
+            `acpname` = ?, 
+            `acpcity` = ?, 
+            `acpdate` = ?, 
+            `acpday` = ?, 
+            `acptheme` = ?, 
+            `acpbright` = ? 
+        WHERE `id`=?";
 
-echo $resl;
+$stmt = $con->prepare($sql);
+$stmt->bind_param("sssissi", $name, $city, $date, $day, $theme, $bright, $id);
+
+$stmt->execute();
+$stmt->store_result();
+
+$affected_rows = $stmt->affected_rows;
+
+$stmt->close();
+$con->close();
+
+echo $affected_rows;
 exit;

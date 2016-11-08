@@ -36,7 +36,7 @@ $(document).ready(function () {
 
         // Fire off the request to /form.php
         $.ajax({
-            url: "/Admin/controller/additem.con.php",
+            url: "/Admin/controller/project.addItem.con.php",
             type: "post",
             dataType: 'text',  // what to expect back from the PHP script, if anything
             cache: false,

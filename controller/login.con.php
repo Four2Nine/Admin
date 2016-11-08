@@ -1,54 +1,66 @@
 <?php
 /**
+ * 管理员登录
+ *
  * Created by PhpStorm.
  * User: liuyang
  * Date: 2016/10/24
  * Time: 10:32
  */
-header('Content-Type:text/html;charset=utf-8;');
-require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
-require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
+require 'connection.db.php';
+require 'global.func.php';
+require 'Constant.php';
 
-$result = array();
+$data = array();    //接收登录表单传值
+$result = array();  //存储返回值，登录是否成功
 
-$result['username'] = $_POST["username"];
-$result['password'] = md5($_POST["password"] . Constant::$_SALT);
+$data['username'] = $_POST["username"];
+$data['password'] = md5($_POST["password"] . Constant::$_SALT);
 
-$result['status'] = is_username_exist($result['username']);
-if ($result['status'] != Constant::$_CORRECT) {
+//表中是否存在相同用户名
+$sql = "SELECT * FROM `tb_admin` WHERE `username` = ? LIMIT 1";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("s", $data['username']);
+$stmt->execute();
+$stmt->store_result();
+
+$isExist = $stmt->fetch();
+
+if ($isExist) {
+    $result['status'] = Constant::$_CORRECT;
+} else {
+    $result['status'] = Constant::$_USERNAME_NOT_FOUND_ERROR;
     echo json_encode($result);
     exit;
 }
 
-$result['status'] = check_username_password($result);
-if ($result['status'] != Constant::$_CORRECT) {
+
+//验证用户名和密码是否正确
+$sql = "SELECT * FROM `tb_admin` WHERE `username` = ? AND `password` = ? LIMIT 1";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("ss", $data['username'], $data['password']);
+$stmt->execute();
+$stmt->store_result();
+
+$loginSuccess = $stmt->fetch();
+
+if ($loginSuccess) {
+    $result['status'] = Constant::$_CORRECT;
+} else {
+    $result['status'] = Constant::$_PASSWORD_INCORRECT_ERROR;
     echo json_encode($result);
     exit;
 }
 
-$token = generateToken($result['username'], $result['password'], Constant::$_SALT);
+$stmt->close();
+$con->close();
+
+//登录成功，生成token值
+$token = generateToken($data['username'], $data['password'], Constant::$_SALT);
 $result['token'] = $token;
 
-setcookie('__username', $result['username']);
+setcookie('__username', $data['username']);
+setcookie('__password', $data['password']);
 setcookie('__token', $token);
 
 echo json_encode($result);
-exit;
-
-
-function is_username_exist($username)
-{
-    if (isExist($username))
-        return Constant::$_CORRECT;
-    else
-        return Constant::$_USERNAME_NOT_FOUND_ERROR;
-}
-
-function check_username_password($result)
-{
-    if (attemptLogin($result['username'], $result['password'])) {
-        return Constant::$_CORRECT;
-    } else {
-        return Constant::$_PASSWORD_INCORRECT_ERROR;
-    }
-}

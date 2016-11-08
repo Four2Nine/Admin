@@ -1,33 +1,27 @@
 <?php
-/**
- * 对报名表进行审核
+/*
+ * 删除指定的项目
  *
- * Created by PhpStorm.
- * User: liuyang
- * Date: 2016/11/1
- * Time: 23:32
+ * DZ
  */
 
 require 'connection.db.php';
 require 'Constant.php';
 
-$check = $_POST['check'];
 $id = $_POST['id'];
 
-//连接数据库，并设置字符编码
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
 $con->query("SET NAMES UTF8;");
+$sql = "DELETE FROM `tb_project` WHERE `id` = ?";
 
-$sql = "UPDATE `tb_apply` SET `status` = ? WHERE `id`=?";
 $stmt = $con->prepare($sql);
-$stmt->bind_param('ii', $check, $id);
+$stmt->bind_param('i', $id);
 
 $stmt->execute();
 $stmt->store_result();
 
 $affected_rows = $stmt->affected_rows;
 
-//关闭数据库连接
 $stmt->close();
 $con->close();
 

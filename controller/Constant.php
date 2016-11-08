@@ -33,6 +33,7 @@ class Constant
     static $_DB_SELECT_ERROR = 302;     //数据库查询错误
 
     static $_NOT_LOGIN = 400;   //没有登录
-    static $_NO_PERMISSION = 401;   //没有权限访问该页面
-    static $_TOKEN_INCORRECT = 402; //__token 不符合
+    static $_TOKEN_INCORRECT = 401; //__token 不符合
+
+    static $_NO_PERMISSION = 500; //没有权限执行此操作
 }

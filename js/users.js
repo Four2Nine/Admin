@@ -13,54 +13,54 @@ startDate.datepicker({
     showButtonPanel: true,
     changeMonth: true,
     changeYear: true,
-    dateFormat:"yy-mm-dd",
+    dateFormat: "yy-mm-dd",
     autoSize: true
 });
 endDate.datepicker({
     showButtonPanel: true,
     changeMonth: true,
     changeYear: true,
-    dateFormat:"yy-mm-dd",
+    dateFormat: "yy-mm-dd",
     autoSize: true
 });
 
 /*
-更新会员信息js
-*/
+ 更新会员信息js
+ */
 
 $("#upvip").click(function () {
     $("#upvip-form").submit(function (event) {
-    var $form = $(this);
-    var $inputs = $form.find("input, select, button, textarea");
-    var id = $("#upvip-id").attr("value");
-    var serializedData = $form.serialize();
-    if(id=="") return false;
-    //alert(serializedData);
-    $.ajax({
-        url: "/Admin/controller/users.update.con.php",
-        data: serializedData,
-        type: "post",
-        success: function (data) {
-            alert(data);
-            if (data == 1) {
-                alert("修改成功");
-                location.href = "/Admin/dashboard.html";
+        var $form = $(this);
+        var $inputs = $form.find("input, select, button, textarea");
+        var id = $("#upvip-id").attr("value");
+        var serializedData = $form.serialize();
+        if (id == "") return false;
+        //alert(serializedData);
+        $.ajax({
+            url: "/Admin/controller/users.update.con.php",
+            data: serializedData,
+            type: "post",
+            success: function (data) {
+                alert(data);
+                if (data == 1) {
+                    alert("修改成功");
+                    location.href = "/Admin/dashboard.html";
+                }
             }
-        }
-    });
+        });
     })
 });
 
 
 $(document).ready(function () {
     $.ajax({
-        url: "/Admin/controller/users.con.php",
+        url: "/Admin/controller/users.list.con.php",
         type: "get",
         data: {currentPage: currentPage},
         success: function (data) {
             var result = JSON.parse(data);
             var applyNum = result.applyNum;
-            $("#cu-apply-num").html("&nbsp;"+applyNum+"&nbsp;名会员");
+            $("#cu-apply-num").html("&nbsp;" + applyNum + "&nbsp;名会员");
 
             //设置分页
             if (applyNum > 0) {
@@ -135,7 +135,7 @@ function delevipDetail(id) {
 
     $("#upvip-id").attr("value", id);
     $.ajax({
-        url: "/Admin/controller/upvip.deledetail.con.php",
+        url: "/Admin/controller/users.delete.con.php",
         data: {id: id},
         type: "post",
         success: function (data) {
@@ -143,8 +143,8 @@ function delevipDetail(id) {
                 alert("删除成功");
                 location.href = "/Admin/users.html";
             }
-            
-            
+
+
         }
     })
 }
@@ -156,7 +156,7 @@ function showvipDetail(id) {
 
     $("#upvip-id").attr("value", id);
     $.ajax({
-        url: "/Admin/controller/upvip.detail.con.php",
+        url: "/Admin/controller/users.detail.con.php",
         data: {id: id},
         type: "post",
         success: function (data) {
@@ -168,46 +168,45 @@ function showvipDetail(id) {
                         "<td>会员ID</td>" +
                         "<td>" + result.upvipDetail[item] + "</td>" +
                         "</tr>";
-                } 
+                }
                 /*else if (item == "acpname"){
-                    html += "<tr>" +
-                        "<td>项目名称</td>" +
-                        "<td><input class='input w50' name='acpname' type='text' value=" + result.projectDetail[item] + 
-                        "></td>"+
-                        //"<td>" + result.applyDetail[item] + "</td>" +
-                        "</tr>";
-                }*/
-                else if (item == "username"){
+                 html += "<tr>" +
+                 "<td>项目名称</td>" +
+                 "<td><input class='input w50' name='acpname' type='text' value=" + result.projectDetail[item] +
+                 "></td>"+
+                 //"<td>" + result.applyDetail[item] + "</td>" +
+                 "</tr>";
+                 }*/
+                else if (item == "username") {
                     html += "<tr>" +
                         "<td>会员名</td>" +
-                        "<td><textarea class='input' name='username' type='text'>" + result.upvipDetail[item] + 
-                        "</textarea></td>"+
+                        "<td><textarea class='input' name='username' type='text'>" + result.upvipDetail[item] +
+                        "</textarea></td>" +
                         //"<td>" + result.applyDetail[item] + "</td>" +
                         "</tr>";
                 }
-               /* else if (item == "email"){
-                    html += "<tr>" +
-                        "<td>报名表时间</td>" +
-                        "<td><input name='email' type='text' value=" + result.applyDetail[item] + 
-                        "></td>"+
-                        //"<td>" + result.applyDetail[item] + "</td>" +
-                        "</tr>";
-                }*/
-                else if (item == "password"){
+                /* else if (item == "email"){
+                 html += "<tr>" +
+                 "<td>报名表时间</td>" +
+                 "<td><input name='email' type='text' value=" + result.applyDetail[item] +
+                 "></td>"+
+                 //"<td>" + result.applyDetail[item] + "</td>" +
+                 "</tr>";
+                 }*/
+                else if (item == "password") {
                     html += "<tr>" +
                         "<td>密码</td>" +
-                        "<td><textarea class='input' name='password' type='text'>" + result.upvipDetail[item] + 
-                        "</textarea></td>"+
+                        "<td><textarea class='input' name='password' type='text'>" + result.upvipDetail[item] +
+                        "</textarea></td>" +
                         "</tr>";
                 }
-                else if (item == "balance"){
+                else if (item == "balance") {
                     html += "<tr>" +
                         "<td>余额</td>" +
-                        "<td><textarea class='input' name='balance' type='text'>" + result.upvipDetail[item] + 
-                        "</textarea></td>"+
+                        "<td><textarea class='input' name='balance' type='text'>" + result.upvipDetail[item] +
+                        "</textarea></td>" +
                         "</tr>";
                 }
-            
 
 
             }

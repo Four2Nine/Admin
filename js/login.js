@@ -47,7 +47,7 @@ $(document).ready(function () {
 
                 if (result.status != CORRECT) {
                     $(".alert-danger").html(
-                        "error code: " + result.status + '<br>' + errorcode2errorinfo(result.status)
+                        "error code: " + result.status + '<br>' + errorCode2errorInfo(result.status)
                     ).fadeIn(800);
                 } else {
                     $(".alert-success").html(

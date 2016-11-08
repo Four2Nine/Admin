@@ -135,7 +135,7 @@ function deleDetail(id) {
 
     $("#project-id").attr("value", id);
     $.ajax({
-        url: "/Admin/controller/project.deledetail.con.php",
+        url: "/Admin/controller/project.delete.con.php",
         data: {id: id},
         type: "post",
         success: function (data) {

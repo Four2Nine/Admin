@@ -118,28 +118,28 @@
             <div class="panel panel-primary">
                 <div class="panel-heading"><strong>会员列表</strong></div>
                 <div class="panel-body table-responsive">
-                   <table class="table" id="cu-apply-table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>用户名</th>
-                        <th>密码</th>
-                        <th>余额</th>
-                        <th>删除会员</th>
-                        <th>修改信息</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td colspan="8">正在加载数据...</td>
-                    </tr>
-                    </tbody>
-                </table>
+                    <table class="table" id="cu-apply-table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>用户名</th>
+                            <th>密码</th>
+                            <th>余额</th>
+                            <th>删除会员</th>
+                            <th>修改信息</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="8">正在加载数据...</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <ul class="pagination pagination-sm">
-                <li onclick="prevPage()"><a>&lt;&lt;</a></li>
-                <li onclick="nextPage()"><a>&gt;&gt;</a></li>
-            </ul><!--/.pagination-->
+                    <li onclick="prevPage()"><a>&lt;&lt;</a></li>
+                    <li onclick="nextPage()"><a>&gt;&gt;</a></li>
+                </ul><!--/.pagination-->
             </div>
         </div>
     </div><!--/.row-->
@@ -155,25 +155,25 @@
                         class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myModalLabel">会员详情</h4>
             </div>
-            <div class="modal-body">
             <form id="upvip-form" role="form" method="post">
-                <input class="hidden" name="upvipid" id="upvip-id" value="" />
-                <table class="table table-responsive table-bordered" id="cu-apply-detail-table">
-                    <thead>
-                    <tr>
-                        <th>项目条目</th>
-                        <th>内容</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-danger" id="upvip">提交修改</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            </div>
-        </form>
+                <div class="modal-body">
+                    <input class="hidden" name="upvipid" id="upvip-id" value=""/>
+                    <table class="table table-responsive table-bordered" id="cu-apply-detail-table">
+                        <thead>
+                        <tr>
+                            <th>项目条目</th>
+                            <th>内容</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" id="upvip">提交修改</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -188,7 +188,7 @@
 <script src="js/users.js"></script>
 <script>
     !function ($) {
-        $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
             $(this).find('em:first').toggleClass("glyphicon-minus");
         });
         $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");

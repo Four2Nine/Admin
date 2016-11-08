@@ -1,23 +1,24 @@
 <?php
 /**
+ * 禁用/启用一个管理员
  * Created by PhpStorm.
  * User: bingo
  * Date: 2016/11/6
  * Time: 11:23
  */
-header('Content-Type:text/html;charset=utf-8;');
-require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
-require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
+require 'connection.db.php';
+require 'Constant.php';
 
-$id=$_POST["id"];
-$is_active=$_POST["is_active"]==1?0:1;
-$is_boss=$_POST["is_boss"];
+$id = $_POST["id"];
+//如果当前状态为启用，则操作为禁用；
+//反过来，如果当前状态是禁用，则操作为启用
+$is_active = $_POST["is_active"] == 1 ? 0 : 1;
+$is_boss = $_POST["is_boss"];
 
-if($is_boss==1){
-    return false;
-}
-
-else {
+//如果是超级管理员则不能被禁用
+if ($is_boss == 1) {
+    echo Constant::$_NO_PERMISSION;
+} else {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
     $con->query("SET NAMES UTF8;");
     $sql = "UPDATE `tb_admin` SET `is_active` = ? WHERE `id`=?";

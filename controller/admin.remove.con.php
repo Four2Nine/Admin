@@ -1,23 +1,23 @@
 <?php
 /**
+ * 删除一个管理员
+ *
  * Created by PhpStorm.
  * User: bingo
  * Date: 2016/11/7
  * Time: 9:35
  */
 
-header('Content-Type:text/html;charset=utf-8;');
-require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
-require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
+require 'connection.db.php';
+require 'Constant.php';
 
-$id=$_POST["id"];
-$is_boss=$_POST["is_boss"];
-if($is_boss==1){
-    return 0;
-}
+$id = $_POST["id"];
+$is_boss = $_POST["is_boss"];
 
-else {
-
+//如果是超级管理员则不能被禁用
+if ($is_boss == 1) {
+    echo Constant::$_NO_PERMISSION;
+} else {
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
     $con->query("SET NAMES UTF8;");
     $sql = "DELETE FROM `tb_admin`  WHERE `id`=?";
@@ -28,7 +28,5 @@ else {
     $affected_rows = $stmt->affected_rows;
     $stmt->close();
     $con->close();
-    echo 1;
-
+    echo $affected_rows;
 }
-exit;
