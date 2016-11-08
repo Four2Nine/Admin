@@ -117,6 +117,40 @@
 
     <div class="row">
         <div class="col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><strong>项目列表</strong></div>
+                <span id="cu-apply-num" class="label label-success"></span>
+                <div class="panel-body table-responsive">
+                   <table class="table" id="cu-apply-table">
+                    <thead>
+                    <tr>
+                        <th>项目id</th>
+                        <th>项目名称</th>
+                        <th>出发城市</th>
+                        <th>项目日期</th>
+                        <th>项目天数</th>
+                        <th>发布时间</th>
+                        <th>删除</th>
+                        <th>修改</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="8">正在加载数据...</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <ul class="pagination pagination-sm">
+                <li onclick="prevPage()"><a>&lt;&lt;</a></li>
+                <li onclick="nextPage()"><a>&gt;&gt;</a></li>
+            </ul><!--/.pagination-->
+            </div>
+        </div>
+    </div><!--/.row-->
+
+   <!-- <div class="row">
+        <div class="col-lg-12">
             <span id="cu-apply-num" class="label label-success"></span>
             <div class="panel table-responsive cu-panel">
                 <table class="table" id="cu-apply-table">
@@ -125,8 +159,6 @@
                         <th>#</th>
                         <th>项目名称</th>
                         <th>出发城市</th>
-                        <th>项目日期</th>
-                        <th>行程天数</th>
                         <th>发布时间</th>
                         <th>删除</th>
                         <th>修改</th>
@@ -143,9 +175,10 @@
             <ul class="pagination pagination-sm">
                 <li onclick="prevPage()"><a>&lt;&lt;</a></li>
                 <li onclick="nextPage()"><a>&gt;&gt;</a></li>
-            </ul><!--/.pagination-->
+            </ul>
         </div>
-    </div><!--/.row-->
+    </div>-->
+
     <div class="row">
         <div class="col-lg-6">
             <div class="panel panel-success">
