@@ -9,7 +9,7 @@ $(document).ready(function () {
             var result = JSON.parse(data);
             //alert(result);
             for (var count = 1; count < 4; count++) {
-                $(".media:eq(" + count + ")>a>img").attr("src", "images/slider/" + result.sliderInfo[count].img_path);
+                $(".media:eq(" + count + ")>a>img").attr("src", "/theACP/images/slider/" + result.sliderInfo[count].img_path);
                 $(".media-heading:eq(" + (count - 1) + ")").html(result.sliderInfo[count].title);
                 $(".media-body:eq(" + (count - 1) + ")>p").html(result.sliderInfo[count].subtitle);  //这个函数有问题
 

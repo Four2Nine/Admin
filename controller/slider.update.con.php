@@ -16,9 +16,10 @@ $result['title'] = $_POST['title'];
 $result['subtitle'] = $_POST['subtitle'];
 
 
-$dest_floder = substr(dirname(__FILE__), 0, -10) .'images\slider\\';
+$dest_floder = substr(dirname(__FILE__), 0, -16) .'theACP\images\slider\\';
 $tmp_name = $_FILES["picture"]["tmp_name"];
-$name = $_FILES["picture"]["name"];
+//$name = $_FILES["picture"]["name"];
+$name = "bg".$result['slider_id'].".jpg"; //覆盖已存在的bgX.jpg
 $uploadfile = $dest_floder.$name;
 move_uploaded_file($tmp_name,$uploadfile);
 
