@@ -7,7 +7,7 @@ require substr(dirname(__FILE__), 0, -10) . 'common\connection.db.php';
 require substr(dirname(__FILE__), 0, -10) . 'common\Constant.php';
 
 $currentPage = (int)$_GET['currentPage'];
-$itemsNumberPerPage = 5;
+$itemsNumberPerPage = 30;
 
 $result = array();
 

@@ -1,8 +1,5 @@
-/**
- * Created by liuyang on 2016/10/28.
- */
 
-var itemsNumberPerPage = 5;
+var itemsNumberPerPage = 30;
 var pageNum = 1;
 var currentPage = getQueryString("p");
 
@@ -62,7 +59,7 @@ $(document).ready(function () {
         success: function (data) {
             var result = JSON.parse(data);
             var applyNum = result.applyNum;
-            $("#cu-apply-num").html("&nbsp;"+applyNum+"&nbsp;张报名表");
+            $("#cu-apply-num").html("&nbsp;"+applyNum+"&nbsp;个项目");
 
             //设置分页
             if (applyNum > 0) {
@@ -91,23 +88,23 @@ $(document).ready(function () {
             } //end-for
 
 
-            //显示报名表格的内容
+            //显示项目表格的内容
             if (applyNum == 0) {
-                $("#cu-apply-table").find("tbody>tr>td").html("暂时没有报名表");
+                $("#cu-apply-table").find("tbody>tr>td").html("暂时没有项目");
             } else {
                 var html = "";
                 for (var item in result.applyInfo) {
                     html += "<tr>" +
-                        "<td>" + item + "</td>" +
-                        "<td>" + result.applyInfo[item + ""]['acpname'] + "</td>" +
-                        "<td>" + result.applyInfo[item + ""]['acpcity'] + "</td>" +
-                        "<td>" + result.applyInfo[item + ""]['acpdate'] + "</td>" +
-                        "<td>" + result.applyInfo[item + ""]['acpday'] + "</td>" +
-                        "<td>" + result.applyInfo[item + ""]['acppushdate'] + "</td>" +
-                        "<td><button class='glyphicon glyphicon-list-alt' onclick='deleDetail(" + item + ")'  " +
-                        "></button></td>" +
-                        "<td><button class='glyphicon glyphicon-list-alt' onclick='showDetail(" + item + ")'  " +
-                        "data-toggle='modal' data-target='#myModal'></button></td>" +
+                        "<th>" + item + "</th>" +
+                        "<th>" + result.applyInfo[item + ""]['acpname'] + "</th>" +
+                        "<th>" + result.applyInfo[item + ""]['acpcity'] + "</th>" +
+                        "<th>" + result.applyInfo[item + ""]['acpdate'] + "</th>" +
+                        "<th>" + result.applyInfo[item + ""]['acpday'] + "</th>" +
+                        "<th>" + result.applyInfo[item + ""]['acppushdate'] + "</th>" +
+                        "<th><button class='glyphicon glyphicon-list-alt' onclick='deleDetail(" + item + ")'  " +
+                        "></button></th>" +
+                        "<th><button class='glyphicon glyphicon-list-alt' onclick='showDetail(" + item + ")'  " +
+                        "data-toggle='modal' data-target='#myModal'></button></th>" +
                         "</tr>";
                 }
 
