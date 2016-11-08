@@ -142,7 +142,7 @@ function disableAdmin(id, is_active,is_boss) {
                 ).show();
                 setTimeout(function () {
                     $(".cu-notification").fadeOut();
-                }, 500);
+                }, 1000);
 
 
         }
@@ -172,7 +172,7 @@ function removeAdmin(id,is_boss) {
                 ).show();
                 setTimeout(function () {
                     $(".cu-notification").fadeOut();
-                }, 500);
+                }, 1000);
 
 
             }
