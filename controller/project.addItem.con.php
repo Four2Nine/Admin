@@ -16,8 +16,36 @@ $detail = $_POST['adetail'];
 $tip = $_POST['atip'];
 $fileCount = $_POST['file_num'];
 
+$afile = md5($aname);
+//echo($afile);
+//exit;
+//$con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
+//$con->query("SET NAMES UTF8;");
+//$sql = "SELECT MAX(id) FROM tb_project";
+
+//$a=mysqli_query($con,$sql);
+//$row = mysqli_fetch_row($a);
+
+//$maxid = $row[0];
+//$stmt->bind_result($maxid);
+//echo $stmt;
+
+//$number= $maxid + 1;
+//关闭数据库连接
+//$con->close();
+
+
+//定义SQL语句
+//$sql = "SELECT TOP 1 'id' FROM `tb_project` ORDER BY 'id' DESC";
+
+//绑定变量
+
+
 //指定上传图片的路径
-$upload_folder = substr(dirname(__FILE__), 0, -16) . 'theACP\images\project\\';
+$number=$afile;
+$upload_folder = substr(dirname(__FILE__), 0, -16) . 'theACP\images\\';
+//$number= $maxid + 1;
+$upload_folder=$upload_folder . $number . '\\';
 //如果指定的路径不存在则创建
 if (!file_exists($upload_folder)) {
     if (mkdir($upload_folder)) {
@@ -79,19 +107,20 @@ $stmt->execute();
 $stmt->store_result();
 
 $affected_rows = $stmt->affected_rows;
-
 //关闭数据库连接
 $stmt->close();
 $con->close();
+echo $affected_rows;
+exit;
 
 //插入成功返回 $_CORRECT，否则返回插入错误 $_DB_INSERT_ERROR
-if ($affected_rows == 1) {
+/*if ($affected_rows == 1) {
     echo Constant::$_CORRECT;
     exit;
 } else {
     echo Constant::$_DB_INSERT_ERROR;
     exit;
-}
+}*/
 
 
 

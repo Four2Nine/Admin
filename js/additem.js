@@ -44,9 +44,13 @@ $(document).ready(function () {
             processData: false,
             data: form_data,
             success: function (data) {
-
-                alert("添加成功");
-                location.href = "/Admin/project.html"
+                if (result == 1) {
+                   alert("添加成功");
+                   location.href = "/Admin/project.html";
+               } else {
+                    alert("添加失败，请重新添加");
+                    location.href = "/Admin/project.html";
+               }
                 // var result = JSON.parse(data);
                 //
                 // if (result == CORRECT) {
