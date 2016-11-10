@@ -10,7 +10,7 @@ require 'Constant.php';
 
 $result = array();
 $id = $_POST["project_id"];
-$name = $_POST["acpname"];
+//$name = $_POST["acpname"];
 $city = $_POST["acpcity"];
 $date = $_POST["acpdate"];
 $day = $_POST["acpday"];
@@ -20,7 +20,6 @@ $bright = $_POST["acpbright"];
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
 $con->query("SET NAMES UTF8;");
 $sql = "UPDATE `tb_project` SET 
-            `acpname` = ?, 
             `acpcity` = ?, 
             `acpdate` = ?, 
             `acpday` = ?, 
@@ -29,7 +28,7 @@ $sql = "UPDATE `tb_project` SET
         WHERE `id`=?";
 
 $stmt = $con->prepare($sql);
-$stmt->bind_param("sssissi", $name, $city, $date, $day, $theme, $bright, $id);
+$stmt->bind_param("ssissi", $city, $date, $day, $theme, $bright, $id);
 
 $stmt->execute();
 $stmt->store_result();

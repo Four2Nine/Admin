@@ -166,7 +166,7 @@ function detailProject(id) {
                     html += "<tr>" +
                         "<td>项目名称</td>" +
                         "<td>" +
-                        "<input class='input' name='acpname' type='text' value='" + result.detail['acpname'] + "'>" +
+                        "<input class='input' type='text' value='" + result.detail['acpname'] + "' readonly>" +
                         "</td>" +
                         "</tr>";
                 } else if (item == "acpcity") {
