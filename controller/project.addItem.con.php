@@ -64,7 +64,7 @@ for ($i = 0; $i < $fileCount; $i++) {
         $name = $_FILES['pictures' . $i]['name'];
         $uploadFile = $upload_folder . $name;
         move_uploaded_file($tmp_name, $uploadFile);
-        $filesUploadArray[$i] = $uploadFile;
+        $filesUploadArray[$i] = $name;
     }
 }
 
