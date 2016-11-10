@@ -1,4 +1,3 @@
-
 var itemsNumberPerPage = 30;
 var pageNum = 1;
 var currentPage = getQueryString("p");
@@ -7,63 +6,65 @@ if (currentPage == null || currentPage.toString().length < 1) {
     currentPage = 1;
 }
 
-var startDate = $("#start-date");
-var endDate = $("#end-date");
+$(document).ready(function () {
 
-startDate.datepicker({
-    showButtonPanel: true,
-    changeMonth: true,
-    changeYear: true,
-    dateFormat:"yy-mm-dd",
-    autoSize: true
+    //验证登录状态
+    $.ajax({
+        url: "/Admin/controller/check.login.php",
+        success: function (data) {
+            var result = JSON.parse(data);
+            if (result.status == CORRECT) {
+                //验证登录成功
+                $("#cu-admin-notification").fadeOut(500);
+
+                getPagerAndProjectList();
+
+            } else {
+                $("#cu-admin-notification").html(
+                    "error code: " + result.status + '<br>' + errorCode2errorInfo(result.status) + "正在跳转至登录页面..."
+                );
+                setTimeout(function () {
+                    location.href = "/Admin/index.html";
+                }, 1200);
+            }
+        }
+    });
 });
-endDate.datepicker({
-    showButtonPanel: true,
-    changeMonth: true,
-    changeYear: true,
-    dateFormat:"yy-mm-dd",
-    autoSize: true
-});
 
 
+$("#project-form").submit(function (event) {
 
-$("#upda").click(function () {
-    $("#upda-form").submit(function (event) {
+    event.preventDefault();
+
     var $form = $(this);
-    var $inputs = $form.find("input, select, button, textarea");
-    var id = $("#project-id").attr("value");
+    var id = $("#project_id").attr("value");
     var serializedData = $form.serialize();
-    if(id=="") return false;
-    //alert(serializedData);
+    if (id == "") return false;
     $.ajax({
         url: "/Admin/controller/project.update.con.php",
         data: serializedData,
         type: "post",
         success: function (data) {
-            alert(data);
             if (data == 1) {
-                //alert("修改成功");
-                location.href = "/Admin/dashboard.html";
+                location.href = "/Admin/project.html";
             }
         }
     });
-    })
 });
 
-
-$(document).ready(function () {
+function getPagerAndProjectList() {
     $.ajax({
         url: "/Admin/controller/project.con.php",
         type: "get",
         data: {currentPage: currentPage},
         success: function (data) {
             var result = JSON.parse(data);
-            var applyNum = result.applyNum;
-            $("#cu-apply-num").html("&nbsp;"+applyNum+"&nbsp;个项目");
+            var projectNum = result.number;
+            $("#cu-project-num").html("&nbsp;" + projectNum + "&nbsp;个项目");
 
             //设置分页
-            if (applyNum > 0) {
-                pageNum = Math.ceil(applyNum / itemsNumberPerPage);
+            if (projectNum > 0) {
+                pageNum = Math.ceil(projectNum / itemsNumberPerPage);
             }
             if (currentPage == 1) {
                 $("ul.pagination li:eq(1)").attr("class", "disabled");
@@ -89,31 +90,31 @@ $(document).ready(function () {
 
 
             //显示项目表格的内容
-            if (applyNum == 0) {
-                $("#cu-apply-table").find("tbody>tr>td").html("暂时没有项目");
+            if (projectNum == 0) {
+                $("#cu-project-table").find("tbody>tr>td").html("暂时没有项目");
             } else {
                 var html = "";
-                for (var item in result.applyInfo) {
+                for (var item in result.info) {
                     html += "<tr>" +
                         "<th>" + item + "</th>" +
-                        "<th>" + result.applyInfo[item + ""]['acpname'] + "</th>" +
-                        "<th>" + result.applyInfo[item + ""]['acpcity'] + "</th>" +
-                        "<th>" + result.applyInfo[item + ""]['acpdate'] + "</th>" +
-                        "<th>" + result.applyInfo[item + ""]['acpday'] + "</th>" +
-                        "<th>" + result.applyInfo[item + ""]['acppushdate'] + "</th>" +
-                        "<th><button class='glyphicon glyphicon-list-alt' onclick='deleDetail(" + item + ")'  " +
+                        "<th>" + result.info[item + ""]['name'] + "</th>" +
+                        "<th>" + result.info[item + ""]['city'] + "</th>" +
+                        "<th>" + result.info[item + ""]['date'] + "</th>" +
+                        "<th>" + result.info[item + ""]['day'] + "</th>" +
+                        "<th>" + result.info[item + ""]['pushDate'] + "</th>" +
+                        "<th><button class='glyphicon glyphicon-list-alt' onclick='deleteProject(" + item + ")'  " +
                         "></button></th>" +
-                        "<th><button class='glyphicon glyphicon-list-alt' onclick='showDetail(" + item + ")'  " +
+                        "<th><button class='glyphicon glyphicon-list-alt' onclick='detailProject(" + item + ")'  " +
                         "data-toggle='modal' data-target='#myModal'></button></th>" +
                         "</tr>";
                 }
 
-                $("#cu-apply-table").find("tbody").html(html).fadeIn(300);
+                $("#cu-project-table").find("tbody").html(html).fadeIn(300);
             }
 
         }
     });
-});
+}
 
 function goPage(page) {
     location.href = "/Admin/project.html?p=" + page;
@@ -129,32 +130,25 @@ function nextPage() {
     location.href = "/Admin/project.html?p=" + page;
 }
 
-function deleDetail(id) {
-    $("#check_pass").hide();
-    $("#check_refuse").hide();
+//根据项目id，删除指定项目
+function deleteProject(id) {
 
-    $("#project-id").attr("value", id);
+    $("#project_id").attr("value", id);
     $.ajax({
         url: "/Admin/controller/project.delete.con.php",
         data: {id: id},
         type: "post",
         success: function (data) {
             if (data == 1) {
-                alert("删除成功");
                 location.href = "/Admin/project.html";
             }
-            
-            
         }
-    })
+    });
 }
 
-// 根据报名表id，获取报名表的详细信息
-function showDetail(id) {
-    $("#check_pass").hide();
-    $("#check_refuse").hide();
-
-    $("#project-id").attr("value", id);
+// 根据项目id，获取项目的详细信息
+function detailProject(id) {
+    $("#project_id").attr("value", id);
     $.ajax({
         url: "/Admin/controller/project.detail.con.php",
         data: {id: id},
@@ -162,77 +156,71 @@ function showDetail(id) {
         success: function (data) {
             var result = JSON.parse(data);
             var html = "";
-            for (var item in result.projectDetail) {
+            for (var item in result.detail) {
                 if (item == "id") {
                     html += "<tr>" +
                         "<td>项目ID</td>" +
-                        "<td>" + result.projectDetail[item] + "</td>" +
+                        "<td>" + result.detail['id'] + "</td>" +
                         "</tr>";
-                } 
-                /*else if (item == "acpname"){
+                } else if (item == "acpname") {
                     html += "<tr>" +
                         "<td>项目名称</td>" +
-                        "<td><input class='input w50' name='acpname' type='text' value=" + result.projectDetail[item] + 
-                        "></td>"+
-                        //"<td>" + result.applyDetail[item] + "</td>" +
+                        "<td>" +
+                        "<input class='input' name='acpname' type='text' value='" + result.detail['acpname'] + "'>" +
+                        "</td>" +
                         "</tr>";
-                }*/
-                else if (item == "acpname"){
-                    html += "<tr>" +
-                        "<td>项目名称</td>" +
-                        "<td><textarea class='input' name='acpname' type='text'>" + result.projectDetail[item] + 
-                        "</textarea></td>"+
-                        //"<td>" + result.applyDetail[item] + "</td>" +
-                        "</tr>";
-                }
-               /* else if (item == "email"){
-                    html += "<tr>" +
-                        "<td>报名表时间</td>" +
-                        "<td><input name='email' type='text' value=" + result.applyDetail[item] + 
-                        "></td>"+
-                        //"<td>" + result.applyDetail[item] + "</td>" +
-                        "</tr>";
-                }*/
-                else if (item == "acpcity"){
+                } else if (item == "acpcity") {
                     html += "<tr>" +
                         "<td>城市</td>" +
-                        "<td><textarea class='input' name='acpcity' type='text'>" + result.projectDetail[item] + 
-                        "</textarea></td>"+
+                        "<td>" +
+                        "<input class='input' name='acpcity' type='text' value='" + result.detail['acpcity'] + "'>" +
+                        "</td>" +
                         "</tr>";
-                }
-                else if (item == "acpdate"){
+                } else if (item == "acpdate") {
                     html += "<tr>" +
                         "<td>出发时间</td>" +
-                        "<td><textarea class='input' name='acpdate' type='text'>" + result.projectDetail[item] + 
-                        "</textarea></td>"+
+                        "<td>" +
+                        "<input class='input' name='acpdate' type='text' value='" + result.detail['acpdate'] + "'>" +
+                        "</td>" +
                         "</tr>";
-                }
-                else if (item == "acpday"){
+                } else if (item == "acpday") {
                     html += "<tr>" +
                         "<td>行程天数</td>" +
-                        "<td><textarea class='input' name='acpday' type='text'>" + result.projectDetail[item] + 
-                        "</textarea></td>"+
+                        "<td>" +
+                        "<input class='input' name='acpday' type='number' value='" + result.detail['acpday'] + "'>" +
+                        "</td>" +
                         "</tr>";
-                }
-                else if (item == "acptheme"){
+                } else if (item == "acptheme") {
                     html += "<tr>" +
                         "<td>行程主题</td>" +
-                        "<td><textarea class='input' name='acptheme' type='text'>" + result.projectDetail[item] + 
-                        "</textarea></td>"+
+                        "<td><textarea class='input' name='acptheme'>" + result.detail['acptheme'] + "</textarea>" +
+                        "</td>" +
                         "</tr>";
-                }
-                else if (item == "acpbright"){
+                } else if (item == "acpbright") {
                     html += "<tr>" +
                         "<td>行程亮点</td>" +
-                        "<td><textarea class='input' name='acpbright' type='text'>" + result.projectDetail[item] + 
-                        "</textarea></td>"+
+                        "<td>" +
+                        "<textarea class='input' name='acpbright'>" + result.detail['acpbright'] + "</textarea>" +
+                        "</td>" +
                         "</tr>";
-                }
+                }//end-if
+            }//end-for
 
-
-            }
-            $("#cu-apply-detail-table").find("tbody").html(html);
-        }
+            $("#cu-project-detail-table").find("tbody").html(html);
+        }//end-success
     })
 }
+
+//退出登录
+$("#cu-logout").click(function () {
+    $.ajax({
+        url: "/Admin/controller/logout.con.php",
+        success: function (data) {
+
+            if (data == CORRECT) {
+                location.href = "/Admin/index.html";
+            }
+        }
+    })
+});
 

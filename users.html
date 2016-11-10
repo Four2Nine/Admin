@@ -13,7 +13,7 @@
     <!--Icons-->
     <script src="js/lumino.glyphs.js"></script>
 
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]-->
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
@@ -95,7 +95,7 @@
         <li role="presentation" class="divider"></li>
 
         <li>
-            <a href="index.html">
+            <a id="cu-logout" href="#">
                 <svg class="glyph stroked male-user">
                     <use xlink:href="#stroked-male-user"></use>
                 </svg>
@@ -112,6 +112,12 @@
             <h1 class="page-header">会员</h1>
         </div>
     </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <span id="cu-admin-notification"></span>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-12">
@@ -155,9 +161,9 @@
                         class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myModalLabel">会员详情</h4>
             </div>
-            <form id="upvip-form" role="form" method="post">
+            <form id="user-form" role="form" method="post">
                 <div class="modal-body">
-                    <input class="hidden" name="upvipid" id="upvip-id" value=""/>
+                    <input class="hidden" name="user_id" id="user_id" value="" title=""/>
                     <table class="table table-responsive table-bordered" id="cu-apply-detail-table">
                         <thead>
                         <tr>
@@ -170,7 +176,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" id="upvip">提交修改</button>
+                    <button type="submit" class="btn btn-success">提交修改</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
             </form>
@@ -180,8 +186,6 @@
 
 
 <script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/datepicker-zh-CN.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/com.fun.js"></script>

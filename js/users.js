@@ -6,53 +6,54 @@ if (currentPage == null || currentPage.toString().length < 1) {
     currentPage = 1;
 }
 
-var startDate = $("#start-date");
-var endDate = $("#end-date");
-
-startDate.datepicker({
-    showButtonPanel: true,
-    changeMonth: true,
-    changeYear: true,
-    dateFormat: "yy-mm-dd",
-    autoSize: true
-});
-endDate.datepicker({
-    showButtonPanel: true,
-    changeMonth: true,
-    changeYear: true,
-    dateFormat: "yy-mm-dd",
-    autoSize: true
-});
-
-/*
- 更新会员信息js
- */
-
-$("#upvip").click(function () {
-    $("#upvip-form").submit(function (event) {
-        var $form = $(this);
-        var $inputs = $form.find("input, select, button, textarea");
-        var id = $("#upvip-id").attr("value");
-        var serializedData = $form.serialize();
-        if (id == "") return false;
-        //alert(serializedData);
-        $.ajax({
-            url: "/Admin/controller/users.update.con.php",
-            data: serializedData,
-            type: "post",
-            success: function (data) {
-                alert(data);
-                if (data == 1) {
-                    alert("修改成功");
-                    location.href = "/Admin/dashboard.html";
-                }
-            }
-        });
-    })
-});
-
-
 $(document).ready(function () {
+    //验证登录状态
+    $.ajax({
+        url: "/Admin/controller/check.login.php",
+        success: function (data) {
+            var result = JSON.parse(data);
+            if (result.status == CORRECT) {
+                //验证登录成功
+                $("#cu-admin-notification").fadeOut(500);
+
+                getPagerAndUserInfo();
+
+            } else {
+                $("#cu-admin-notification").html(
+                    "error code: " + result.status + '<br>' + errorCode2errorInfo(result.status) + "正在跳转至登录页面..."
+                );
+                setTimeout(function () {
+                    location.href = "/Admin/index.html";
+                }, 1200);
+            }
+        }
+    });
+});
+
+
+$("#user-form").submit(function (event) {
+    var $form = $(this);
+    event.preventDefault();
+
+    var id = $("#user_id").attr("value");
+    var serializedData = $form.serialize();
+    if (id == "") return false;
+
+    $.ajax({
+        url: "/Admin/controller/users.update.con.php",
+        data: serializedData,
+        type: "post",
+        success: function (data) {
+            alert(data);
+            if (data == 1) {
+                alert("修改成功");
+                location.href = "/Admin/dashboard.html";
+            }
+        }
+    });
+});
+
+function getPagerAndUserInfo() {
     $.ajax({
         url: "/Admin/controller/users.list.con.php",
         type: "get",
@@ -100,9 +101,9 @@ $(document).ready(function () {
                         "<td>" + result.applyInfo[item + ""]['username'] + "</td>" +
                         "<td>" + result.applyInfo[item + ""]['password'] + "</td>" +
                         "<td>" + result.applyInfo[item + ""]['balance'] + "</td>" +
-                        "<td><button class='glyphicon glyphicon-list-alt' onclick='delevipDetail(" + item + ")'  " +
+                        "<td><button class='glyphicon glyphicon-list-alt' onclick='deleteUser(" + item + ")'  " +
                         "></button></td>" +
-                        "<td><button class='glyphicon glyphicon-list-alt' onclick='showvipDetail(" + item + ")'  " +
+                        "<td><button class='glyphicon glyphicon-list-alt' onclick='detailUser(" + item + ")'  " +
                         "data-toggle='modal' data-target='#myModal'></button></td>" +
                         "</tr>";
                 }
@@ -112,7 +113,7 @@ $(document).ready(function () {
 
         }
     });
-});
+}
 
 function goPage(page) {
     location.href = "/Admin/users.html?p=" + page;
@@ -128,33 +129,25 @@ function nextPage() {
     location.href = "/Admin/users.html?p=" + page;
 }
 
-
-function delevipDetail(id) {
-    $("#check_pass").hide();
-    $("#check_refuse").hide();
-
-    $("#upvip-id").attr("value", id);
+//根据会员id，删除会员
+function deleteUser(id) {
+    $("#user_id").attr("value", id);
     $.ajax({
         url: "/Admin/controller/users.delete.con.php",
         data: {id: id},
         type: "post",
         success: function (data) {
             if (data == 1) {
-                alert("删除成功");
                 location.href = "/Admin/users.html";
             }
-
-
         }
     })
 }
 
-// 根据会员表id，获取报名表的详细信息
-function showvipDetail(id) {
-    $("#check_pass").hide();
-    $("#check_refuse").hide();
+//根据会员id，获取会员的信息
+function detailUser(id) {
 
-    $("#upvip-id").attr("value", id);
+    $("#user_id").attr("value", id);
     $.ajax({
         url: "/Admin/controller/users.detail.con.php",
         data: {id: id},
@@ -162,56 +155,49 @@ function showvipDetail(id) {
         success: function (data) {
             var result = JSON.parse(data);
             var html = "";
-            for (var item in result.upvipDetail) {
+            for (var item in result.detail) {
                 if (item == "id") {
                     html += "<tr>" +
                         "<td>会员ID</td>" +
-                        "<td>" + result.upvipDetail[item] + "</td>" +
+                        "<td>" + result.detail['id'] + "</td>" +
                         "</tr>";
-                }
-                /*else if (item == "acpname"){
-                 html += "<tr>" +
-                 "<td>项目名称</td>" +
-                 "<td><input class='input w50' name='acpname' type='text' value=" + result.projectDetail[item] +
-                 "></td>"+
-                 //"<td>" + result.applyDetail[item] + "</td>" +
-                 "</tr>";
-                 }*/
-                else if (item == "username") {
+                } else if (item == "username") {
                     html += "<tr>" +
                         "<td>会员名</td>" +
-                        "<td><textarea class='input' name='username' type='text'>" + result.upvipDetail[item] +
-                        "</textarea></td>" +
-                        //"<td>" + result.applyDetail[item] + "</td>" +
+                        "<td><input class='input' name='username' type='text' value='" + result.detail['username'] + "'/></td>" +
                         "</tr>";
-                }
-                /* else if (item == "email"){
-                 html += "<tr>" +
-                 "<td>报名表时间</td>" +
-                 "<td><input name='email' type='text' value=" + result.applyDetail[item] +
-                 "></td>"+
-                 //"<td>" + result.applyDetail[item] + "</td>" +
-                 "</tr>";
-                 }*/
-                else if (item == "password") {
+                } else if (item == "password") {
                     html += "<tr>" +
                         "<td>密码</td>" +
-                        "<td><textarea class='input' name='password' type='text'>" + result.upvipDetail[item] +
-                        "</textarea></td>" +
+                        "<td>" +
+                        "<input class='input' name='password' type='password' value='" + result.detail['password'] + "'>" +
+                        "</td>" +
                         "</tr>";
                 }
                 else if (item == "balance") {
                     html += "<tr>" +
                         "<td>余额</td>" +
-                        "<td><textarea class='input' name='balance' type='text'>" + result.upvipDetail[item] +
-                        "</textarea></td>" +
+                        "<td>" +
+                        "<input class='input' name='balance' type='text' value='" + result.detail['balance'] + "'/>" +
+                        "</td>" +
                         "</tr>";
                 }
-
-
             }
             $("#cu-apply-detail-table").find("tbody").html(html);
         }
     })
 }
+
+//退出登录
+$("#cu-logout").click(function () {
+    $.ajax({
+        url: "/Admin/controller/logout.con.php",
+        success: function (data) {
+
+            if (data == CORRECT) {
+                location.href = "/Admin/index.html";
+            }
+        }
+    })
+});
 

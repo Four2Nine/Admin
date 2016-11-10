@@ -19,7 +19,7 @@ $stmt->bindParam(1, $id, PDO::PARAM_INT);
 $stmt->execute();
 
 $result = array();
-$result['upvipDetail'] = $stmt->fetchObject();
+$result['detail'] = $stmt->fetchObject();
 
 echo json_encode($result);
 exit;

@@ -13,7 +13,7 @@
     <!--Icons-->
     <script src="js/lumino.glyphs.js"></script>
 
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]-->
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
@@ -95,7 +95,7 @@
         <li role="presentation" class="divider"></li>
 
         <li>
-            <a href="index.html">
+            <a id="cu-logout" href="#">
                 <svg class="glyph stroked male-user">
                     <use xlink:href="#stroked-male-user"></use>
                 </svg>
@@ -112,6 +112,12 @@
             <h1 class="page-header">轮播图</h1>
         </div>
     </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <span id="cu-admin-notification"></span>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-12">
@@ -182,7 +188,7 @@
                     <h4 class="modal-title" id="myModalLabel">修改轮播图信息</h4>
                 </div>
                 <div class="modal-body">
-                    <form role="form"id="model-form" method="post" enctype="multipart/form-data">
+                    <form role="form" id="model-form" method="post" enctype="multipart/form-data">
 
                         <input id="slider-id" type="hidden" name="slider_id" value="">
                         <!--接受修改按钮的传参数-->

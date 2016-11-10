@@ -28,7 +28,7 @@ $sql = "SELECT * FROM `tb_project`";
 $stmt = $con->prepare($sql);
 $stmt->execute();
 $stmt->store_result();
-$result['applyNum'] = $stmt->num_rows;
+$result['number'] = $stmt->num_rows;
 
 //获取指定项目的信息
 $sql = "SELECT `id`, `acpname`, `acpcity`, `acpdate`, `acpday`, `acppushdate` 
@@ -39,18 +39,18 @@ $stmt->execute();
 
 $stmt->store_result();
 $stmt->bind_result($id, $name, $city, $date, $day, $pushDate);
-$result['applyInfo'] = array();
+$result['info'] = array();
 while ($stmt->fetch()) {
 
     $item = array();
     $item['id'] = $id;
-    $item['acpname'] = $name;
-    $item['acpcity'] = $city;
-    $item['acpdate'] = $date;
-    $item['acpday'] = $day;
-    $item['acppushdate'] = $pushDate;
+    $item['name'] = $name;
+    $item['city'] = $city;
+    $item['date'] = $date;
+    $item['day'] = $day;
+    $item['pushDate'] = $pushDate;
 
-    $result['applyInfo'][$id] = $item;
+    $result['info'][$id] = $item;
 }
 
 //关闭数据库连接

@@ -95,7 +95,7 @@
         <li role="presentation" class="divider"></li>
 
         <li>
-            <a href="index.html">
+            <a id="cu-logout" href="#">
                 <svg class="glyph stroked male-user">
                     <use xlink:href="#stroked-male-user"></use>
                 </svg>
@@ -112,6 +112,12 @@
             <h1 class="page-header">首页</h1>
         </div>
     </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <span id="cu-admin-notification"></span>
+        </div>
+    </div>
 
     <div class="row">
 
@@ -157,7 +163,7 @@
 <script src="js/dashboard.js"></script>
 <script>
     !function ($) {
-        $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
             $(this).find('em:first').toggleClass("glyphicon-minus");
         });
         $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");

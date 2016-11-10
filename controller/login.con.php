@@ -59,7 +59,6 @@ $con->close();
 
 //登录成功，生成token值
 $token = generateToken($data['username'], $data['password'], Constant::$_SALT);
-$result['token'] = $token;
 
 setcookie('__username', $data['username']);
 setcookie('__password', $data['password']);

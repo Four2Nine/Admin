@@ -2,9 +2,9 @@
  * Created by liuyang on 2016/10/22.
  */
 
- $(".cu-error").hide();
+$(".cu-error").hide();
 $(".cu-correct").hide();
- $(".cu-notification").hide();
+$(".cu-notification").hide();
 
 $(document).ready(function () {
     $("#login-form").submit(function (event) {
@@ -53,11 +53,9 @@ $(document).ready(function () {
                     $(".alert-success").html(
                         "登录成功，正在跳转..."
                     ).show();
-                    setTimeout(function () {
-                      location.href = "/Admin/dashboard.html?username=" + result.username + "&token=" + result.token;
-                       }, 1800);
 
-                    }
+                    location.href = "/Admin/dashboard.html";
+                }
 
                 setTimeout(function () {
                     $(".cu-notification").fadeOut(800);
@@ -66,7 +64,7 @@ $(document).ready(function () {
             error: function (request) {
 
             },
-            complete: function (data) {
+            complete: function () {
                 // Reenable the inputs
                 $inputs.prop("disabled", false);
             }

@@ -3,6 +3,83 @@
  */
 
 $(document).ready(function () {
+
+    //验证登录状态
+    $.ajax({
+        url: "/Admin/controller/check.login.php",
+        success: function (data) {
+            var result = JSON.parse(data);
+            if (result.status == CORRECT) {
+                //验证登录成功
+                $("#cu-admin-notification").fadeOut(500);
+
+                getSliderInfo();
+
+            } else {
+                $("#cu-admin-notification").html(
+                    "error code: " + result.status + '<br>' + errorCode2errorInfo(result.status) + "正在跳转至登录页面..."
+                );
+                setTimeout(function () {
+                    location.href = "/Admin/index.html";
+                }, 1200);
+            }
+        }
+    });
+});
+
+
+$("#model-form").submit(function (event) {
+
+    event.preventDefault();
+    var file = $('#exampleInputFile').prop('files')[0];
+    var title = $("#title").val();
+    var subtitle = $("#subtitle").val();
+
+    //传一个就是取值
+    var form_data = new FormData();
+    form_data.append('slider_id', $('#slider-id').val());   //可能有问题
+    form_data.append('title', title);
+    form_data.append('subtitle', subtitle);
+    form_data.append('picture',file);
+
+    if (checkEmpty(title)) {
+        return false;
+    }
+    if (checkEmpty(subtitle)) {
+        return false;
+    }
+    if (!checkImg()) {
+        return false;
+    }
+
+    $.ajax({
+        url: "/Admin/controller/slider.update.con.php",
+        type: "post",
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data:form_data,
+        success: function () {
+            location.href = "/Admin/slider.html"
+        }
+    });
+});
+
+//退出登录
+$("#cu-logout").click(function () {
+    $.ajax({
+        url: "/Admin/controller/logout.con.php",
+        success: function (data) {
+
+            if (data == CORRECT) {
+                location.href = "/Admin/index.html";
+            }
+        }
+    })
+});
+
+function getSliderInfo() {
     $.ajax({
         url: "/Admin/controller/slider.con.php",
         success: function (data) {
@@ -17,110 +94,28 @@ $(document).ready(function () {
             }
 
         }
-    })
-});
-$("#model-form").submit(function (event) {
-
-    event.preventDefault();
-    var $form = $(this);
-    var file = $('#exampleInputFile').prop('files')[0];
-    //传一个就是取值
-    var form_data = new FormData();
-    form_data.append('slider_id', $('#slider-id').val());   //可能有问题
-    form_data.append('title', $('#title').val());
-    form_data.append('subtitle', $('#subtitle').val());
-    form_data.append('picture',file);
-    var title = $("#title").val();
-    var subtitle = $("#subtitle").val();
-
-    if(checkempty(title)){
-        return false;
-    }
-    if(checkempty(subtitle)){
-        return false;
-    }
-    if(!checkimg()){
-        return false;
-    }
-
-    $.ajax({
-        url: "/Admin/controller/slider.update.con.php",
-        type: "post",
-        dataType: 'text',  // what to expect back from the PHP script, if anything
-        cache: false,
-        contentType: false,
-        processData: false,
-        data:form_data,
-        success: function (data) {
-            //alert("添加成功");
-            location.href = "/Admin/slider.html"
-        },
-        complete: function () {
-            $inputs.prop("disabled", false);
-        }
     });
-});
+}
 
-
-//进行upload检测
-
-// $("#model-form").submit(function (event) {
-//     event.preventDefault();
-//     var $form = $(this);
-//     var serializedData = $form.serialize();
-//
-//     var title = $("#title").val();
-//     var subtitle = $("#subtitle").val();
-//     var pic = $("#exampleInputFile").val();
-//
-//
-//     if(checkempty(title)){
-//         return false;
-//     }
-//     if(checkempty(subtitle)){
-//         return false;
-//     }
-//     if(!checkimg()){
-//         return false;
-//     }
-//
-//     var data = {slider_id:$("#slider-id").val(), title:title, subtitle:subtitle,pictures:pic};
-//
-//
-//     $.ajax({
-//         url: "/Admin/controller/slider.update.con.php",
-//         type: "post",
-//         data: data,
-//         success: function (data) {
-//
-//             var result = JSON.parse(data);
-//             location.href = "/Admin/slider.html";
-//         }
-//     });
-// });
-
-
-//选择具体的模态框
+//向模态框传入Slider的ID
 function loadModal(id) {
     $("#slider-id").attr("value", id);
 }
 
 //检查图片格式
-function checkimg() {
-    var text = $("#");
+function checkImg() {
     var picture = $("#exampleInputFile").val();
-    var patt = (/\.jpg$|\.jpeg$|\.gif$|\.png$/i);
-    if (picture == "") {
-        alert('提交内容不能为空');
-        return false;
-    }
-    if (!patt.test(picture)) {
-        alert('请提交正确的图片');
+    var pattern = (/\.jpg$/);
+
+    if (!pattern.test(picture)) {
+        alert('图片格式只能为jpg');
         return false;
     }
     return true;
 }
-function checkempty(text) {
+
+//检查标题和副标题
+function checkEmpty(text) {
     if (text == "") {
         alert('标题/副标题不能为空');
         return true;

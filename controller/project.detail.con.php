@@ -18,7 +18,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindParam(1, $id, PDO::PARAM_INT);
 $stmt->execute();
 
-$result['projectDetail'] = $stmt->fetchObject();
+$result['detail'] = $stmt->fetchObject();
 
 $stmt->closeCursor();
 $pdo = null;

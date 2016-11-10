@@ -28,6 +28,30 @@ endDate.datepicker({
     autoSize: true
 });
 
+$(document).ready(function () {
+
+    $.ajax({
+        url: "/Admin/controller/check.login.php",
+        success: function (data) {
+            var result = JSON.parse(data);
+            if (result.status == CORRECT) {
+                //验证登录成功
+                $("#cu-admin-notification").fadeOut(500);
+
+                getApplyList();
+
+            } else {
+                $("#cu-admin-notification").html(
+                    "error code: " + result.status + '<br>' + errorCode2errorInfo(result.status) + "正在跳转至登录页面..."
+                );
+                setTimeout(function () {
+                    location.href = "/Admin/index.html";
+                }, 1200);
+            }
+        }
+    });
+});
+
 $("#check_pass").click(function () {
     //审核通过
     var id = $("#apply-id").attr("value");
@@ -62,7 +86,20 @@ $("#check_refuse").click(function () {
     })
 });
 
-$(document).ready(function () {
+//退出登录
+$("#cu-logout").click(function () {
+    $.ajax({
+        url: "/Admin/controller/logout.con.php",
+        success: function (data) {
+
+            if (data == CORRECT) {
+                location.href = "/Admin/index.html";
+            }
+        }
+    })
+});
+
+function getApplyList() {
     $.ajax({
         url: "/Admin/controller/apply.list.con.php",
         type: "get",
@@ -123,7 +160,7 @@ $(document).ready(function () {
 
         }
     });
-});
+}
 
 function goPage(page) {
     location.href = "/Admin/apply.html?p=" + page;
@@ -145,6 +182,7 @@ function showDetail(id) {
     $("#check_refuse").hide();
 
     $("#apply-id").attr("value", id);
+
     $.ajax({
         url: "/Admin/controller/apply.detail.con.php",
         data: {id: id},
@@ -324,12 +362,12 @@ function showDetail(id) {
                             break;
                         case "2":
                             status = "审核拒绝";
+                            $("#check_pass").show();
                             break;
                     }
 
                     html += "<tr>" +
                         "<td>审核状态</td>" +
-                            $("#check_pass").show();
                         "<td>" + status + "</td>" +
                         "</tr>";
                 } else if (item == "apply_time"){

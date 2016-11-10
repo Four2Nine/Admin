@@ -15,7 +15,7 @@
     <!--Icons-->
     <script src="js/lumino.glyphs.js"></script>
 
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]-->
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
@@ -97,7 +97,7 @@
         <li role="presentation" class="divider"></li>
 
         <li>
-            <a href="index.html">
+            <a id="cu-logout" href="#">
                 <svg class="glyph stroked male-user">
                     <use xlink:href="#stroked-male-user"></use>
                 </svg>
@@ -117,11 +117,17 @@
 
     <div class="row">
         <div class="col-lg-12">
+            <span id="cu-admin-notification"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading"><strong>项目列表</strong></div>
-                <span id="cu-apply-num" class="label label-success"></span>
+                <span id="cu-project-num" class="label label-success"></span>
                 <div class="panel-body table-responsive">
-                    <table class="table" id="cu-apply-table">
+                    <table class="table" id="cu-project-table">
                         <thead>
                         <tr>
                             <th>项目id</th>
@@ -149,36 +155,6 @@
         </div>
     </div><!--/.row-->
 
-    <!-- <div class="row">
-         <div class="col-lg-12">
-             <span id="cu-apply-num" class="label label-success"></span>
-             <div class="panel table-responsive cu-panel">
-                 <table class="table" id="cu-apply-table">
-                     <thead>
-                     <tr>
-                         <th>#</th>
-                         <th>项目名称</th>
-                         <th>出发城市</th>
-                         <th>发布时间</th>
-                         <th>删除</th>
-                         <th>修改</th>
-                     </tr>
-                     </thead>
-                     <tbody>
-                     <tr>
-                         <td colspan="8">正在加载数据...</td>
-                     </tr>
-                     </tbody>
-                 </table>
-             </div>
- 
-             <ul class="pagination pagination-sm">
-                 <li onclick="prevPage()"><a>&lt;&lt;</a></li>
-                 <li onclick="nextPage()"><a>&gt;&gt;</a></li>
-             </ul>
-         </div>
-     </div>-->
-
     <div class="row">
         <div class="col-lg-6">
             <div class="panel panel-success">
@@ -205,10 +181,10 @@
                         class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myModalLabel">项目详情</h4>
             </div>
-            <form id="upda-form" role="form" method="post">
+            <form id="project-form" role="form" method="post">
                 <div class="modal-body">
-                    <input class="hidden" name="projectid" id="project-id" value="" title=""/>
-                    <table class="table table-responsive table-bordered" id="cu-apply-detail-table">
+                    <input class="hidden" name="project_id" id="project_id" value="" title=""/>
+                    <table class="table table-responsive table-bordered" id="cu-project-detail-table">
                         <thead>
                         <tr>
                             <th>项目条目</th>
@@ -220,7 +196,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger" id="upda">提交修改</button>
+                    <button type="submit" class="btn btn-danger">提交修改</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 </div>
             </form>
@@ -230,8 +206,6 @@
 
 
 <script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/datepicker-zh-CN.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/com.fun.js"></script>

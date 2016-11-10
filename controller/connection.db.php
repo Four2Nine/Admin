@@ -5,5 +5,5 @@ if (PHP_VERSION < '5.3.29') {
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PWD', 'QFynXANCxVdXm2q7');
+define('DB_PWD', '');//QFynXANCxVdXm2q7
 define('DB_NAME', 'db_acp');
