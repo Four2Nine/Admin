@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>管理员 | Dashboard</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"-->
+    <!--type="text/css">-->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">-->
+
+    <!-- Bootstrap Core Css -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../css/waves.min.css" rel="stylesheet"/>
+
+    <!-- Sweetalert Css -->
+    <link href="../css/sweetalert.css" rel="stylesheet"/>
+
+    <!-- Animation Css -->
+    <link href="../css/animate.min.css" rel="stylesheet"/>
+
+    <!-- Preloader Css -->
+    <link href="../css/md-preloader.min.css" rel="stylesheet"/>
+
+    <!-- Morris Chart Css-->
+    <link href="../css/morris.css" rel="stylesheet"/>
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../css/themes/all-themes.min.css" rel="stylesheet"/>
+</head>
+
+<body class="theme-teal">
+<!-- Top Bar -->
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand" href="dashboard.html">theACP - Admin Dashboard</a>
+        </div>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section>
+    <!-- Left Sidebar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="material-icons">home</i>
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="material-icons">verified_user</i>
+                            <span>管理员</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="users.html">
+                            <i class="material-icons">people</i>
+                            <span>会员</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="apply.html">
+                            <i class="material-icons">assignment</i>
+                            <span>报名表</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">subject</i>
+                            <span>项目</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="project.html">项目列表</a>
+                            </li>
+                            <li>
+                                <a href="project.add.html">添加项目</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="slider.html">
+                            <i class="material-icons">slideshow</i>
+                            <span>首页轮播</span>
+                        </a>
+                    </li>
+
+                    <li class="header"></li>
+
+                    <li>
+                        <a id="cu-logout" href="#">
+                            <i class="material-icons">input</i>
+                            <span>退出</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2016 <a href="javascript:void(0);">theACP - Admin</a>.
+                </div>
+                <div class="Support">
+                    <b>Tec Support: </b> Four2Nine
+                </div>
+                <div class="Design">
+                    <b>Design: </b> gurayyarar
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+    <!-- #END# Left Sidebar -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>
+                ADMINS
+            </h2>
+        </div>
+        <!-- Striped Rows -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            管理员列表
+                        </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);" data-toggle="modal" data-target="#addAdminModal">添加管理员</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body table-responsive">
+                        <table class="table table-striped" id="cu-admin-table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>管理员名</th>
+                                <th>是否可用</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Striped Rows -->
+    </div>
+</section>
+
+<!-- Modal Dialogs ====================================================================================================================== -->
+<!-- Default Size -->
+<div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel">添加一个管理员</h4>
+            </div>
+            <form role="form" method="post" id="add_admin_form">
+                <div class="modal-body">
+
+                    <label for="username">登录名</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="text" id="username" name="username" class="form-control"
+                                   placeholder="登录名(支持:数字 字母 汉字 下滑线)">
+                        </div>
+                        <label id="username-error" class="error" for="username"></label>
+                    </div>
+
+                    <label for="password">密码</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="password" id="password" name="password" class="form-control"
+                                   placeholder="密码至少六位">
+                        </div>
+                        <label id="password-error" class="error" for="password"></label>
+                    </div>
+
+                    <label for="password">确认密码</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input type="password" id="confirm_password" name="password_confirm" class="form-control"
+                                   placeholder="再次输入密码">
+                        </div>
+                        <label id="confirm-password-error" class="error" for="confirm_password"></label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary waves-effect">添加</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Jquery Core Js -->
+<script src="../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- Bootstrap Notify Plugin Js -->
+<script src="../js/bootstrap-notify.min.js"></script>
+
+<!-- SweetAlert Plugin Js -->
+<script src="../js/sweetalert.min.js"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="../js/waves.min.js"></script>
+
+<!-- Custom Js -->
+<script src="../js/main.js"></script>
+<script src="../js/pages/form-validation.js"></script>
+<script src="../js/pages/admin.js"></script>
+
+</body>
+
+</html>

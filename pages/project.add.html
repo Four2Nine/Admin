@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>添加项目 | Dashboard</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"-->
+    <!--type="text/css">-->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">-->
+
+    <!-- Bootstrap Core Css -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../css/waves.min.css" rel="stylesheet"/>
+
+    <!-- Sweetalert Css -->
+    <link href="../css/sweetalert.css" rel="stylesheet"/>
+
+    <!-- Animation Css -->
+    <link href="../css/animate.min.css" rel="stylesheet"/>
+
+    <!-- Preloader Css -->
+    <link href="../css/md-preloader.min.css" rel="stylesheet"/>
+
+    <!-- Bootstrap Select Css -->
+    <link href="../css/bootstrap-select.min.css" rel="stylesheet"/>
+
+    <!-- Morris Chart Css-->
+    <link href="../css/morris.css" rel="stylesheet"/>
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../css/themes/all-themes.min.css" rel="stylesheet"/>
+</head>
+
+<body class="theme-teal">
+<!-- Top Bar -->
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand" href="dashboard.html">theACP - Admin Dashboard</a>
+        </div>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section>
+    <!-- Left Sidebar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="material-icons">home</i>
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin.html">
+                            <i class="material-icons">verified_user</i>
+                            <span>管理员</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="users.html">
+                            <i class="material-icons">people</i>
+                            <span>会员</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="apply.html">
+                            <i class="material-icons">assignment</i>
+                            <span>报名表</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">subject</i>
+                            <span>项目</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="project.html">项目列表</a>
+                            </li>
+                            <li class="active">
+                                <a href="#">添加项目</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="slider.html">
+                            <i class="material-icons">slideshow</i>
+                            <span>首页轮播</span>
+                        </a>
+                    </li>
+
+                    <li class="header"></li>
+
+                    <li>
+                        <a id="cu-logout" href="#">
+                            <i class="material-icons">input</i>
+                            <span>退出</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2016 <a href="javascript:void(0);">theACP - Admin</a>.
+                </div>
+                <div class="Support">
+                    <b>Tec Support: </b> Four2Nine
+                </div>
+                <div class="Design">
+                    <b>Design: </b> gurayyarar
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+    <!-- #END# Left Sidebar -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>
+                ADD PROJECTS
+            </h2>
+        </div>
+        <!-- Striped Rows -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            添加项目
+                        </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="project.html">项目列表</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="body">
+                        <form role="form" method="post" id="add_project_form">
+
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="项目名称"
+                                           required>
+                                </div>
+                                <label id="name-error" class="error" for="name"></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <input type="text" id="city" name="city" class="form-control" placeholder="出发城市"
+                                           required>
+                                </div>
+                                <label id="city-error" class="error" for="city"></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <input type="date" name="date" id="date" class="form-control date"
+                                           placeholder="出发日期" required>
+                                </div>
+                                <label id="date-error" class="error" for="date"></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <input type="number" id="day" name="day" class="form-control" placeholder="行程天数"
+                                           required>
+                                </div>
+                                <label id="day-error" class="error" for="day"></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <textarea rows="4" class="form-control no-resize" id="theme" name="theme"
+                                              placeholder="行程主题" required></textarea>
+                                </div>
+                                <label id="theme-error" class="error" for="theme"></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <textarea rows="4" class="form-control no-resize" id="bright" name="bright"
+                                              placeholder="行程亮点" required></textarea>
+                                </div>
+                                <label id="bright-error" class="error" for="bright"></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <textarea rows="4" class="form-control no-resize" id="mean" name="mean"
+                                              placeholder="行程意义" required></textarea>
+                                </div>
+                                <label id="mean-error" class="error" for="mean"></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <textarea rows="6" class="form-control no-resize" id="detail" name="detail"
+                                              placeholder="行程详情" required></textarea>
+                                </div>
+                                <label id="detail-error" class="error" for="detail"></label>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <textarea rows="4" class="form-control no-resize" id="tip" name="tip"
+                                              placeholder="注意事项" required></textarea>
+                                </div>
+                                <label id="tip-error" class="error" for="tip"></label>
+                            </div>
+
+                            <label for="ff">项目图片</label>
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <input type="file" id="ff" name="pictures[]" multiple="multiple"
+                                           class="form-control"/>
+                                </div>
+                                <label id="ff-error" class="error" for="ff">建议图片高度一致，且不超过 400 像素</label>
+                            </div>
+
+                            <button type="submit" class="btn bg-primary waves-effect">添加项目</button>
+                        </form>
+                    </div><!-- #END# .body-->
+                </div>
+            </div>
+        </div>
+        <!-- #END# Striped Rows -->
+    </div>
+</section>
+
+<!-- Jquery Core Js -->
+<script src="../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- Select Plugin Js -->
+<script src="../js/bootstrap-select.min.js"></script>
+
+<!-- Bootstrap Notify Plugin Js -->
+<script src="../js/bootstrap-notify.min.js"></script>
+
+<!-- SweetAlert Plugin Js -->
+<script src="../js/sweetalert.min.js"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="../js/waves.min.js"></script>
+
+<!-- Custom Js -->
+<script src="../js/main.js"></script>
+<script src="../js/pages/form-validation.js"></script>
+<script src="../js/pages/project.js"></script>
+
+</body>
+
+</html>

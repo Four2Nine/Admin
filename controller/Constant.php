@@ -18,6 +18,7 @@ class Constant
     static $_USERNAME_FORMAT_ERROR = 2012; //用户名格式错误
     static $_USERNAME_REPEAT_ERROR = 2013; //用户名重复
     static $_USERNAME_NOT_FOUND_ERROR = 2014; //没有找到该用户
+    static $_USER_DISABLED = 2015; //该用户被禁用
 
     static $_PASSWORD_ERROR = 202; //密码错误
     //-------------------------------------------------------

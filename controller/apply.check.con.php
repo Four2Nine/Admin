@@ -11,8 +11,8 @@
 require 'connection.db.php';
 require 'Constant.php';
 
-$check = $_POST['check'];
-$id = $_POST['id'];
+$check = (int)$_POST['check'];
+$id = (int)$_POST['id'];
 
 //连接数据库，并设置字符编码
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);

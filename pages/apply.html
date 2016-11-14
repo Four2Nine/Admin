@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>报名表 | Dashboard</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"-->
+    <!--type="text/css">-->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">-->
+
+    <!-- Bootstrap Core Css -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../css/waves.min.css" rel="stylesheet"/>
+
+    <!-- Sweetalert Css -->
+    <link href="../css/sweetalert.css" rel="stylesheet"/>
+
+    <!-- Animation Css -->
+    <link href="../css/animate.min.css" rel="stylesheet"/>
+
+    <!-- Preloader Css -->
+    <link href="../css/md-preloader.min.css" rel="stylesheet"/>
+
+    <!-- Bootstrap Select Css -->
+    <link href="../css/bootstrap-select.min.css" rel="stylesheet"/>
+
+    <!-- Morris Chart Css-->
+    <link href="../css/morris.css" rel="stylesheet"/>
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../css/themes/all-themes.min.css" rel="stylesheet"/>
+</head>
+
+<body class="theme-teal">
+<!-- Top Bar -->
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand" href="dashboard.html">theACP - Admin Dashboard</a>
+        </div>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section>
+    <!-- Left Sidebar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="material-icons">home</i>
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin.html">
+                            <i class="material-icons">verified_user</i>
+                            <span>管理员</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="users.html">
+                            <i class="material-icons">people</i>
+                            <span>会员</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="material-icons">assignment</i>
+                            <span>报名表</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">subject</i>
+                            <span>项目</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="project.html">项目列表</a>
+                            </li>
+                            <li>
+                                <a href="project.add.html">添加项目</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="slider.html">
+                            <i class="material-icons">slideshow</i>
+                            <span>首页轮播</span>
+                        </a>
+                    </li>
+
+                    <li class="header"></li>
+
+                    <li>
+                        <a id="cu-logout" href="#">
+                            <i class="material-icons">input</i>
+                            <span>退出</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2016 <a href="javascript:void(0);">theACP - Admin</a>.
+                </div>
+                <div class="Support">
+                    <b>Tec Support: </b> Four2Nine
+                </div>
+                <div class="Design">
+                    <b>Design: </b> gurayyarar
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+    <!-- #END# Left Sidebar -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>
+                APPLIES
+            </h2>
+        </div>
+        <!-- Striped Rows -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            报名列表
+                        </h2>
+                    </div>
+                    <div class="body table-responsive">
+                        <table class="table table-striped" id="cu-apply-table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>项目</th>
+                                <th>姓名</th>
+                                <th>报名时间</th>
+                                <th>申请状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td colspan="6"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Striped Rows -->
+
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            导出报名表
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <form role="form" method="post" action="../controller/apply.export.con.php">
+                            <div class="row clearfix">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="date" name="start" class="form-control" placeholder="开始时间">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="date" name="end" class="form-control" placeholder="结束时间">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control show-tick" name="status" title="">
+                                        <option value="-1" selected="selected">全部</option>
+                                        <option value="0">待审核</option>
+                                        <option value="1">审核通过</option>
+                                        <option value="2">审核拒绝</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
+                                <button type="submit" class="btn btn-primary btn-md m-l-15 waves-effect">导出到EXCEL
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Dialogs ====================================================================================================================== -->
+<!-- Default Size -->
+<div class="modal fade" id="detailApplyModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel">报名表详情/审核</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped" id="cu-apply-detail-table">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary waves-effect" onclick="passApply()">审核通过</button>
+                <button type="button" class="btn btn-danger waves-effect" onclick="denyApply()">审核拒绝</button>
+                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jquery Core Js -->
+<script src="../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- Select Plugin Js -->
+<script src="../js/bootstrap-select.min.js"></script>
+
+<!-- Bootstrap Notify Plugin Js -->
+<script src="../js/bootstrap-notify.min.js"></script>
+
+<!-- SweetAlert Plugin Js -->
+<script src="../js/sweetalert.min.js"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="../js/waves.min.js"></script>
+
+<!-- Custom Js -->
+<script src="../js/main.js"></script>
+<script src="../js/pages/form-validation.js"></script>
+<script src="../js/pages/apply.js"></script>
+
+</body>
+
+</html>

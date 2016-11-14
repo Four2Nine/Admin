@@ -9,8 +9,7 @@ require 'connection.db.php';
 require 'Constant.php';
 
 $result = array();
-$id = $_POST["project_id"];
-//$name = $_POST["acpname"];
+$id = $_POST["id"];
 $city = $_POST["acpcity"];
 $date = $_POST["acpdate"];
 $day = $_POST["acpday"];

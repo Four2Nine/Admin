@@ -5,41 +5,18 @@
 require 'connection.db.php';
 require 'Constant.php';
 
-$aname = $_POST['aname'];
-$city = $_POST['acity'];
-$date = $_POST['adate'];
-$day = $_POST['aday'];
-$theme = $_POST['atheme'];
-$bright = $_POST['abright'];
-$mean = $_POST['amean'];
-$detail = $_POST['adetail'];
-$tip = $_POST['atip'];
+$aname = $_POST['name'];
+$city = $_POST['city'];
+$date = $_POST['date'];
+$day = $_POST['day'];
+$theme = $_POST['theme'];
+$bright = $_POST['bright'];
+$mean = $_POST['mean'];
+$detail = $_POST['detail'];
+$tip = $_POST['tip'];
 $fileCount = $_POST['file_num'];
 
 $afile = md5($aname);
-//echo($afile);
-//exit;
-//$con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
-//$con->query("SET NAMES UTF8;");
-//$sql = "SELECT MAX(id) FROM tb_project";
-
-//$a=mysqli_query($con,$sql);
-//$row = mysqli_fetch_row($a);
-
-//$maxid = $row[0];
-//$stmt->bind_result($maxid);
-//echo $stmt;
-
-//$number= $maxid + 1;
-//关闭数据库连接
-//$con->close();
-
-
-//定义SQL语句
-//$sql = "SELECT TOP 1 'id' FROM `tb_project` ORDER BY 'id' DESC";
-
-//绑定变量
-
 
 //指定上传图片的路径
 $number=$afile;
@@ -112,16 +89,3 @@ $stmt->close();
 $con->close();
 echo $affected_rows;
 exit;
-
-//插入成功返回 $_CORRECT，否则返回插入错误 $_DB_INSERT_ERROR
-/*if ($affected_rows == 1) {
-    echo Constant::$_CORRECT;
-    exit;
-} else {
-    echo Constant::$_DB_INSERT_ERROR;
-    exit;
-}*/
-
-
-
-  
