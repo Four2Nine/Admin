@@ -21,7 +21,7 @@ $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
 $con->query("SET NAMES UTF8;");
 
 //表中是否存在相同用户名
-$sql = "SELECT * FROM `tb_admin` WHERE `username` = ? LIMIT 1";
+$sql = "SELECT * FROM `tb_admin` WHERE `username` COLLATE utf8_bin = ? LIMIT 1";
 $stmt = $con->prepare($sql);
 $stmt->bind_param("s", $data['username']);
 $stmt->execute();
