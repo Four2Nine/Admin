@@ -483,11 +483,11 @@ function showNotification(colorName, text, placementFrom, placementAlign, animat
 //==========================================================================================================================
 $("#cu-logout").click(function () {
     $.ajax({
-        url: "/Admin/controller/logout.con.php",
+        url: "/admin/controller/logout.con.php",
         success: function (data) {
 
             if (data == CORRECT) {
-                location.href = "/Admin/index.html";
+                location.href = "../index.html";
             }
         }
     })

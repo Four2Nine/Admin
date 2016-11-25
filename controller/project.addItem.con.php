@@ -20,9 +20,9 @@ $afile = md5($aname);
 
 //指定上传图片的路径
 $number=$afile;
-$upload_folder = substr(dirname(__FILE__), 0, -16) . 'theACP\images\\';
+$upload_folder = substr(dirname(__FILE__), 0, -16) . 'images/';
 //$number= $maxid + 1;
-$upload_folder=$upload_folder . $number . '\\';
+$upload_folder = $upload_folder . $number . '/';
 //如果指定的路径不存在则创建
 if (!file_exists($upload_folder)) {
     if (mkdir($upload_folder)) {

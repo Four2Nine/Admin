@@ -4,7 +4,7 @@
 
 //验证登录状态
 $.ajax({
-    url: "/Admin/controller/check.login.php",
+    url: "/admin/controller/check.login.php",
     success: function (data) {
         var result = JSON.parse(data);
         if (result.status == CORRECT) {
@@ -14,7 +14,7 @@ $.ajax({
             showNotification("alert-danger", errorCode2errorInfo(result.status), "top", "center", "", "");
 
             setTimeout(function () {
-                location.href = "/Admin/index.html";
+                location.href = "index.html";
             }, 1000);
         }
     }
@@ -22,7 +22,7 @@ $.ajax({
 
 function getSliderList() {
     $.ajax({
-        url: "/Admin/controller/slider.list.con.php",
+        url: "/admin/controller/slider.list.con.php",
         success: function (data) {
             var result = JSON.parse(data);
 
@@ -33,7 +33,7 @@ function getSliderList() {
                     "<td>" + item + "</td>" +
                     "<td>" +
                     "<a href='javascript:void(0);' class='thumbnail'>" +
-                    "<img src='../../theACP/images/slider/" + path + "' class='img-responsive'>" +
+                    "<img src='../../images/slider/" + path + "' class='img-responsive'>" +
                     "</a>" +
                     "</td>" +
                     "<td>" + result.info[item + ""]['title'] + "</td>" +
@@ -52,7 +52,7 @@ function getSliderList() {
 function detailSlider(id) {
     $("#slider-id").attr("value", id);
     $.ajax({
-        url: "/Admin/controller/slider.detail.con.php",
+        url: "/admin/controller/slider.detail.con.php",
         data: {id: id},
         type: "post",
         success: function (data) {
@@ -102,7 +102,7 @@ $("#slider-form").submit(function (event) {
     }
 
     $.ajax({
-        url: "/Admin/controller/slider.update.con.php",
+        url: "/admin/controller/slider.update.con.php",
         type: "post",
         dataType: 'text',
         cache: false,

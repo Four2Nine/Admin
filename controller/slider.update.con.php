@@ -23,7 +23,7 @@ $result['is_update_picture'] = $_POST['is_update_picture'];
 if ($result['is_update_picture'] == true) {
 
     //指定上传图片的路径
-    $upload_folder = substr(dirname(__FILE__), 0, -16) . 'theACP\images\slider\\';
+    $upload_folder = substr(dirname(__FILE__), 0, -16) . 'images/slider/';
     //如果指定的路径不存在则创建
     if (!file_exists($upload_folder)) {
         if (mkdir($upload_folder)) {

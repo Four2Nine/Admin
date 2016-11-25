@@ -4,7 +4,7 @@
 
 //验证登录状态
 $.ajax({
-    url: "/Admin/controller/check.login.php",
+    url: "/admin/controller/check.login.php",
     success: function (data) {
         var result = JSON.parse(data);
         if (result.status == CORRECT) {
@@ -14,7 +14,7 @@ $.ajax({
             showNotification("alert-danger", errorCode2errorInfo(result.status), "top", "center", "", "");
 
             setTimeout(function () {
-                location.href = "/Admin/index.html";
+                location.href = "index.html";
             }, 1000);
         }
     }
@@ -22,7 +22,7 @@ $.ajax({
 
 function getApplyList() {
     $.ajax({
-        url: "/Admin/controller/apply.list.con.php",
+        url: "/admin/controller/apply.list.con.php",
         success: function (data) {
             var result = JSON.parse(data);
             var applyNum = result.applyNum;
@@ -57,7 +57,7 @@ function getApplyList() {
 
 function showDetail(id) {
     $.ajax({
-        url: "/Admin/controller/apply.detail.con.php",
+        url: "/admin/controller/apply.detail.con.php",
         data: {id: id},
         type: "post",
         success: function (data) {
@@ -269,7 +269,7 @@ function passApply() {
         showLoaderOnConfirm: true
     }, function () {
         $.ajax({
-            url: "/Admin/controller/apply.check.con.php",
+            url: "/admin/controller/apply.check.con.php",
             data: {check: 1, id: id},
             type: "post",
             success: function (data) {
@@ -300,7 +300,7 @@ function denyApply() {
         showLoaderOnConfirm: true
     }, function () {
         $.ajax({
-            url: "/Admin/controller/apply.check.con.php",
+            url: "/admin/controller/apply.check.con.php",
             data: {check: 2, id: id},
             type: "post",
             success: function (data) {

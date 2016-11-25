@@ -12,7 +12,7 @@
 
 //验证登录状态
 $.ajax({
-    url: "/Admin/controller/check.login.php",
+    url: "/admin/controller/check.login.php",
     success: function (data) {
         var result = JSON.parse(data);
         if (result.status == CORRECT) {
@@ -22,7 +22,7 @@ $.ajax({
             showNotification("alert-danger", errorCode2errorInfo(result.status), "top", "center", "", "");
 
             setTimeout(function () {
-                location.href = "/Admin/index.html";
+                location.href = "index.html";
             }, 1000);
         }
     }
@@ -30,7 +30,7 @@ $.ajax({
 
 function getUserList() {
     $.ajax({
-        url: "/Admin/controller/users.list.con.php",
+        url: "/admin/controller/users.list.con.php",
         // type: "get",
         // data: {currentPage: currentPage},
         success: function (data) {
@@ -80,7 +80,7 @@ function deleteUser(id) {
         showLoaderOnConfirm: true
     }, function () {
         $.ajax({
-            url: "/Admin/controller/users.delete.con.php",
+            url: "/admin/controller/users.delete.con.php",
             data: {id: id},
             type: "post",
 
@@ -98,7 +98,7 @@ function deleteUser(id) {
 
 function detailUser(id) {
     $.ajax({
-        url: "/Admin/controller/users.detail.con.php",
+        url: "/admin/controller/users.detail.con.php",
         data: {id: id},
         type: "post",
         success: function (data) {
@@ -149,7 +149,7 @@ $("#update_user_form").submit(function (event) {
     //TODO: other validates...
 
     $.ajax({
-        url: "/Admin/controller/users.update.con.php",
+        url: "/admin/controller/users.update.con.php",
         data: serializedData,
         type: "post",
         success: function (data) {

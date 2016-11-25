@@ -1,6 +1,6 @@
 //验证登录状态
 $.ajax({
-    url: "/Admin/controller/check.login.php",
+    url: "/admin/controller/check.login.php",
     success: function (data) {
         var result = JSON.parse(data);
         if (result.status == CORRECT) {
@@ -10,7 +10,7 @@ $.ajax({
             showNotification("alert-danger", errorCode2errorInfo(result.status), "top", "center", "", "");
 
             setTimeout(function () {
-                location.href = "/Admin/index.html";
+                location.href = "index.html";
             }, 1000);
         }
     }
@@ -18,7 +18,7 @@ $.ajax({
 
 function getAdminList() {
     $.ajax({
-        url: "/Admin/controller/admin.list.con.php",
+        url: "/admin/controller/admin.list.con.php",
         success: function (data) {
             var result = JSON.parse(data);
 
@@ -72,7 +72,7 @@ function disableAdmin(id, is_active) {
         showLoaderOnConfirm: true
     }, function () {
         $.ajax({
-            url: "/Admin/controller/admin.disable.con.php",
+            url: "/admin/controller/admin.disable.con.php",
             data: {id: id, is_active: is_active},
             type: "post",
 
@@ -99,7 +99,7 @@ function removeAdmin(id) {
         showLoaderOnConfirm: true
     }, function () {
         $.ajax({
-            url: "/Admin/controller/admin.remove.con.php",
+            url: "/admin/controller/admin.remove.con.php",
             data: {id: id},
             type: "post",
 
@@ -151,7 +151,7 @@ $("#add_admin_form").submit(function (event) {
     }
 
     $.ajax({
-        url: "/Admin/controller/admin.add.con.php",
+        url: "/admin/controller/admin.add.con.php",
         type: "post",
         data: serializedData,
         success: function (data) {

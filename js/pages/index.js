@@ -22,7 +22,7 @@ $("#sign_in_form").submit(function (event) {
     }
 
     $.ajax({
-        url: "/Admin/controller/login.con.php",
+        url: "/admin/controller/login.con.php",
         type: "post",
         data: serializedData,
         success: function (data) {
@@ -35,7 +35,7 @@ $("#sign_in_form").submit(function (event) {
                 showNotification("alert-success", "登录成功，正在跳转...", "top", "center", "", "");
 
                 setTimeout(function () {
-                    location.href = "/Admin/pages/dashboard.html";
+                    location.href = "pages/dashboard.html";
                 }, 1000);
             }
         },
