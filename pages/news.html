@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>管理员 | Dashboard</title>
+    <title>资讯 | Dashboard</title>
     <!-- Favicon-->
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
@@ -28,6 +28,9 @@
     <!-- Preloader Css -->
     <link href="../css/md-preloader.min.css" rel="stylesheet"/>
 
+    <!-- Bootstrap Select Css -->
+    <link href="../css/bootstrap-select.min.css" rel="stylesheet"/>
+
     <!-- Morris Chart Css-->
     <link href="../css/morris.css" rel="stylesheet"/>
 
@@ -44,7 +47,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="dashboard.html">管理员</a>
+            <a class="navbar-brand" href="dashboard.html">项目列表</a>
         </div>
     </div>
 </nav>
@@ -63,7 +66,7 @@
                             <span>首页</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="admin.html">
                             <i class="material-icons">verified_user</i>
                             <span>管理员</span>
@@ -88,7 +91,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="project.html">项目列表</a>
+                                <a href="#">项目列表</a>
                             </li>
                             <li>
                                 <a href="project.add.html">添加项目</a>
@@ -96,15 +99,15 @@
                         </ul>
                     </li>
 
-                    <li>
+                    <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">art_track</i>
                             <span>资讯</span>
                         </a>
 
                         <ul class="ml-menu">
-                            <li>
-                                <a href="news.html">资讯列表</a>
+                            <li class="active">
+                                <a href="#">资讯列表</a>
                             </li>
                             <li>
                                 <a href="news.add.html">添加资讯</a>
@@ -154,7 +157,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>
-                ADMINS
+                NEWS
             </h2>
         </div>
         <!-- Striped Rows -->
@@ -163,7 +166,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            管理员列表
+                            资讯列表
                         </h2>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
@@ -172,24 +175,26 @@
                                     <i class="material-icons">more_vert</i>
                                 </a>
                                 <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);" data-toggle="modal" data-target="#addAdminModal">添加管理员</a>
+                                    <li><a href="news.add.html">添加资讯</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                     <div class="body table-responsive">
-                        <table class="table table-striped" id="cu-admin-table">
+                        <table class="table table-striped" id="cu-news-table">
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>管理员名</th>
-                                <th>是否可用</th>
+                                <th>标题</th>
+                                <th>内容</th>
+                                <th>发布时间</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
+                                <td colspan="5"></td>
                             </tr>
                             </tbody>
                         </table>
@@ -203,46 +208,22 @@
 
 <!-- Modal Dialogs ====================================================================================================================== -->
 <!-- Default Size -->
-<div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="detailNewsModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="defaultModalLabel">添加一个管理员</h4>
+                <h4 class="modal-title" id="defaultModalLabel">资讯详情/修改</h4>
             </div>
-            <form role="form" method="post" id="add_admin_form">
+            <form id="project-form" role="form" method="post">
                 <div class="modal-body">
-
-                    <label for="username">登录名</label>
-                    <div class="input-group">
-                        <div class="form-line">
-                            <input type="text" id="username" name="username" class="form-control"
-                                   placeholder="登录名(支持:数字 字母 汉字 下滑线)">
-                        </div>
-                        <label id="username-error" class="error" for="username"></label>
-                    </div>
-
-                    <label for="password">密码</label>
-                    <div class="input-group">
-                        <div class="form-line">
-                            <input type="password" id="password" name="password" class="form-control"
-                                   placeholder="密码至少六位">
-                        </div>
-                        <label id="password-error" class="error" for="password"></label>
-                    </div>
-
-                    <label for="password">确认密码</label>
-                    <div class="form-group">
-                        <div class="form-line">
-                            <input type="password" id="confirm_password" name="password_confirm" class="form-control"
-                                   placeholder="再次输入密码">
-                        </div>
-                        <label id="confirm-password-error" class="error" for="confirm_password"></label>
-                    </div>
-
+                    <table class="table table-striped" id="cu-project-detail-table">
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary waves-effect">添加</button>
-                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary waves-effect">修改</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">关闭</button>
                 </div>
             </form>
         </div>
@@ -254,6 +235,9 @@
 
 <!-- Bootstrap Core Js -->
 <script src="../js/bootstrap.min.js"></script>
+
+<!-- Select Plugin Js -->
+<script src="../js/bootstrap-select.min.js"></script>
 
 <!-- Bootstrap Notify Plugin Js -->
 <script src="../js/bootstrap-notify.min.js"></script>
@@ -267,7 +251,7 @@
 <!-- Custom Js -->
 <script src="../js/main.js"></script>
 <script src="../js/pages/form-validation.js"></script>
-<script src="../js/pages/admin.js"></script>
+<script src="../js/pages/news.js"></script>
 
 </body>
 
