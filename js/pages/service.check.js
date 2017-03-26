@@ -51,6 +51,8 @@ function getServiceList() {
 
                 $("#cu-service-table").find("tbody").html(html).fadeIn(300);
             }
+
+            $("#service-footer").find("span").html("共计 " + serviceNum + " 份入驻申请");
         }
     })
 }
@@ -64,73 +66,54 @@ function showDetail(id) {
             var result = JSON.parse(data);
 
             var html = "<tr class='hide'><td>item</td><td id='service_id'>" + id + "</td></tr>";
-            for (var item in result) {
-                if (item == "company_name") {
-                    html += "<tr scope='row'>" +
-                        "<td>公司名称</td>" +
-                        "<td>" + result[item] + "</td>" +
-                        "</tr>";
-                }
-                if (item == "company_website") {
-                    html += "<tr scope='row'>" +
-                        "<td>公司网站</td>" +
-                        "<td>" + result[item] + "</td>" +
-                        "</tr>";
-                }
-                if (item == "contact_name") {
-                    html += "<tr scope='row'>" +
-                        "<td>联系人姓名</td>" +
-                        "<td>" + result[item] + "</td>" +
-                        "</tr>";
-                }
-                if (item == "contact_phone_number") {
-                    html += "<tr scope='row'>" +
-                        "<td>联系电话</td>" +
-                        "<td>" + result[item] + "</td>" +
-                        "</tr>";
-                }
-                if (item == "contact_email") {
-                    html += "<tr scope='row'>" +
-                        "<td>联系邮箱</td>" +
-                        "<td>" + result[item] + "</td>" +
-                        "</tr>";
-                }
-                if (item == "service_description") {
 
-                    html += "<tr scope='row'><td colspan='2'>服务描述</td></tr>";
-                    html += "<tr scope='row'><td colspan='2'>" + result[item] + "</td></tr>";
-                }
-
-                if (item == "apply_time") {
-                    html += "<tr scope='row'>" +
-                        "<td>申请时间</td>" +
-                        "<td>" + result[item] + "</td>" +
-                        "</tr>";
-                }
-
-                if (item == "is_pass") {
-
-                    var status = "";
-                    switch (result[item]) {
-                        case "0":
-                            status = "待审核";
-                            break;
-                        case "1":
-                            status = "审核通过";
-                            $("#check_refuse").show();
-                            break;
-                        case "2":
-                            status = "审核拒绝";
-                            $("#check_pass").show();
-                            break;
-                    }
-
-                    html += "<tr scope='row'>" +
-                        "<td>审核状态</td>" +
-                        "<td>" + status + "</td>" +
-                        "</tr>";
-                }
+            var status = "";
+            switch (result["is_pass"]) {
+                case "0":
+                    status = "待审核";
+                    break;
+                case "1":
+                    status = "审核通过";
+                    $("#check_refuse").show();
+                    break;
+                case "2":
+                    status = "审核拒绝";
+                    $("#check_pass").show();
+                    break;
             }
+
+            html += "<tr>" +
+                "<td>公司名称</td>" +
+                "<td>" + result["company_name"] + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td>公司网站</td>" +
+                "<td>" + result["company_website"] + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td>联系人姓名</td>" +
+                "<td>" + result["contact_name"] + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td>联系电话</td>" +
+                "<td>" + result["contact_phone_number"] + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td>联系邮箱</td>" +
+                "<td>" + result["contact_email"] + "</td>" +
+                "</tr>" +
+                "<tr><td colspan='2'>服务描述</td></tr>" +
+                "<tr><td colspan='2'>" + result["service_description"] + "</td></tr>" +
+                "<tr>" +
+                "<td>申请时间</td>" +
+                "<td>" + result["apply_time"] + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td>审核状态</td>" +
+                "<td>" + status + "</td>" +
+                "</tr>";
+
+
             $("#cu-service-detail-table").find("tbody").html(html);
         }
     })
@@ -141,8 +124,11 @@ function passApply() {
 
     swal({
         title: "审核服务商入驻申请",
-        text: "审核通过",
-        type: "info",
+        text: "确定将其审核通过吗？",
+        type: "warning",
+        confirmButtonColor: "#009688",
+        confirmButtonText: "审核通过",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true
@@ -171,8 +157,11 @@ function denyApply() {
 
     swal({
         title: "审核服务商入驻申请",
-        text: "审核拒绝",
-        type: "info",
+        text: "确定将其审核拒绝吗？",
+        type: "warning",
+        confirmButtonColor: "#009688",
+        confirmButtonText: "审核拒绝",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true
