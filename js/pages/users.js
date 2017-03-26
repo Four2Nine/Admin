@@ -22,7 +22,7 @@ $.ajax({
             showNotification("alert-danger", errorCode2errorInfo(result.status), "top", "center", "", "");
 
             setTimeout(function () {
-                location.href = "index.html";
+                location.href = "../index.html";
             }, 1000);
         }
     }
