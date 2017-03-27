@@ -5,15 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>发布企业服务 | Dashboard</title>
+    <title>完善企业服务 | Dashboard</title>
     <!-- Favicon-->
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"-->
+    <!--type="text/css">-->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">-->
 
     <!-- Bootstrap Core Css -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
     <link href="../css/waves.min.css" rel="stylesheet"/>
+
+    <!-- Sweetalert Css -->
+    <link href="../css/sweetalert.css" rel="stylesheet"/>
 
     <!-- Animation Css -->
     <link href="../css/animate.min.css" rel="stylesheet"/>
@@ -24,7 +32,11 @@
     <!-- Morris Chart Css-->
     <link href="../css/morris.css" rel="stylesheet"/>
 
-    <link href="../css/style.css" rel="stylesheet"/>
+    <!-- Bootstrap Select Css -->
+    <link href="../css/bootstrap-select.min.css" rel="stylesheet"/>
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../css/themes/all-themes.min.css" rel="stylesheet"/>
@@ -32,58 +44,244 @@
 
 <body class="theme-teal">
 
+<!-- Top Bar -->
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="javascript:void(0);">控制面板</a>
+            <a class="navbar-brand" href="javascript:void(0);">企业服务</a>
         </div>
     </div>
 </nav>
+<!-- #END# Top Bar -->
 
-<div class="" style="margin-top: 100px;">
-    <header class="">
-        <div class="">
-            <span class="">Material Design Lite</span>
+<!-- Side Bar-->
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="material-icons">home</i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin.html">
+                        <i class="material-icons">verified_user</i>
+                        <span>管理员</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="material-icons">people</i>
+                        <span>会员</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="apply.html">
+                        <i class="material-icons">assignment</i>
+                        <span>报名表</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">subject</i>
+                        <span>项目</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="project.list.html">项目列表</a>
+                        </li>
+                        <li>
+                            <a href="project.add.html">添加项目</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">art_track</i>
+                        <span>资讯</span>
+                    </a>
+
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="news.html">资讯列表</a>
+                        </li>
+                        <li>
+                            <a href="news.add.html">添加资讯</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="active">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">business</i>
+                        <span>企业服务</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="service.check.html">审核</a>
+                        </li>
+                        <li class="active">
+                            <a href="javascript:void(0);">发布</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="message.html">
+                        <i class="material-icons">feedback</i>
+                        <span>留言</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="slider.html">
+                        <i class="material-icons">slideshow</i>
+                        <span>首页轮播</span>
+                    </a>
+                </li>
+
+                <li class="header"></li>
+
+                <li>
+                    <a id="cu-logout" href="#">
+                        <i class="material-icons">input</i>
+                        <span>退出</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">&copy; 2016-2017|four2nine - dashboard</a>
+                </li>
+            </ul>
         </div>
-    </header>
-    <div class=""></div>
-    <main class="">
-        <div class="">
-            <div class="">
-                <div class="">
-                    Google &gt; Material Design Lite &gt; How to install MDL
+
+    </aside>
+    <!-- #END# Left Sidebar -->
+</section>
+<!-- #END# Side Bar-->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>BUSINESS SERVICE-COMPLETE</h2>
+        </div>
+
+        <!-- Widgets -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            完善企业服务
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <form id="service-complete-form" method="post">
+                            <input type="hidden" name="id">
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <input type="text"
+                                           id="company-name"
+                                           name="company-name"
+                                           class="form-control"
+                                           placeholder="公司名称"
+                                           required>
+                                </div>
+                                <label id="company-name-error" class="error" for="company-name"></label>
+
+                                <div class="form-line">
+                                    <input type="text"
+                                           id="company-website"
+                                           name="company-website"
+                                           class="form-control"
+                                           placeholder="公司网站"
+                                           required>
+                                </div>
+                                <label id="company-website-error" class="error" for="company-website"></label>
+
+                                <div class="form-line">
+                                    <input type="text"
+                                           id="contact-name"
+                                           name="company-website"
+                                           class="form-control"
+                                           placeholder="联系人姓名"
+                                           required>
+                                </div>
+                                <label id="contact-name-error" class="error" for="contact-name"></label>
+
+                                <div class="form-line">
+                                    <input type="text"
+                                           id="contact-phone-number"
+                                           name="company-website"
+                                           class="form-control"
+                                           placeholder="联系电话"
+                                           required>
+                                </div>
+                                <label id="contact-phone-number-error" class="error" for="contact-phone-number"></label>
+
+                                <div class="form-line">
+                                    <input type="text"
+                                           id="contact-email"
+                                           name="company-website"
+                                           class="form-control"
+                                           placeholder="联系邮箱"
+                                           required>
+                                </div>
+                                <label id="contact-email-error" class="error" for="contact-email"></label>
+
+                                <select class="form-control show-tick" title="审核">
+                                    <option>审核通过</option>
+                                    <option>审核拒绝</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="btn-group" role="group">
+                            <button type="button"
+                                    class="btn bg-teal waves-effect material-icons material-icons"
+                                    style="padding: 10px">
+                                check
+                                <span>提交修改</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <h3>How to install MDL</h3>
-                <p>
-                    Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna
-                    esse ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim
-                    elit est deserunt occaecat nisi amet. Quis aliqua nostrud Lorem occaecat sunt. Eiusmod quis amet
-                    ullamco aliquip dolore ut incididunt duis adipisicing. Elit consequat nisi eiusmod aute ipsum sunt
-                    veniam do est. Occaecat mollit aliquip ut proident consectetur amet ex dolore consectetur aliqua
-                    elit.
-                </p>
             </div>
         </div>
-    </main>
-</div>
-
+        <!-- #END# Widgets -->
+    </div>
+</section>
 
 <!-- Jquery Core Js -->
-<script src="../js/jquery.min.js"></script>
+<script src="../plugins/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Core Js -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.js"></script>
 
 <!-- Bootstrap Notify Plugin Js -->
-<script src="../js/bootstrap-notify.min.js"></script>
+<script src="../plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+<!-- Select Plugin Js -->
+<script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+<!-- SweetAlert Plugin Js -->
+<script src="../plugins/sweetalert/sweetalert.min.js"></script>
 
 <!-- Waves Effect Plugin Js -->
-<script src="../js/waves.min.js"></script>
+<script src="../plugins/node-waves/waves.min.js"></script>
 
 <!-- Custom Js -->
 <script src="../js/main.js"></script>
+<script src="../js/pages/advanced-form-elements.js"></script>
+
 <script src="../js/pages/service.complete.js"></script>
+
 </body>
 
 </html>

@@ -3,7 +3,6 @@
  */
 
 $("#cu-detail-preloader").hide();
-$("#service-detail").hide();
 
 //验证登录状态
 $.ajax({
@@ -72,12 +71,64 @@ function showDetail(id) {
         type: "post",
         success: function (data) {
             var result = JSON.parse(data);
+            var html = "<tr class='hide'><td>item</td><td id='service_id'>" + id + "</td></tr>";
 
-            $("#company-name").html(result["company_name"]);
-            $("#service-desc").html(result["service_description"]);
+            html += "<tr>" +
+                "<td colspan='2'>" + result["company_name"] + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td colspan='2'>" + result["company_website"] + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><strong>联系人姓名</strong></td>" +
+                "<td>" + result["contact_name"] + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><strong>联系电话</strong></td>" +
+                "<td>" + result["contact_phone_number"] + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><strong>联系邮箱</strong></td>" +
+                "<td>" + result["contact_email"] + "</td>" +
+                "</tr>" +
+                "<tr><td colspan='2'><strong>服务描述</strong></td></tr>" +
+                "<tr><td colspan='2'>" + result["service_description"] + "</td></tr>" +
+                "<tr>" +
+                "<td><strong>申请时间</strong></td>" +
+                "<td>" + result["apply_time"] + "</td>" +
+                "</tr>";
 
             $("#cu-detail-preloader").fadeOut(300);
-            $("#service-detail").fadeIn(500);
+            $("#service-detail-table").find("tbody").html(html);
         }
     })
 }
+
+/*
+
+ <tr>
+ <td colspan="2">Company Name</td>
+ </tr>
+ <tr>
+ <td>联系人</td>
+ <td>LiuYang</td>
+ </tr>
+ <tr>
+ <td>电话</td>
+ <td>0123456789</td>
+ </tr>
+ <tr>
+ <td>邮箱</td>
+ <td>liuyang@f2n.com</td>
+ </tr>
+ <tr>
+ <td colspan="2">服务详情</td>
+ </tr>
+ <tr>
+ <td colspan="2">
+ Company description: Make a group of buttons stretch
+ at equal sizes to span the entire width of its parent...
+ </td>
+ </tr>
+
+ */
