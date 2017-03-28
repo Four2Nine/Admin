@@ -2,7 +2,7 @@
  * Created by liuyang on 2017/3/26.
  */
 
-$("#cu-detail-preloader").hide();
+// $("#cu-detail-preloader").hide();
 
 //验证登录状态
 $.ajax({
@@ -39,12 +39,15 @@ function getServiceList() {
 
                 if (status == "审核通过") {
                     passCount++;
-                    html += "<tr onclick='showDetail(" + item + ")'>" +
+                    html += "<tr>" +
                         "<td>" + item + "</td>" +
                         "<td>" + result.serviceInfo[item + ""]['company_name'] + "</td>" +
                         "<td>" + result.serviceInfo[item + ""]['contact_name'] + "</td>" +
                         "<td>" + result.serviceInfo[item + ""]['phone_number'] + "</td>" +
                         "<td>" + result.serviceInfo[item + ""]['email'] + "</td>" +
+                        "<td>" +
+                        "<button onclick='locateComplete(" + item + ")' type='button' class='btn bg-teal waves-effect material-icons'>create</button>" +
+                        "</td>" +
                         "</tr>";
                 }
             }
@@ -60,49 +63,53 @@ function getServiceList() {
     })
 }
 
-function showDetail(id) {
-
-    $("#cu-detail-tips").fadeOut(300);
-    $("#cu-detail-preloader").fadeIn(300);
-
-    $.ajax({
-        url: "/admin/controller/service.detail.con.php",
-        data: {id: id},
-        type: "post",
-        success: function (data) {
-            var result = JSON.parse(data);
-            var html = "<tr class='hide'><td>item</td><td id='service_id'>" + id + "</td></tr>";
-
-            html += "<tr>" +
-                "<td colspan='2'>" + result["company_name"] + "</td>" +
-                "</tr>" +
-                "<tr>" +
-                "<td colspan='2'>" + result["company_website"] + "</td>" +
-                "</tr>" +
-                "<tr>" +
-                "<td><strong>联系人姓名</strong></td>" +
-                "<td>" + result["contact_name"] + "</td>" +
-                "</tr>" +
-                "<tr>" +
-                "<td><strong>联系电话</strong></td>" +
-                "<td>" + result["contact_phone_number"] + "</td>" +
-                "</tr>" +
-                "<tr>" +
-                "<td><strong>联系邮箱</strong></td>" +
-                "<td>" + result["contact_email"] + "</td>" +
-                "</tr>" +
-                "<tr><td colspan='2'><strong>服务描述</strong></td></tr>" +
-                "<tr><td colspan='2'>" + result["service_description"] + "</td></tr>" +
-                "<tr>" +
-                "<td><strong>申请时间</strong></td>" +
-                "<td>" + result["apply_time"] + "</td>" +
-                "</tr>";
-
-            $("#cu-detail-preloader").fadeOut(300);
-            $("#service-detail-table").find("tbody").html(html);
-        }
-    })
+function locateComplete(id) {
+    location.href = "service.complete.html?id=" + id;
 }
+
+// function showDetail(id) {
+
+// $("#cu-detail-tips").fadeOut(300);
+// $("#cu-detail-preloader").fadeIn(300);
+//
+// $.ajax({
+//     url: "/admin/controller/service.detail.con.php",
+//     data: {id: id},
+//     type: "post",
+//     success: function (data) {
+//         var result = JSON.parse(data);
+//         var html = "<tr class='hide'><td>item</td><td id='service_id'>" + id + "</td></tr>";
+//
+//         html += "<tr>" +
+//             "<td colspan='2'>" + result["company_name"] + "</td>" +
+//             "</tr>" +
+//             "<tr>" +
+//             "<td colspan='2'>" + result["company_website"] + "</td>" +
+//             "</tr>" +
+//             "<tr>" +
+//             "<td><strong>联系人姓名</strong></td>" +
+//             "<td>" + result["contact_name"] + "</td>" +
+//             "</tr>" +
+//             "<tr>" +
+//             "<td><strong>联系电话</strong></td>" +
+//             "<td>" + result["contact_phone_number"] + "</td>" +
+//             "</tr>" +
+//             "<tr>" +
+//             "<td><strong>联系邮箱</strong></td>" +
+//             "<td>" + result["contact_email"] + "</td>" +
+//             "</tr>" +
+//             "<tr><td colspan='2'><strong>服务描述</strong></td></tr>" +
+//             "<tr><td colspan='2'>" + result["service_description"] + "</td></tr>" +
+//             "<tr>" +
+//             "<td><strong>申请时间</strong></td>" +
+//             "<td>" + result["apply_time"] + "</td>" +
+//             "</tr>";
+//
+//         $("#cu-detail-preloader").fadeOut(300);
+//         $("#service-detail-table").find("tbody").html(html);
+//     }
+// })
+// }
 
 /*
 

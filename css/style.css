@@ -1,5 +1,5 @@
 ﻿/* Navbar ====================================== */
-@import url(materialize.css);
+@import url(../plugins/materialize-css/css/materialize.min.css);
 
 .navbar {
     font-family: "Roboto", sans-serif;
