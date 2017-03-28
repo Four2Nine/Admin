@@ -193,12 +193,13 @@
                         <form id="service-complete-form" method="post" enctype="multipart/form-data">
 
                             <div class="lead">
-                                <h4>基本信息(必填)</h4>
+                                <b>基本信息(必填)</b>
                             </div>
 
                             <div class="input-group">
                                 <input type="hidden" name="id">
 
+                                <b>公司名称</b>
                                 <div class="form-line">
                                     <input type="text"
                                            id="company-name"
@@ -209,6 +210,7 @@
                                 </div>
                                 <label id="company-name-error" class="error" for="company-name"></label>
 
+                                <b>公司网站</b>
                                 <div class="form-line">
                                     <input type="url"
                                            id="company-website"
@@ -217,8 +219,10 @@
                                            placeholder="公司网站"
                                            required>
                                 </div>
+                                <div class="help-info">http://, https:// etc</div>
                                 <label id="company-website-error" class="error" for="company-website"></label>
 
+                                <b>联系人姓名</b>
                                 <div class="form-line">
                                     <input type="text"
                                            id="contact-name"
@@ -229,6 +233,7 @@
                                 </div>
                                 <label id="contact-name-error" class="error" for="contact-name"></label>
 
+                                <b>联系电话</b>
                                 <div class="form-line">
                                     <input type="text"
                                            id="contact-phone-number"
@@ -239,6 +244,7 @@
                                 </div>
                                 <label id="contact-phone-number-error" class="error" for="contact-phone-number"></label>
 
+                                <b>联系邮箱</b>
                                 <div class="form-line">
                                     <input type="text"
                                            id="contact-email"
@@ -257,7 +263,7 @@
 
                             <br>
                             <div class="lead">
-                                <h4>请完善一下信息(可选)</h4>
+                                <b>请完善一下信息(可选)</b>
                             </div>
 
                             <div class="input-group">
@@ -267,6 +273,7 @@
                                 </div>
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
 
+                                <b>服务城市(点击选择)</b>
                                 <div class="form-line">
                                     <input
                                             type="text"
@@ -277,6 +284,7 @@
                                 </div>
                                 <label id="service-city-error" class="error" for="service-city"></label>
 
+                                <b>服务类型(点击选择)</b>
                                 <div class="form-line">
                                     <input
                                             type="text"
@@ -287,6 +295,7 @@
                                 </div>
                                 <label id="service-type-error" class="error" for="service-type"></label>
 
+                                <b>产业类型(点击选择)</b>
                                 <div class="form-line">
                                     <input
                                             type="text"
@@ -298,6 +307,7 @@
                                 <label id="industry-error" class="error" for="industry"></label>
                             </div>
 
+                            <b>服务价格(负数表示: 面谈)</b>
                             <div class="input-group">
                                 <span class="input-group-addon">￥</span>
                                 <div class="form-line">
@@ -320,6 +330,7 @@
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
                             </div>
 
+                            <b>公司宣传口号</b>
                             <div class="input-group">
                                 <div class="form-line">
                                     <input
@@ -339,6 +350,7 @@
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
                             </div>
 
+                            <b>备注信息</b>
                             <div class="input-group">
                                 <div class="form-line">
                                     <textarea rows="4" class="form-control no-resize" id="additional" name="additional"

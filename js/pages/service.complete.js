@@ -35,6 +35,12 @@ function getCompleteInfo(id) {
             $("input[name=contact-name]").val(result['contact_name']);
             $("input[name=contact-phone-number]").val(result['contact_phone_number']);
             $("input[name=contact-email]").val(result['contact_email']);
+            $("input[name=service-city]").val(result['service_city']);
+            $("input[name=service-type]").val(result['service_type']);
+            $("input[name=industry]").val(result['industry']);
+            $("input[name=service-price]").val(result['service_price']);
+            $("input[name=banner-text]").val(result['banner_text']);
+            $("textarea[name=additional]").val(result['additional']);
         }
     })
 }

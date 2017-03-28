@@ -36,9 +36,9 @@
             <form id="sign_in_form" method="POST">
 
                 <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">person</i>
-                        </span>
+                    <span class="input-group-addon">
+                        <i class="material-icons">person</i>
+                    </span>
                     <div class="form-line">
                         <input type="text" class="form-control" id="username" name="username" placeholder="登录名" required
                                autofocus>
@@ -47,23 +47,24 @@
                 </div>
 
                 <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">lock</i>
-                        </span>
+                    <span class="input-group-addon">
+                        <i class="material-icons">lock</i>
+                    </span>
                     <div class="form-line">
                         <input type="password" class="form-control" id="password" name="password" placeholder="密码"
                                required>
-                        </div>
+                    </div>
                     <label id="password-error" class="error" for="password"></label>
                 </div>
+
                 <div class="row">
                     <div class="col-xs-4">
-                        <button class="btn btn-block bg-primary waves-effect" type="submit">立即登录</button>
-                        </div>
+                        <button class="btn btn-block bg-teal waves-effect" type="submit">立即登录</button>
+                    </div>
                 </div>
-                </form>
-            </div>
+            </form>
         </div>
+    </div>
 </div>
 
 <!-- Jquery Core Js -->
@@ -77,6 +78,9 @@
 
 <!-- Waves Effect Plugin Js -->
 <script src="plugins/node-waves/waves.min.js"></script>
+
+<!-- Validation Plugin Js -->
+<script src="plugins/jquery-validation/jquery.validate.js"></script>
 
 <!-- Custom Js -->
 <script src="js/main.js"></script>
