@@ -423,7 +423,7 @@ $(function () {
     $.AdminBSB.dropdownMenu.activate();
     $.AdminBSB.input.activate();
     $.AdminBSB.select.activate();
-    $.AdminBSB.search.activate();
+    // $.AdminBSB.search.activate();
 
     setTimeout(function () {
         $('.page-loader-wrapper').fadeOut();
@@ -528,6 +528,7 @@ var NOT_LOGIN = 400;   //没有登录
 var TOKEN_INCORRECT = 402; //__token 不符合
 
 var NO_PERMISSION = 500;
+var REQUIRED_ID = 600;
 
 function errorCode2errorInfo(errorcode) {
     switch (errorcode) {
@@ -567,5 +568,13 @@ function errorCode2errorInfo(errorcode) {
             return "TOKEN不正确";
         case USER_DISABLED:
             return "该用户被禁用";
+        case REQUIRED_ID:
+            return "需要ID";
+        default:
+            return "未知错误";
     }
+}
+
+function checkEmpty(holder) {
+    return (holder.val() == null || holder.val() == "");
 }

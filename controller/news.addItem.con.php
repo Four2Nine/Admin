@@ -11,9 +11,8 @@ $fileCount = $_POST['file_num'];
 $subFile = time();
 
 //指定上传图片的路径
-$upload_folder = substr(dirname(__FILE__), 0, -11) . '/images/';
-//$number= $maxid + 1;
-$upload_folder = $upload_folder . $subFile . '/';
+$upload_folder = substr(dirname(__FILE__), 0, -10) . 'images\\';
+$upload_folder = $upload_folder . $subFile . '\\';
 
 //如果指定的路径不存在则创建
 if (!file_exists($upload_folder)) {

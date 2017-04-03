@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>发布企业服务 | Dashboard</title>
+    <title>城市 | Dashboard</title>
     <!-- Favicon-->
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
@@ -29,6 +29,9 @@
     <!-- Morris Chart Css-->
     <link href="../plugins/morrisjs/morris.css" rel="stylesheet"/>
 
+    <!-- JQuery Nestable Css -->
+    <link href="../plugins/nestable/jquery-nestable.css" rel="stylesheet"/>
+
     <!-- Custom Css -->
     <link href="../css/style.css" rel="stylesheet">
 
@@ -43,7 +46,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="javascript:void(0);">企业服务</a>
+            <a class="navbar-brand" href="javascript:void(0);">城市</a>
         </div>
     </div>
 </nav>
@@ -80,6 +83,14 @@
                         <span>报名表</span>
                     </a>
                 </li>
+
+                <li class="active">
+                    <a href="city.html">
+                        <i class="material-icons">business</i>
+                        <span>城市</span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">subject</i>
@@ -111,7 +122,7 @@
                     </ul>
                 </li>
 
-                <li class="active">
+                <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">business_center</i>
                         <span>企业服务</span>
@@ -120,8 +131,8 @@
                         <li>
                             <a href="service.check.html">审核</a>
                         </li>
-                        <li class="active">
-                            <a href="javascript:void(0);">发布/完善</a>
+                        <li>
+                            <a href="service.publish.html">发布/完善</a>
                         </li>
                     </ul>
                 </li>
@@ -148,6 +159,7 @@
                         <span>退出</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="javascript:void(0);">&copy; 2016-2017|four2nine - dashboard</a>
                 </li>
@@ -161,72 +173,99 @@
 
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>BUSINESS SERVICE-PUBLISH</h2>
-        </div>
 
         <!-- Widgets -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
+                    <div class="header clearfix">
                         <h2>
-                            企业服务-已过审
+                            国家/省份/城市
                         </h2>
                     </div>
-                    <div class="body table-responsive">
-                        <table class="table table-hover" id="cu-service-passed-table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>公司名称</th>
-                                <th>联系人</th>
-                                <th>电话</th>
-                                <th>邮箱</th>
-                                <th>发布/完善</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td colspan="6"></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <form id="add-node__form" method="post">
+                        <div class="body">
+                            <div class="input-group">
+                                <b>结点名称</b>
+                                <div class="form-line">
+                                    <input type="text"
+                                           name="name"
+                                           id="name"
+                                           placeholder="名称"
+                                           value=""
+                                           class="form-control">
+                                </div>
+                            </div>
+
+                            <b>父节点</b>
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <input type="text"
+                                           name="parent-node"
+                                           id="parent-node"
+                                           placeholder="点击右侧选择父结点"
+                                           value=""
+                                           class="form-control"
+                                           required="required"
+                                           disabled>
+                                </div>
+                                <a href="javascript:void(0);" class="input-group-addon clear-parent-node">
+                                    <i class="material-icons">close</i>
+                                </a>
+                                <!--<div class="help-info">最高层级为4&nbsp;(国&#45;&#45;省/市&#45;&#45;市&#45;&#45;县/区)</div>-->
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <button type="submit" class="btn bg-teal waves-effect material-icons"
+                                    style="padding: 10px">
+                                add
+                                <span>添加结点</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="header clearfix">
+                        <h2>
+                            列表
+                        </h2>
                     </div>
-                    <div id="service-passed-footer" class="panel-footer">
-                        <span></span>
+
+                    <div class="body">
+                        <div class="clearfix m-b-20">
+                            <div class="dd">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1" data-name="中国">
+                                        <div class="dd-handle">中国</div>
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="2" data-name="四川省">
+                                                <div class="dd-handle">四川省</div>
+                                                <ol class="dd-list">
+                                                    <li class="dd-item" data-id="3" data-name="成都市">
+                                                        <div class="dd-handle">成都市</div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="dd-item" data-id="4" data-name="北京市">
+                                                <div class="dd-handle">北京市</div>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--<div class="row clearfix">-->
-        <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-        <!--<div class="card">-->
-        <!--<div class="header">-->
-        <!--<h2 style="display: inline-block;">-->
-        <!--详情-->
-        <!--</h2>-->
-        <!--<button id="complete-service" class="pull-right btn bg-teal waves-effect material-icons">-->
-        <!--create-->
-        <!--</button>-->
-        <!--</div>-->
-        <!--<div class="body table-responsive">-->
-        <!--<p class="text-center" id="cu-detail-tips">点击表格中的一行来查看详情</p>-->
-        <!--<div id="cu-detail-preloader" class="text-center">-->
-        <!--<div class="md-preloader pl-size-xs">-->
-        <!--<svg viewBox="0 0 75 75">-->
-        <!--<circle cx="37.5" cy="37.5" r="30" class="pl-teal" stroke-width="5"></circle>-->
-        <!--</svg>-->
-        <!--</div>-->
-        <!--</div>-->
-
-        <!--<table class="table table" id="service-detail-table">-->
-        <!--<tbody></tbody>-->
-        <!--</table>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
         <!-- #END# Widgets -->
     </div>
 </section>
@@ -243,9 +282,12 @@
 <!-- Waves Effect Plugin Js -->
 <script src="../plugins/node-waves/waves.min.js"></script>
 
+<!-- Jquery Nestable -->
+<script src="../plugins/nestable/jquery.nestable.js"></script>
+
 <!-- Custom Js -->
 <script src="../js/main.js"></script>
-<script src="../js/pages/service.publish.js"></script>
+<script src="../js/pages/city.js"></script>
 
 </body>
 

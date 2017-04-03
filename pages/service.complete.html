@@ -125,7 +125,7 @@
 
                 <li class="active">
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">business</i>
+                        <i class="material-icons">business_center</i>
                         <span>企业服务</span>
                     </a>
                     <ul class="ml-menu">
@@ -180,6 +180,7 @@
         <!-- Widgets -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
                 <div class="card">
                     <div class="header clearfix">
                         <a href="service.publish.html" role="button">
@@ -189,15 +190,17 @@
                             完善企业服务
                         </h2>
                     </div>
-                    <div class="body">
-                        <form id="service-complete-form" method="post" enctype="multipart/form-data">
+                </div>
 
+                <div class="card">
+                    <form id="service-basic__form" method="post">
+                        <div class="body">
                             <div class="lead">
                                 <b>基本信息(必填)</b>
                             </div>
 
                             <div class="input-group">
-                                <input type="hidden" name="id">
+                                <input type="hidden" name="id" required="">
 
                                 <b>公司名称</b>
                                 <div class="form-line">
@@ -205,19 +208,17 @@
                                            id="company-name"
                                            name="company-name"
                                            class="form-control"
-                                           placeholder="公司名称"
-                                           required>
+                                           placeholder="公司名称">
                                 </div>
                                 <label id="company-name-error" class="error" for="company-name"></label>
 
                                 <b>公司网站</b>
                                 <div class="form-line">
-                                    <input type="url"
+                                    <input type="text"
                                            id="company-website"
                                            name="company-website"
                                            class="form-control"
-                                           placeholder="公司网站"
-                                           required>
+                                           placeholder="公司网站">
                                 </div>
                                 <div class="help-info">http://, https:// etc</div>
                                 <label id="company-website-error" class="error" for="company-website"></label>
@@ -228,8 +229,7 @@
                                            id="contact-name"
                                            name="contact-name"
                                            class="form-control"
-                                           placeholder="联系人姓名"
-                                           required>
+                                           placeholder="联系人姓名">
                                 </div>
                                 <label id="contact-name-error" class="error" for="contact-name"></label>
 
@@ -239,19 +239,17 @@
                                            id="contact-phone-number"
                                            name="contact-phone-number"
                                            class="form-control"
-                                           placeholder="联系电话"
-                                           required>
+                                           placeholder="联系电话">
                                 </div>
                                 <label id="contact-phone-number-error" class="error" for="contact-phone-number"></label>
 
                                 <b>联系邮箱</b>
                                 <div class="form-line">
-                                    <input type="text"
+                                    <input type="email"
                                            id="contact-email"
                                            name="contact-email"
                                            class="form-control"
-                                           placeholder="联系邮箱"
-                                           required>
+                                           placeholder="联系邮箱">
                                 </div>
                                 <label id="contact-email-error" class="error" for="contact-email"></label>
 
@@ -260,19 +258,41 @@
                                 <!--<option>审核拒绝</option>-->
                                 <!--</select>-->
                             </div>
+                        </div>
 
-                            <br>
+                        <div class="panel-footer">
+                            <div class="btn-group" role="group">
+                                <button type="submit"
+                                        class="btn bg-teal waves-effect material-icons material-icons"
+                                        style="padding: 10px">
+                                    check
+                                    <span>修改基本信息</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <form id="service-advance__form" method="post" enctype="multipart/form-data">
+                        <div class="body">
+
                             <div class="lead">
-                                <b>请完善一下信息(可选)</b>
+                                <b>请完善以下信息(可选)</b>
                             </div>
 
                             <div class="input-group">
-                                <b>公司Logo</b>
-                                <div class="form-line">
-                                    <input name="logo" type="file" class="form-control"/>
-                                </div>
-                                <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
+                                <input type="hidden" name="id" id="id" required="">
 
+                                <b>公司Logo</b>
+                                <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
+                                <div class="form-line">
+                                    <input name="logo" type="file" id="logo" class="form-control"/>
+                                </div>
+                                <label id="logo-error" class="error" for="logo"></label>
+                            </div>
+
+                            <div class="input-group">
                                 <b>服务城市(点击选择)</b>
                                 <div class="form-line">
                                     <input
@@ -283,7 +303,9 @@
                                             placeholder="服务城市(选择)">
                                 </div>
                                 <label id="service-city-error" class="error" for="service-city"></label>
+                            </div>
 
+                            <div class="input-group">
                                 <b>服务类型(点击选择)</b>
                                 <div class="form-line">
                                     <input
@@ -294,7 +316,8 @@
                                             placeholder="服务类型(选择/添加)">
                                 </div>
                                 <label id="service-type-error" class="error" for="service-type"></label>
-
+                            </div>
+                            <div class="input-group">
                                 <b>产业类型(点击选择)</b>
                                 <div class="form-line">
                                     <input
@@ -324,10 +347,11 @@
 
                             <b>公司宣传画</b>
                             <div class="input-group">
-                                <div class="form-line">
-                                    <input type="file" name="banner-image" class="form-control"/>
-                                </div>
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
+                                <div class="form-line">
+                                    <input type="file" id="banner-image" name="banner-image" class="form-control"/>
+                                </div>
+                                <label id="banner-image-error" class="error" for="banner-image"></label>
                             </div>
 
                             <b>公司宣传口号</b>
@@ -344,32 +368,36 @@
 
                             <b>服务详情图片</b>
                             <div class="input-group">
-                                <div class="form-line">
-                                    <input type="file" name="service-detail-image" class="form-control"/>
-                                </div>
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
+                                <div class="form-line">
+                                    <input type="file" id="service-detail-image" name="service-detail-image"
+                                           class="form-control"/>
+                                </div>
+                                <label id="service-detail-image-error" class="error" for="service-detail-image"></label>
                             </div>
 
                             <b>备注信息</b>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <textarea rows="4" class="form-control no-resize" id="additional" name="additional"
-                                              placeholder="备注信息" required></textarea>
+                                        <textarea rows="4" class="form-control no-resize" id="additional"
+                                                  name="additional"
+                                                  placeholder="备注信息"></textarea>
                                 </div>
                                 <label id="additional-error" class="error" for="additional"></label>
                             </div>
-                        </form>
-                    </div>
-                    <div class="panel-footer">
-                        <div class="btn-group" role="group">
-                            <button type="button"
-                                    class="btn bg-teal waves-effect material-icons material-icons"
-                                    style="padding: 10px">
-                                check
-                                <span>提交修改</span>
-                            </button>
                         </div>
-                    </div>
+
+                        <div class="panel-footer">
+                            <div class="btn-group" role="group">
+                                <button type="submit"
+                                        class="btn bg-teal waves-effect material-icons material-icons"
+                                        style="padding: 10px">
+                                    check
+                                    <span>提交修改</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -409,8 +437,6 @@
 
 <!-- Custom Js -->
 <script src="../js/main.js"></script>
-<script src="../js/pages/advanced-form-elements.js"></script>
-
 <script src="../js/pages/service.complete.js"></script>
 
 </body>
