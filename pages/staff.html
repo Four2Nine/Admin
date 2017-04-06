@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>合伙人 | Dashboard</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"-->
+    <!--type="text/css">-->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">-->
+
+    <!-- Bootstrap Core Css -->
+    <link href="../plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../plugins/node-waves/waves.min.css" rel="stylesheet"/>
+
+    <!-- Sweetalert Css -->
+    <link href="../plugins/sweetalert/sweetalert.css" rel="stylesheet"/>
+
+    <!-- Animation Css -->
+    <link href="../plugins/animate-css/animate.min.css" rel="stylesheet"/>
+
+    <!-- Preloader Css -->
+    <link href="../plugins/material-design-preloader/md-preloader.min.css" rel="stylesheet"/>
+
+    <!-- Morris Chart Css-->
+    <link href="../plugins/morrisjs/morris.css" rel="stylesheet"/>
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../css/themes/all-themes.min.css" rel="stylesheet"/>
+</head>
+
+<body class="theme-teal">
+<!-- Top Bar -->
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand" href="dashboard.html">合伙人</a>
+        </div>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section>
+    <!-- Left Sidebar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="material-icons">home</i>
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin.html">
+                            <i class="material-icons">verified_user</i>
+                            <span>管理员</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="users.html">
+                            <i class="material-icons">people</i>
+                            <span>会员</span>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="staff.html">
+                            <i class="material-icons">people</i>
+                            <span>合伙人</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="apply.html">
+                            <i class="material-icons">assignment</i>
+                            <span>报名表</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="city.html">
+                            <i class="material-icons">business</i>
+                            <span>城市</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">subject</i>
+                            <span>项目</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="project.list.html">项目列表</a>
+                            </li>
+                            <li>
+                                <a href="project.add.html">添加项目</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">art_track</i>
+                            <span>资讯</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="news.html">资讯列表</a>
+                            </li>
+                            <li>
+                                <a href="news.add.html">添加资讯</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">business_center</i>
+                            <span>企业服务</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="service.check.html">审核</a>
+                            </li>
+                            <li>
+                                <a href="service.publish.html">发布/完善</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="message.html">
+                            <i class="material-icons">feedback</i>
+                            <span>留言</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="slider.html">
+                            <i class="material-icons">slideshow</i>
+                            <span>首页轮播</span>
+                        </a>
+                    </li>
+
+                    <li class="header"></li>
+
+                    <li>
+                        <a id="cu-logout" href="#">
+                            <i class="material-icons">input</i>
+                            <span>退出</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0);">&copy; 2016-2017|four2nine - dashboard</a>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+    <!-- #END# Left Sidebar -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>
+                STAFF
+            </h2>
+        </div>
+        <!-- Striped Rows -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            合伙人列表
+                        </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);" data-toggle="modal" data-target="#addStaffModal">添加合伙人</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body table-responsive">
+                        <table class="table table-striped" id="cu-staff-table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>姓名</th>
+                                <th>职务</th>
+                                <th>邮箱</th>
+                                <th>电话</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td colspan="6"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Striped Rows -->
+    </div>
+</section>
+
+<!-- Modal Dialogs ====================================================================================================================== -->
+<!-- Default Size -->
+
+<div class="modal fade" id="addStaffModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel1">添加一个合伙人</h4>
+            </div>
+            <form role="form" method="post" id="add_staff_form">
+                <div class="modal-body">
+
+                    <label for="name">头像</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="file" id="image" name="image" class="form-control">
+                        </div>
+                        <label id="image-error" class="error" for="image"></label>
+                    </div>
+
+                    <label for="name">姓名</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="text" id="name" name="name" class="form-control"
+                                   placeholder="合伙人姓名" required>
+                        </div>
+                        <label id="name-error" class="error" for="name"></label>
+                    </div>
+
+                    <label for="desc">简介</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <textarea rows="3" id="desc" name="desc" class="form-control no-resize" placeholder="简介"></textarea>
+                        </div>
+                        <label id="desc-error" class="error" for="desc"></label>
+                    </div>
+
+                    <label for="duties">职务</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="text" id="duties" name="duties" class="form-control"
+                                   placeholder="合伙人职务">
+                        </div>
+                        <label id="duties-error" class="error" for="duties"></label>
+                    </div>
+
+                    <label for="email">邮箱（可选）</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="email" id="email" name="email" class="form-control"
+                                   placeholder="合伙人邮箱">
+                        </div>
+                        <label id="email-error" class="error" for="email"></label>
+                    </div>
+
+                    <label for="phone">电话（可选）</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="text" id="phone" name="phone" class="form-control"
+                                   placeholder="合伙人电话">
+                        </div>
+                        <label id="phone-error" class="error" for="phone"></label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary waves-effect">添加</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="detailUserModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel">会员详情/修改</h4>
+            </div>
+            <form role="form" method="post" id="update_user_form">
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary waves-effect">修改</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Jquery Core Js -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap Notify Plugin Js -->
+<script src="../plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+<!-- SweetAlert Plugin Js -->
+<script src="../plugins/sweetalert/sweetalert.min.js"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="../plugins/node-waves/waves.min.js"></script>
+
+<!-- Custom Js -->
+<script src="../js/main.js"></script>
+<script src="../js/pages/sign-form-validation.js"></script>
+<script src="../js/pages/staff.js"></script>
+
+</body>
+
+</html>

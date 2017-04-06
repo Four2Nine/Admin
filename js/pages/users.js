@@ -15,7 +15,7 @@ $.ajax({
     url: "/admin/controller/check.login.php",
     success: function (data) {
         var result = JSON.parse(data);
-        if (result.status == CORRECT) {
+        if (result.status === CORRECT) {
             //验证登录成功
             getUserList();
         } else {
@@ -42,7 +42,7 @@ function getUserList() {
             // ----
 
             //显示会员表格的内容
-            if (applyNum == 0) {
+            if (applyNum === 0) {
                 $("#cu-apply-table").find("tbody>tr>td").html("暂时没有会员");
             } else {
                 var html = "";
