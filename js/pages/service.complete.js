@@ -133,7 +133,6 @@ $("#service-basic__form").submit(function (event) {
 });
 
 $("#service-advance__form").submit(function (event) {
-
     event.preventDefault();
     var $form = $(this);
     var $inputs = $form.find("input, select, button, textarea");
@@ -152,19 +151,11 @@ $("#service-advance__form").submit(function (event) {
 
     var form_data = new FormData();
 
-    form_data.append('id', $("#id").val());
-    form_data.append('service-city', city.val());
-    form_data.append('service-type', type.val());
-    form_data.append('industry', industry.val());
-    form_data.append('price', price.val());
-    form_data.append('banner_text', banner_text.val());
-    form_data.append('additional', additional.val());
-
     var logo_img__file = logo_img.prop("files")[0];
     var banner_img__file = banner_img.prop("files")[0];
     var detail_img__file = detail_img.prop("files")[0];
 
-    if (logo_img__file == undefined) {
+    if (logo_img__file === undefined) {
         form_data.append('logo-flag', 0);
     } else if (logo_img__file.size > limmitSize) {
         $("#logo-error").html("图片不能大于5MB");
@@ -177,31 +168,39 @@ $("#service-advance__form").submit(function (event) {
         form_data.append('logo', logo_img__file);
     }
 
-    if (banner_img__file == undefined) {
+    if (banner_img__file === undefined) {
         form_data.append('banner-flag', 0);
     } else if (banner_img__file.size > limmitSize) {
         $("#banner-image-error").html("图片不能大于5MB");
         $inputs.prop("disabled", false);
-
         banner_img.parents('.form-line').addClass('error');
+
         return false;
     } else {
         form_data.append('banner-flag', 1);
         form_data.append('banner-image', banner_img__file);
     }
 
-    if (detail_img__file == undefined) {
+    if (detail_img__file === undefined) {
         form_data.append('detail-flag', 0);
     } else if (detail_img__file.size > limmitSize) {
         $("#service-detail-image-error").html("图片不能大于5MB");
         $inputs.prop("disabled", false);
-
         detail_img.parents('.form-line').addClass('error');
+
         return false;
     } else {
         form_data.append('detail-flag', 1);
         form_data.append('detail-img', detail_img__file);
     }
+
+    form_data.append('id', $("#id").val());
+    form_data.append('service-city', city.val());
+    form_data.append('service-type', type.val());
+    form_data.append('industry', industry.val());
+    form_data.append('price', price.val());
+    form_data.append('banner_text', banner_text.val());
+    form_data.append('additional', additional.val());
 
     $.ajax({
         url: "/admin/controller/service.update.advance.con.php",
@@ -213,7 +212,7 @@ $("#service-advance__form").submit(function (event) {
         data: form_data,
         success: function (data) {
             $inputs.prop("disabled", false);
-            if (data == 1) {
+            if (data.equals(1)) {
                 showNotification(
                     "alert-success",
                     "修改成功",
