@@ -264,6 +264,8 @@ function passApply() {
         title: "审核报名表",
         text: "审核通过",
         type: "info",
+        confirmButtonText: "确认",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true
@@ -295,6 +297,8 @@ function denyApply() {
         title: "审核报名表",
         text: "审核拒绝",
         type: "info",
+        confirmButtonText: "确认",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true

@@ -158,7 +158,7 @@ $("#update_staff_form").submit(function (event) {
         processData: false,
         data: form_data,
         success: function (data) {
-            $inputs.prop("disabled", true);
+            $inputs.prop("disabled", false);
             $("#detailStaffModal").modal('hide');
             var result = JSON.parse(data);
             if (result == 1) {

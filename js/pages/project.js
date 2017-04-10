@@ -119,6 +119,8 @@ function deleteProject(id) {
         title: "删除项目",
         text: "删除操作不能撤销!",
         type: "info",
+        confirmButtonText: "确认删除",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true
@@ -184,6 +186,8 @@ $("#add_project_form").submit(function (event) {
     swal({
         title: "确认添加项目",
         type: "info",
+        confirmButtonText: "确认添加",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true

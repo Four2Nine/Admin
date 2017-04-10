@@ -2,24 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fca9c5fe-d466-4911-8fcd-f281e131834c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/news/taobao-app.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/news/taobao-poster.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/news/website.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/service/1491638268preview4.zh的副本.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/staff/1491642522logo2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/staff/1491642529logo2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/038e3576-0cd9-4939-b4d0-9c37c4c0172b.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/staff.delete.con.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/staff.detail.con.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/staff.update.con.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/news.delete.con.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/news.detail.con.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/news.update.con.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/news/taobao-app.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/news/taobao-poster.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/news/website.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/news.addItem.con.php" afterPath="$PROJECT_DIR$/controller/news.addItem.con.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/service.update.advance.con.php" afterPath="$PROJECT_DIR$/controller/service.update.advance.con.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/staff.add.con.php" afterPath="$PROJECT_DIR$/controller/staff.add.con.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/service.complete.js" afterPath="$PROJECT_DIR$/js/pages/service.complete.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/admin.js" afterPath="$PROJECT_DIR$/js/pages/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/apply.js" afterPath="$PROJECT_DIR$/js/pages/apply.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/news.js" afterPath="$PROJECT_DIR$/js/pages/news.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/project.js" afterPath="$PROJECT_DIR$/js/pages/project.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/staff.js" afterPath="$PROJECT_DIR$/js/pages/staff.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/staff.html" afterPath="$PROJECT_DIR$/pages/staff.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/users.js" afterPath="$PROJECT_DIR$/js/pages/users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news.add.html" afterPath="$PROJECT_DIR$/pages/news.add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news.html" afterPath="$PROJECT_DIR$/pages/news.html" />
     </list>
     <ignored path="admin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,7 +79,7 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="tb_staff" />
+        <option name="myItemId" value="tb_news" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -91,67 +90,115 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="staff.detail.con.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/staff.detail.con.php">
+      <file leaf-file-name="news.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/news.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="41" lean-forward="false" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-              <folding>
-                <marker date="1491641716000" expanded="true" signature="230:269" ph="SELECT * FRO... tb_staff" />
-              </folding>
+            <state relative-caret-position="406">
+              <caret line="236" column="22" lean-forward="true" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="staff.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/staff.html">
+      <file leaf-file-name="news.add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/news.add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-227">
-              <caret line="229" column="35" lean-forward="true" selection-start-line="229" selection-start-column="35" selection-end-line="229" selection-end-column="35" />
-              <folding>
-                <element signature="n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="489">
+              <caret line="196" column="38" lean-forward="true" selection-start-line="196" selection-start-column="38" selection-end-line="196" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="staff.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="staff.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/pages/staff.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="165" column="30" lean-forward="false" selection-start-line="165" selection-start-column="30" selection-end-line="165" selection-end-column="30" />
+            <state relative-caret-position="177">
+              <caret line="62" column="4" lean-forward="false" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
                 <element signature="n#!!block;n#getStaffList#0" expanded="false" />
-                <element signature="n#!!block;n#deleteStaff#0" expanded="false" />
                 <element signature="n#!!block;n#detailStaff#0" expanded="false" />
+                <element signature="e#5777#7515#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="staff.update.con.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/staff.update.con.php">
+      <file leaf-file-name="users.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/pages/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
+            <state relative-caret-position="49">
+              <caret line="77" column="32" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
               <folding>
-                <marker date="1491803303000" expanded="true" signature="883:977" ph="INSERT INTO tb_staff... " />
-                <marker date="1491803303000" expanded="true" signature="992:1203" ph="UPDATE tb_st... " />
-                <marker date="1491803303000" expanded="true" signature="1341:1583" ph="UPDATE tb_st... " />
-                <marker date="1491803303000" expanded="true" signature="1600:1706" ph="INSERT INTO tb_staff... " />
+                <element signature="n#!!block;n#detailUser#0" expanded="false" />
+                <element signature="e#5009#6127#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.update.con.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/users.update.con.php">
+      <file leaf-file-name="news.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/pages/news.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="177">
+              <caret line="214" column="4" lean-forward="false" selection-start-line="214" selection-start-column="4" selection-end-line="214" selection-end-column="4" />
               <folding>
-                <marker date="1491482996000" expanded="true" signature="592:668" ph="UPDATE `tb_u... " />
+                <element signature="n#!!block;n#getNewsList#0" expanded="false" />
+                <element signature="n#!!block;n#detailNews#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/pages/project.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="189" column="31" lean-forward="false" selection-start-line="189" selection-start-column="31" selection-end-line="189" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service.check.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/pages/service.check.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="156" column="4" lean-forward="false" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/pages/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apply.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/pages/apply.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="299" column="30" lean-forward="false" selection-start-line="299" selection-start-column="30" selection-end-line="299" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="news.update.con.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/news.update.con.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+              <folding>
+                <marker date="1491807821000" expanded="true" signature="815:895" ph="UPDATE `tb_n... " />
+                <marker date="1491807821000" expanded="true" signature="1067:1129" ph="UPDATE `tb_n... " />
               </folding>
             </state>
           </provider>
@@ -181,6 +228,7 @@
       <find>nul</find>
       <find>=</find>
       <find>===</find>
+      <find>swal\(\{\n        title\:</find>
     </findStrings>
     <replaceStrings>
       <replace>==</replace>
@@ -224,17 +272,26 @@
         <option value="$PROJECT_DIR$/admin.html" />
         <option value="$PROJECT_DIR$/pages/dashboard.html" />
         <option value="$PROJECT_DIR$/controller/staff.list.con.php" />
-        <option value="$PROJECT_DIR$/js/pages/users.js" />
         <option value="$PROJECT_DIR$/controller/project.addItem.con.php" />
         <option value="$PROJECT_DIR$/controller/service.update.advance.con.php" />
-        <option value="$PROJECT_DIR$/controller/staff.add.con.php" />
-        <option value="$PROJECT_DIR$/controller/news.addItem.con.php" />
         <option value="$PROJECT_DIR$/controller/staff.delete.con.php" />
         <option value="$PROJECT_DIR$/js/pages/service.complete.js" />
         <option value="$PROJECT_DIR$/controller/staff.detail.con.php" />
         <option value="$PROJECT_DIR$/pages/staff.html" />
         <option value="$PROJECT_DIR$/controller/staff.update.con.php" />
+        <option value="$PROJECT_DIR$/controller/news.detail.con.php" />
+        <option value="$PROJECT_DIR$/controller/staff.add.con.php" />
+        <option value="$PROJECT_DIR$/controller/news.addItem.con.php" />
+        <option value="$PROJECT_DIR$/controller/news.delete.con.php" />
+        <option value="$PROJECT_DIR$/pages/news.html" />
+        <option value="$PROJECT_DIR$/pages/news.add.html" />
+        <option value="$PROJECT_DIR$/controller/news.update.con.php" />
+        <option value="$PROJECT_DIR$/js/pages/news.js" />
         <option value="$PROJECT_DIR$/js/pages/staff.js" />
+        <option value="$PROJECT_DIR$/js/pages/admin.js" />
+        <option value="$PROJECT_DIR$/js/pages/apply.js" />
+        <option value="$PROJECT_DIR$/js/pages/project.js" />
+        <option value="$PROJECT_DIR$/js/pages/users.js" />
       </list>
     </option>
   </component>
@@ -372,15 +429,15 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\admin\Temp" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/controller" />
       <recent name="$PROJECT_DIR$/pages" />
       <recent name="E:\xampp\htdocs\Admin\controller" />
       <recent name="E:\xampp\htdocs\Admin\js" />
       <recent name="D:\xampp\htdocs\Admin\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\admin\Temp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -491,7 +548,7 @@
       <workItem from="1491483025102" duration="9136000" />
       <workItem from="1491631783619" duration="91000" />
       <workItem from="1491635991407" duration="10940000" />
-      <workItem from="1491801683141" duration="800000" />
+      <workItem from="1491801683141" duration="5032000" />
     </task>
     <task id="LOCAL-00001" summary="操作管理员模块完成，若操作super管理员则有窗口提示">
       <created>1478488210229</created>
@@ -521,11 +578,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491803417012</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改图片上传路径问题">
+      <created>1491803432122</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1491803432122</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68132000" />
+    <option name="totallyTimeSpent" value="72364000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -534,7 +598,8 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22889842" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5030257" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18454936" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -546,9 +611,27 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5030257" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22889842" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18454936" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -595,7 +678,8 @@
     <MESSAGE value="添加合伙人页面，提供列表／添加合伙人的功能" />
     <MESSAGE value="完善上传图片功能（修改写权限问题）" />
     <MESSAGE value="全球合伙人详情和修改完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="全球合伙人详情和修改完成" />
+    <MESSAGE value="修改图片上传路径问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改图片上传路径问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -604,28 +688,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dashboard.html" />
-    <entry file="file://$PROJECT_DIR$/common/PHPExcel.php" />
-    <entry file="file://$PROJECT_DIR$/common/Constant.php" />
-    <entry file="file://$PROJECT_DIR$/controller/apply.export.con.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/respond.min.js" />
-    <entry file="file://$PROJECT_DIR$/common/global.func.php" />
-    <entry file="file://$PROJECT_DIR$/js/com.fun.js" />
-    <entry file="file://$PROJECT_DIR$/users.html" />
-    <entry file="file://$PROJECT_DIR$/apply.html" />
-    <entry file="file://$PROJECT_DIR$/controller/apply.detail.con.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/apply.con.php" />
     <entry file="file://$PROJECT_DIR$/controller/login.con.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -676,13 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pages/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="65" column="13" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="65" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -754,16 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/news.addItem.con.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-          <folding>
-            <marker date="1491641931000" expanded="true" signature="1049:1137" ph="INSERT INTO `tb_news`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/admin.add.con.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="763">
@@ -807,6 +852,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-53">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -817,24 +863,6 @@
           <folding>
             <marker date="1491642439000" expanded="true" signature="204:241" ph="DELETE FROM " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/staff.add.con.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <marker date="1491641353000" expanded="true" signature="855:949" ph="INSERT INTO tb_staff... " />
-            <marker date="1491641353000" expanded="true" signature="1081:1187" ph="INSERT INTO tb_staff... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/pages/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2432">
-          <caret line="146" column="9" lean-forward="false" selection-start-line="146" selection-start-column="9" selection-end-line="146" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -865,13 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/pages/service.check.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="56" column="6" lean-forward="true" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/users.update.con.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -892,16 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/staff.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-227">
-          <caret line="229" column="35" lean-forward="true" selection-start-line="229" selection-start-column="35" selection-end-line="229" selection-end-column="35" />
-          <folding>
-            <element signature="n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/staff.update.con.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -915,15 +926,164 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/news.detail.con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding>
+            <marker date="1491804718000" expanded="true" signature="230:268" ph="SELECT * FRO... tb_news" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/project.add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3325">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/staff.add.con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-422">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding>
+            <marker date="1491805280000" expanded="true" signature="828:922" ph="INSERT INTO tb_staff... " />
+            <marker date="1491805280000" expanded="true" signature="1062:1168" ph="INSERT INTO tb_staff... " />
+            <marker date="1491805280000" expanded="true" signature="1310:1416" ph="INSERT INTO tb_staff... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/news.delete.con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <marker date="1491806498000" expanded="true" signature="204:240" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/news.addItem.con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="77" column="15" lean-forward="false" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="15" />
+          <folding>
+            <marker date="1491806200000" expanded="true" signature="1562:1650" ph="INSERT INTO `tb_news`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/slider.update.con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="47" column="69" lean-forward="true" selection-start-line="47" selection-start-column="69" selection-end-line="47" selection-end-column="69" />
+          <folding>
+            <marker date="1491482996000" expanded="true" signature="1013:1072" ph="UPDATE `tb_s... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/staff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="316" column="96" lean-forward="false" selection-start-line="316" selection-start-column="66" selection-end-line="316" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/news.add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="196" column="38" lean-forward="true" selection-start-line="196" selection-start-column="38" selection-end-line="196" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/news.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="236" column="22" lean-forward="true" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/news.update.con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+          <folding>
+            <marker date="1491807821000" expanded="true" signature="815:895" ph="UPDATE `tb_n... " />
+            <marker date="1491807821000" expanded="true" signature="1067:1129" ph="UPDATE `tb_n... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pages/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pages/apply.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="299" column="30" lean-forward="false" selection-start-line="299" selection-start-column="30" selection-end-line="299" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pages/news.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="214" column="4" lean-forward="false" selection-start-line="214" selection-start-column="4" selection-end-line="214" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#getNewsList#0" expanded="false" />
+            <element signature="n#!!block;n#detailNews#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pages/project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="189" column="31" lean-forward="false" selection-start-line="189" selection-start-column="31" selection-end-line="189" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pages/service.check.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="156" column="4" lean-forward="false" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/pages/staff.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="165" column="30" lean-forward="false" selection-start-line="165" selection-start-column="30" selection-end-line="165" selection-end-column="30" />
+        <state relative-caret-position="177">
+          <caret line="62" column="4" lean-forward="false" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
             <element signature="n#!!block;n#getStaffList#0" expanded="false" />
-            <element signature="n#!!block;n#deleteStaff#0" expanded="false" />
             <element signature="n#!!block;n#detailStaff#0" expanded="false" />
+            <element signature="e#5777#7515#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pages/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="77" column="32" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!block;n#detailUser#0" expanded="false" />
+            <element signature="e#5009#6127#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -7,6 +7,27 @@ require 'Constant.php';
 
 $title = $_POST['title'];
 $content = $_POST['content'];
+$image_flag = $_POST["image-flag"];
+
+//指定上传图片的路径
+$upload_folder = substr(dirname(__FILE__), 0, -10) . 'images/news/';
+
+//如果指定的路径不存在则创建
+if (!file_exists($upload_folder)) {
+    echo $upload_folder;
+    exit;
+}
+
+$fileUpload = "";
+
+if ($image_flag == 1 && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
+    $tmp_name = $_FILES['image']['tmp_name'];
+    $name = time() . $_FILES['image']['name'];
+    $uploadFile = $upload_folder . $name;
+    move_uploaded_file($tmp_name, $uploadFile);
+    $fileUpload = $name;
+}
+/*
 $fileCount = $_POST['file_num'];
 $subFile = time();
 
@@ -36,6 +57,8 @@ for ($i = 0; $i < $fileCount; $i++) {
 
 //将数组以@为间隔连接成为字符串，准备存储在数据库中
 $pictures = $subFile . "@" . implode("@", $filesUploadArray);
+*/
+
 
 //连接数据库，并设置字符编码
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
@@ -52,7 +75,7 @@ $stmt = $con->prepare($sql);
 $stmt->bind_param('sss',
     $title,
     $content,
-    $pictures
+    $fileUpload
 );
 
 $stmt->execute();

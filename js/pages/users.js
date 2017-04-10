@@ -75,6 +75,8 @@ function deleteUser(id) {
         title: "删除会员",
         text: "删除后，该会员的所有信息将清空。此操作不能撤销!",
         type: "info",
+        confirmButtonText: "删除会员",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true

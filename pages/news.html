@@ -203,12 +203,37 @@
             <div class="modal-header">
                 <h4 class="modal-title" id="defaultModalLabel">资讯详情/修改</h4>
             </div>
-            <form id="project-form" role="form" method="post">
+            <form id="update_news_form" role="form" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <table class="table table-striped" id="cu-project-detail-table">
-                        <tbody>
-                        </tbody>
-                    </table>
+                    <input type="hidden" name="id" id="id">
+                    <b>标题</b>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="text" id="title" name="title" class="form-control" placeholder="资讯标题"
+                                   required>
+                        </div>
+                        <label id="title-error" class="error" for="title"></label>
+                    </div>
+
+                    <b>内容</b>
+                    <div class="input-group">
+                        <div class="form-line">
+                                    <textarea rows="6" class="form-control no-resize" id="content" name="content"
+                                              placeholder="内容" required></textarea>
+                        </div>
+                        <label id="content-error" class="error" for="content"></label>
+                    </div>
+
+                    <b>资讯图片</b>
+                    <a href="javascript:void(0);" class="thumbnail">
+                        <img src="" class="img-responsive" id="head-img" width="120" height="120">
+                    </a>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="file" id="image" name="image" class="form-control"/>
+                        </div>
+                        <label id="image-error" class="error" for="image">不修改则不上传</label>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary waves-effect">修改</button>

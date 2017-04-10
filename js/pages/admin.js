@@ -67,6 +67,8 @@ function disableAdmin(id, is_active) {
         title: is_active == 1 ? "禁用管理员" : "启用管理员",
         text: is_active == 1 ? "禁用后，该管理员将无法登录" : "启用后，该管理员恢复使用",
         type: "info",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true
@@ -94,6 +96,8 @@ function removeAdmin(id) {
         title: "删除管理员",
         text: "删除后，该管理员的所有信息将清空。此操作不能撤销!",
         type: "info",
+        confirmButtonText: "确认删除",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true
