@@ -11,17 +11,11 @@ $fileCount = $_POST['file_num'];
 $subFile = time();
 
 //指定上传图片的路径
-$upload_folder = substr(dirname(__FILE__), 0, -10) . 'images\\';
-$upload_folder = $upload_folder . $subFile . '\\';
+$upload_folder = substr(dirname(__FILE__), 0, -10) . 'images/news/';
 
-//如果指定的路径不存在则创建
 if (!file_exists($upload_folder)) {
-    if (mkdir($upload_folder)) {
-
-    } else {
-        echo 0;
-        exit;
-    }
+    echo $upload_folder;
+    exit;
 }
 
 //创建一个数组接收上传的图片信息

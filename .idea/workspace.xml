@@ -491,7 +491,7 @@
       <workItem from="1491483025102" duration="9136000" />
       <workItem from="1491631783619" duration="91000" />
       <workItem from="1491635991407" duration="10940000" />
-      <workItem from="1491801683141" duration="742000" />
+      <workItem from="1491801683141" duration="800000" />
     </task>
     <task id="LOCAL-00001" summary="操作管理员模块完成，若操作super管理员则有窗口提示">
       <created>1478488210229</created>
@@ -514,11 +514,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491638413312</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="全球合伙人详情和修改完成">
+      <created>1491803417012</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1491803417012</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68074000" />
+    <option name="totallyTimeSpent" value="68132000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -587,7 +594,8 @@
     <MESSAGE value="操作管理员模块完成，若操作super管理员则有窗口提示" />
     <MESSAGE value="添加合伙人页面，提供列表／添加合伙人的功能" />
     <MESSAGE value="完善上传图片功能（修改写权限问题）" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善上传图片功能（修改写权限问题）" />
+    <MESSAGE value="全球合伙人详情和修改完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="全球合伙人详情和修改完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -791,6 +799,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="796">
           <caret line="183" column="28" lean-forward="false" selection-start-line="183" selection-start-column="28" selection-end-line="183" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

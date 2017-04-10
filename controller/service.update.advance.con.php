@@ -21,7 +21,7 @@ $banner_flag = $_POST['banner-flag'];
 $detail_flag = $_POST['detail-flag'];
 
 //指定上传图片的路径
-$upload_folder = substr(dirname(__FILE__), 0, -10) . 'images/';
+$upload_folder = substr(dirname(__FILE__), 0, -10) . 'images/service/';
 
 //如果指定的路径不存在则创建
 if (!file_exists($upload_folder)) {
