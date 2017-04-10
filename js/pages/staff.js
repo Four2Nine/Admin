@@ -6,7 +6,7 @@ $.ajax({
     url: "/admin/controller/check.login.php",
     success: function (data) {
         var result = JSON.parse(data);
-        if (result.status === CORRECT) {
+        if (result.status == CORRECT) {
             //验证登录成功
             getStaffList();
         } else {
@@ -31,7 +31,7 @@ function getStaffList(){
             // ----
 
             //显示合伙人表格的内容
-            if (staffNum === 0) {
+            if (staffNum == 0) {
                 $("#cu-staff-table").find("tbody>tr>td").html("暂时没有合伙人");
             } else {
                 var html = "";
@@ -45,7 +45,7 @@ function getStaffList(){
                         "<td>" +
                         "<div class='btn-group' role='group'>" +
                         "<button type='button' class='btn btn-default btn-xs waves-effect material-icons'" +
-                        "onclick='detailStaff(" + item + ")' data-toggle='modal' data-target='#detailUserModal'>details</button>" +
+                        "onclick='detailStaff(" + item + ")' data-toggle='modal' data-target='#detailStaffModal'>details</button>" +
                         "<button type='button' class='btn btn-default btn-xs waves-effect material-icons'" +
                         "onclick='deleteStaff(" + item + ")'>delete</button>" +
                         "</div>" +
@@ -64,6 +64,8 @@ function deleteStaff(id) {
         title: "删除合伙人",
         text: "删除后，该合伙人的所有信息将清空。此操作不能撤销!",
         type: "info",
+        confirmButtonText: "确定删除",
+        cancelButtonText: "取消",
         showCancelButton: true,
         closeOnConfirm: false,
         showLoaderOnConfirm: true
@@ -74,10 +76,10 @@ function deleteStaff(id) {
             type: "post",
 
             success: function (data) {
-                if (data === 1) {
+                if (data==1) {
                     setTimeout(function () {
                         swal("操作完成");
-                        getUserList();
+                        getStaffList();
                     }, 500);
                 }
             }//success
@@ -92,70 +94,42 @@ function detailStaff(id) {
         type: "post",
         success: function (data) {
             var result = JSON.parse(data);
-            var html = '<input type="hidden" id="staff_id" name="staff_id" value="' + id + '" title=""/>';
-            for (var item in result.detail) {
-
-            }
-            $("#update_staff_form").find(".modal-body").html(html);
+            $("#staff_id").prop("value", result['detail']['id']);
+            $("#head-img").prop("src", "../images/staff/"+result['detail']['image']);
+            $("#up_name").prop("value", result['detail']['name']);
+            $("#up_desc").html(result['detail']['description']);
+            $("#up_duties").prop("value", result['detail']['duties']);
+            $("#up_email").prop("value", result['detail']['email']);
+            $("#up_phone").prop("value", result['detail']['phone']);
         }
     })
 }
 
 $("#update_staff_form").submit(function (event) {
-    var $form = $(this);
     event.preventDefault();
-
-    var id = $("#staff_id").val();
-    var serializedData = $form.serialize();
-
-    if (id === "") {
-        showNotification("alert-danger", "未知错误", "top", "right", "animated fadeInRight", "animated fadeOutRight");
-        return false;
-    }
-    //TODO: other validates...
-
-    $.ajax({
-        url: "/admin/controller/users.update.con.php",
-        data: serializedData,
-        type: "post",
-        success: function (data) {
-            $("#detailUserModal").modal('hide');
-            var result = JSON.parse(data);
-            if (result.affected_rows === 1) {
-
-                var text = "合伙人信息已修改";
-                if (result.is_reset_password) {
-                    text += "&nbsp;&nbsp;密码已重置为 000000"
-                }
-
-                showNotification("alert-success", text, "top", "right", "animated fadeInRight", "animated fadeOutRight");
-                getUserList();
-            } else {
-                showNotification("alert-danger", "合伙人信息修改失败", "top", "right", "animated fadeInRight", "animated fadeOutRight");
-            }
-        }
-    });
-});
-
-$("#add_staff_form").submit(function(event){
-    event.preventDefault();
-
     var $form = $(this);
     var $inputs = $form.find("input, select, button, textarea");
 
+    var id = $("#staff_id");
+
+    if (id.val() == "") {
+        showNotification("alert-danger", "发生错误", "top", "right", "animated fadeInRight", "animated fadeOutRight");
+        return false;
+    }
     $inputs.prop("disabled", true);
+
+    var image = $("#up_image");
+    var name = $("#up_name");
+    var desc = $("#up_desc");
+    var duties = $("#up_duties");
+    var email = $("#up_email");
+    var phone = $("#up_phone");
+
     var form_data = new FormData();
 
-
-    var image = $("#image");
-    var name = $("#name");
-    var desc = $("#desc");
-    var duties = $("#duties");
-    var email = $("#email");
-    var phone = $("#phone");
-
     var image__file = image.prop("files")[0];
-    if (image__file === undefined) {
+
+    if (image__file == undefined) {
         form_data.append('image-flag', 0);
     } else if (image__file.size > 5242880) {
         $("#image-error").html("图片不能大于5MB");
@@ -168,13 +142,84 @@ $("#add_staff_form").submit(function(event){
         form_data.append('image', image__file);
     }
 
+    form_data.append("staff_id", id.val());
+    form_data.append("name", name.val());
+    form_data.append("desc", desc.val());
+    form_data.append("duties", duties.val());
+    form_data.append("email", email.val());
+    form_data.append("phone", phone.val());
+
+    $.ajax({
+        url: "/admin/controller/staff.update.con.php",
+        type: "post",
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (data) {
+            $inputs.prop("disabled", true);
+            $("#detailStaffModal").modal('hide');
+            var result = JSON.parse(data);
+            if (result == 1) {
+                showNotification("alert-success", "合伙人信息已修改", "top", "right", "animated fadeInRight", "animated fadeOutRight");
+                getStaffList();
+            } else {
+                showNotification("alert-danger", "合伙人信息修改失败", "top", "right", "animated fadeInRight", "animated fadeOutRight");
+            }
+        }
+    });
+});
+
+$("#add_staff_form").submit(function(event){
+    event.preventDefault();
+    var $form = $(this);
+    var $inputs = $form.find("input, select, button, textarea");
+
+    $inputs.prop("disabled", true);
+
+    var image = $("#image");
+    var name = $("#name");
+    var desc = $("#desc");
+    var duties = $("#duties");
+    var email = $("#email");
+    var phone = $("#phone");
+
+    var form_data = new FormData();
+
+    var image__file = image.prop("files")[0];
+
+    if (image__file == undefined) {
+        form_data.append('image-flag', 0);
+    } else if (image__file.size > 5242880) {
+        $("#image-error").html("图片不能大于5MB");
+
+        $inputs.prop("disabled", false);
+        image.parents('.form-line').addClass('error');
+        return false;
+    } else {
+        form_data.append('image-flag', 1);
+        form_data.append('image', image__file);
+    }
+
+    form_data.append("name", name.val());
+    form_data.append("desc", desc.val());
+    form_data.append("duties", duties.val());
+    form_data.append("email", email.val());
+    form_data.append("phone", phone.val());
+
     $.ajax({
         url: "/admin/controller/staff.add.con.php",
-        data: form_data,
         type: "post",
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
         success: function (data) {
-            var result = JSON.parse(data);
-            if (result.affected_rows === 1) {
+            $inputs.prop("disabled", false);
+            $('#addStaffModal').modal('hide');
+            if (data==1) {
                 showNotification("alert-success", "成功添加合伙人", "top", "right", "animated fadeInRight", "animated fadeOutRight");
                 getStaffList();
             } else {

@@ -155,7 +155,7 @@ $("#service-advance__form").submit(function (event) {
     var banner_img__file = banner_img.prop("files")[0];
     var detail_img__file = detail_img.prop("files")[0];
 
-    if (logo_img__file === undefined) {
+    if (logo_img__file == undefined) {
         form_data.append('logo-flag', 0);
     } else if (logo_img__file.size > limmitSize) {
         $("#logo-error").html("图片不能大于5MB");
@@ -168,7 +168,7 @@ $("#service-advance__form").submit(function (event) {
         form_data.append('logo', logo_img__file);
     }
 
-    if (banner_img__file === undefined) {
+    if (banner_img__file == undefined) {
         form_data.append('banner-flag', 0);
     } else if (banner_img__file.size > limmitSize) {
         $("#banner-image-error").html("图片不能大于5MB");
@@ -181,7 +181,7 @@ $("#service-advance__form").submit(function (event) {
         form_data.append('banner-image', banner_img__file);
     }
 
-    if (detail_img__file === undefined) {
+    if (detail_img__file == undefined) {
         form_data.append('detail-flag', 0);
     } else if (detail_img__file.size > limmitSize) {
         $("#service-detail-image-error").html("图片不能大于5MB");

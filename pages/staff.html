@@ -240,7 +240,7 @@
             <div class="modal-header">
                 <h4 class="modal-title" id="defaultModalLabel1">添加一个合伙人</h4>
             </div>
-            <form role="form" method="post" id="add_staff_form">
+            <form role="form" method="post" id="add_staff_form" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <label for="name">头像</label>
@@ -263,7 +263,8 @@
                     <label for="desc">简介</label>
                     <div class="input-group">
                         <div class="form-line">
-                            <textarea rows="3" id="desc" name="desc" class="form-control no-resize" placeholder="简介"></textarea>
+                            <textarea rows="3" id="desc" name="desc" class="form-control no-resize"
+                                      placeholder="简介"></textarea>
                         </div>
                         <label id="desc-error" class="error" for="desc"></label>
                     </div>
@@ -305,14 +306,74 @@
     </div>
 </div>
 
-<div class="modal fade" id="detailUserModal" tabindex="-1" role="dialog">
+
+<div class="modal fade" id="detailStaffModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="defaultModalLabel">会员详情/修改</h4>
+                <h4 class="modal-title" id="">合伙人详情/修改<small>不填写则不修改</small></h4>
             </div>
-            <form role="form" method="post" id="update_user_form">
+
+            <form role="form" method="post" id="update_staff_form" enctype="multipart/form-data">
                 <div class="modal-body">
+                    <input type="hidden" id="staff_id" name="staff_id"/>
+                    <a href="javascript:void(0);" class="thumbnail">
+                        <img src="" class="img-responsive" id="head-img" width="120" height="120">
+                    </a>
+
+                    <label for="up_image">头像</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="file" id="up_image" name="up_image" class="form-control">
+                        </div>
+                        <label id="up_image-error" class="error" for="image">不上传则不修改头像</label>
+                    </div>
+
+                    <label for="up_name">姓名</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="text" id="up_name" name="up_name" class="form-control"
+                                   placeholder="合伙人姓名" required>
+                        </div>
+                        <label id="up_name-error" class="error" for="up_name"></label>
+                    </div>
+
+                    <label for="up_desc">简介</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <textarea rows="3" id="up_desc" name="up_desc" class="form-control no-resize"
+                                      placeholder="简介"></textarea>
+                        </div>
+                        <label id="up_desc-error" class="error" for="up_desc"></label>
+                    </div>
+
+                    <label for="up_duties">职务</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="text" id="up_duties" name="up_duties" class="form-control"
+                                   placeholder="合伙人职务">
+                        </div>
+                        <label id="up_duties-error" class="error" for="up_duties"></label>
+                    </div>
+
+                    <label for="up_email">邮箱（可选）</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="email" id="up_email" name="up_email" class="form-control"
+                                   placeholder="合伙人邮箱">
+                        </div>
+                        <label id="up_email-error" class="error" for="up_email"></label>
+                    </div>
+
+                    <label for="up_phone">电话（可选）</label>
+                    <div class="input-group">
+                        <div class="form-line">
+                            <input type="text" id="up_phone" name="up_phone" class="form-control"
+                                   placeholder="合伙人电话">
+                        </div>
+                        <label id="up_phone-error" class="error" for="up_phone"></label>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary waves-effect">修改</button>
