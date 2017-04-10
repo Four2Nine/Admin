@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fca9c5fe-d466-4911-8fcd-f281e131834c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/news.delete.con.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/news.detail.con.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/news.update.con.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/news/taobao-app.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/news/taobao-poster.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/news/website.jpg" afterPath="" />
+    <list default="true" id="fca9c5fe-d466-4911-8fcd-f281e131834c" name="Default" comment="修改">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/news.addItem.con.php" afterPath="$PROJECT_DIR$/controller/news.addItem.con.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/staff.add.con.php" afterPath="$PROJECT_DIR$/controller/staff.add.con.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/admin.js" afterPath="$PROJECT_DIR$/js/pages/admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/apply.js" afterPath="$PROJECT_DIR$/js/pages/apply.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/news.js" afterPath="$PROJECT_DIR$/js/pages/news.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/project.js" afterPath="$PROJECT_DIR$/js/pages/project.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/staff.js" afterPath="$PROJECT_DIR$/js/pages/staff.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/pages/users.js" afterPath="$PROJECT_DIR$/js/pages/users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/admin.html" afterPath="$PROJECT_DIR$/pages/admin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/apply.html" afterPath="$PROJECT_DIR$/pages/apply.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/city.html" afterPath="$PROJECT_DIR$/pages/city.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/message.html" afterPath="$PROJECT_DIR$/pages/message.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news.add.html" afterPath="$PROJECT_DIR$/pages/news.add.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news.html" afterPath="$PROJECT_DIR$/pages/news.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/project.add.html" afterPath="$PROJECT_DIR$/pages/project.add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/project.list.html" afterPath="$PROJECT_DIR$/pages/project.list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/service.check.html" afterPath="$PROJECT_DIR$/pages/service.check.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/service.complete.html" afterPath="$PROJECT_DIR$/pages/service.complete.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/service.publish.html" afterPath="$PROJECT_DIR$/pages/service.publish.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/slider.html" afterPath="$PROJECT_DIR$/pages/slider.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/staff.html" afterPath="$PROJECT_DIR$/pages/staff.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/users.html" afterPath="$PROJECT_DIR$/pages/users.html" />
     </list>
     <ignored path="admin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,115 +88,103 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="staff.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/staff.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="77" column="37" lean-forward="false" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/users.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="71" column="37" lean-forward="false" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="news.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/news.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="236" column="22" lean-forward="true" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
+            <state relative-caret-position="58">
+              <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="news.add.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/news.add.html">
+      <file leaf-file-name="project.add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/project.add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="196" column="38" lean-forward="true" selection-start-line="196" selection-start-column="38" selection-end-line="196" selection-end-column="38" />
+            <state relative-caret-position="216">
+              <caret line="100" column="37" lean-forward="false" selection-start-line="100" selection-start-column="37" selection-end-line="100" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="staff.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pages/staff.js">
+      <file leaf-file-name="project.list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/project.list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="62" column="4" lean-forward="false" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+            <state relative-caret-position="267">
+              <caret line="106" column="45" lean-forward="false" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service.check.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/service.check.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service.complete.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/service.complete.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="139" column="33" lean-forward="false" selection-start-line="139" selection-start-column="33" selection-end-line="139" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service.publish.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/service.publish.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slider.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/slider.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="150" column="37" lean-forward="false" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/admin.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
               <folding>
-                <element signature="e#0#42#0" expanded="false" />
-                <element signature="n#!!block;n#getStaffList#0" expanded="false" />
-                <element signature="n#!!block;n#detailStaff#0" expanded="false" />
-                <element signature="e#5777#7515#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/pages/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="77" column="32" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
-              <folding>
-                <element signature="n#!!block;n#detailUser#0" expanded="false" />
-                <element signature="e#5009#6127#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pages/news.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="214" column="4" lean-forward="false" selection-start-line="214" selection-start-column="4" selection-end-line="214" selection-end-column="4" />
-              <folding>
-                <element signature="n#!!block;n#getNewsList#0" expanded="false" />
-                <element signature="n#!!block;n#detailNews#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pages/project.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="189" column="31" lean-forward="false" selection-start-line="189" selection-start-column="31" selection-end-line="189" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service.check.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pages/service.check.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="156" column="4" lean-forward="false" selection-start-line="156" selection-start-column="4" selection-end-line="156" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pages/admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="32" selection-end-line="98" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apply.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/pages/apply.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="299" column="30" lean-forward="false" selection-start-line="299" selection-start-column="30" selection-end-line="299" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.update.con.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/news.update.con.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-              <folding>
-                <marker date="1491807821000" expanded="true" signature="815:895" ph="UPDATE `tb_n... " />
-                <marker date="1491807821000" expanded="true" signature="1067:1129" ph="UPDATE `tb_n... " />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -235,6 +221,11 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="liuyang &lt;sealiu0217@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -245,13 +236,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/widgets.html" />
-        <option value="$PROJECT_DIR$/charts.html" />
-        <option value="$PROJECT_DIR$/css/styles.css" />
-        <option value="$PROJECT_DIR$/common/global.func.php" />
-        <option value="$PROJECT_DIR$/dashboard.html" />
-        <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/users.html" />
         <option value="$PROJECT_DIR$/slider.html" />
         <option value="$PROJECT_DIR$/js/apply.js" />
         <option value="$PROJECT_DIR$/project.html" />
@@ -277,14 +261,11 @@
         <option value="$PROJECT_DIR$/controller/staff.delete.con.php" />
         <option value="$PROJECT_DIR$/js/pages/service.complete.js" />
         <option value="$PROJECT_DIR$/controller/staff.detail.con.php" />
-        <option value="$PROJECT_DIR$/pages/staff.html" />
         <option value="$PROJECT_DIR$/controller/staff.update.con.php" />
         <option value="$PROJECT_DIR$/controller/news.detail.con.php" />
         <option value="$PROJECT_DIR$/controller/staff.add.con.php" />
         <option value="$PROJECT_DIR$/controller/news.addItem.con.php" />
         <option value="$PROJECT_DIR$/controller/news.delete.con.php" />
-        <option value="$PROJECT_DIR$/pages/news.html" />
-        <option value="$PROJECT_DIR$/pages/news.add.html" />
         <option value="$PROJECT_DIR$/controller/news.update.con.php" />
         <option value="$PROJECT_DIR$/js/pages/news.js" />
         <option value="$PROJECT_DIR$/js/pages/staff.js" />
@@ -292,6 +273,20 @@
         <option value="$PROJECT_DIR$/js/pages/apply.js" />
         <option value="$PROJECT_DIR$/js/pages/project.js" />
         <option value="$PROJECT_DIR$/js/pages/users.js" />
+        <option value="$PROJECT_DIR$/pages/apply.html" />
+        <option value="$PROJECT_DIR$/pages/city.html" />
+        <option value="$PROJECT_DIR$/pages/message.html" />
+        <option value="$PROJECT_DIR$/pages/news.add.html" />
+        <option value="$PROJECT_DIR$/pages/news.html" />
+        <option value="$PROJECT_DIR$/pages/project.add.html" />
+        <option value="$PROJECT_DIR$/pages/project.list.html" />
+        <option value="$PROJECT_DIR$/pages/admin.html" />
+        <option value="$PROJECT_DIR$/pages/service.check.html" />
+        <option value="$PROJECT_DIR$/pages/service.complete.html" />
+        <option value="$PROJECT_DIR$/pages/service.publish.html" />
+        <option value="$PROJECT_DIR$/pages/slider.html" />
+        <option value="$PROJECT_DIR$/pages/staff.html" />
+        <option value="$PROJECT_DIR$/pages/users.html" />
       </list>
     </option>
   </component>
@@ -548,7 +543,7 @@
       <workItem from="1491483025102" duration="9136000" />
       <workItem from="1491631783619" duration="91000" />
       <workItem from="1491635991407" duration="10940000" />
-      <workItem from="1491801683141" duration="5032000" />
+      <workItem from="1491801683141" duration="5934000" />
     </task>
     <task id="LOCAL-00001" summary="操作管理员模块完成，若操作super管理员则有窗口提示">
       <created>1478488210229</created>
@@ -585,21 +580,27 @@
       <option name="project" value="LOCAL" />
       <updated>1491803432122</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="完成新闻资讯模块 其他已发现小问题的修复">
+      <created>1491808182523</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1491808182523</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72364000" />
+    <option name="totallyTimeSpent" value="73266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22889842" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22889842" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5030257" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18454936" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -679,7 +680,11 @@
     <MESSAGE value="完善上传图片功能（修改写权限问题）" />
     <MESSAGE value="全球合伙人详情和修改完成" />
     <MESSAGE value="修改图片上传路径问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改图片上传路径问题" />
+    <MESSAGE value="完成新闻资讯模块 其他已发现小问题的修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成新闻资讯模块 其他已发现小问题的修复" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -688,25 +693,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controller/apply.con.php" />
-    <entry file="file://$PROJECT_DIR$/controller/login.con.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="9" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/admin.con.php" />
-    <entry file="file://$PROJECT_DIR$/js/login.js" />
-    <entry file="file://$PROJECT_DIR$/js/apply.js" />
-    <entry file="file://$PROJECT_DIR$/controller/adminInfo.con.php" />
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/apply.check.con.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -738,20 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1659">
-          <caret line="79" column="33" lean-forward="false" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4095">
-          <caret line="195" column="0" lean-forward="false" selection-start-line="195" selection-start-column="0" selection-end-line="239" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -789,13 +761,6 @@
             <marker date="1491639859000" expanded="true" signature="5664:5980" ph="UPDATE `tb_s... " />
             <marker date="1491639859000" expanded="true" signature="6278:6635" ph="UPDATE `tb_s... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/service.complete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="276" column="66" lean-forward="false" selection-start-line="276" selection-start-column="66" selection-end-line="276" selection-end-column="96" />
         </state>
       </provider>
     </entry>
@@ -866,13 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/slider.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="198" column="24" lean-forward="true" selection-start-line="196" selection-start-column="20" selection-end-line="198" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/slider.detail.con.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -936,14 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/project.add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3325">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/staff.add.con.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-422">
@@ -971,7 +921,7 @@
         <state relative-caret-position="553">
           <caret line="77" column="15" lean-forward="false" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="15" />
           <folding>
-            <marker date="1491806200000" expanded="true" signature="1562:1650" ph="INSERT INTO `tb_news`... " />
+            <marker date="1491808175000" expanded="true" signature="1564:1652" ph="INSERT INTO `tb_news`... " />
           </folding>
         </state>
       </provider>
@@ -986,37 +936,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/staff.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="316" column="96" lean-forward="false" selection-start-line="316" selection-start-column="66" selection-end-line="316" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/news.add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="196" column="38" lean-forward="true" selection-start-line="196" selection-start-column="38" selection-end-line="196" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/news.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="236" column="22" lean-forward="true" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/news.update.con.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
-          <caret line="43" column="20" lean-forward="true" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+          <caret line="43" column="20" lean-forward="false" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
           <folding>
-            <marker date="1491807821000" expanded="true" signature="815:895" ph="UPDATE `tb_n... " />
-            <marker date="1491807821000" expanded="true" signature="1067:1129" ph="UPDATE `tb_n... " />
+            <marker date="1491808175000" expanded="true" signature="817:897" ph="UPDATE `tb_n... " />
+            <marker date="1491808175000" expanded="true" signature="1069:1131" ph="UPDATE `tb_n... " />
           </folding>
         </state>
       </provider>
@@ -1079,12 +1005,136 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/pages/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="77" column="32" lean-forward="false" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+        <state relative-caret-position="40">
+          <caret line="38" column="8" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
           <folding>
             <element signature="n#!!block;n#detailUser#0" expanded="false" />
             <element signature="e#5009#6127#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="171" column="12" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="171" selection-end-column="12" />
+          <folding>
+            <element signature="n#aside#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/apply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="86" column="37" lean-forward="false" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/city.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="92" column="33" lean-forward="false" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/message.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/news.add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="125" column="45" lean-forward="false" selection-start-line="125" selection-start-column="45" selection-end-line="125" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/news.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/project.add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="100" column="37" lean-forward="false" selection-start-line="100" selection-start-column="37" selection-end-line="100" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/project.list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="106" column="45" lean-forward="false" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/service.check.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/service.complete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="139" column="33" lean-forward="false" selection-start-line="139" selection-start-column="33" selection-end-line="139" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/service.publish.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/slider.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="150" column="37" lean-forward="false" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/staff.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="77" column="37" lean-forward="false" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="71" column="37" lean-forward="false" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
