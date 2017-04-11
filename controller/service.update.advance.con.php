@@ -68,7 +68,7 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `additional` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ssssisi",
+    $stmt->bind_param("sssissi",
         $type,
         $city,
         $industry,
@@ -88,7 +88,7 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `service_detail_image` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ssssissi",
+    $stmt->bind_param("sssisssi",
         $type,
         $city,
         $industry,
@@ -109,7 +109,7 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `banner_image` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ssssissi",
+    $stmt->bind_param("sssisssi",
         $type,
         $city,
         $industry,
@@ -130,7 +130,7 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `company_logo` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ssssissi",
+    $stmt->bind_param("sssisssi",
         $type,
         $city,
         $industry,
@@ -152,7 +152,7 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `service_detail_image` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ssssisssi",
+    $stmt->bind_param("sssissssi",
         $type,
         $city,
         $industry,
@@ -175,7 +175,7 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `service_detail_image` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ssssisssi",
+    $stmt->bind_param("sssissssi",
         $type,
         $city,
         $industry,
@@ -198,7 +198,7 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `banner_image` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ssssissssi",
+    $stmt->bind_param("sssisssssi",
         $type,
         $city,
         $industry,
@@ -222,7 +222,7 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `service_detail_image` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ssssissssi",
+    $stmt->bind_param("sssisssssi",
         $type,
         $city,
         $industry,

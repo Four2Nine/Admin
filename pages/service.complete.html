@@ -296,6 +296,9 @@
                                 <b>请完善以下信息(可选)</b>
                             </div>
 
+                            <a href="javascript:void(0);" class="thumbnail">
+                                <img src="" class="img-responsive" id="logo-img-prev" width="120" height="120">
+                            </a>
                             <div class="input-group">
                                 <input type="hidden" name="id" id="id" required="">
 
@@ -304,7 +307,7 @@
                                 <div class="form-line">
                                     <input name="logo" type="file" id="logo" class="form-control"/>
                                 </div>
-                                <label id="logo-error" class="error" for="logo"></label>
+                                <label id="logo-error" class="error" for="logo">不上传则不修改</label>
                             </div>
 
                             <div class="input-group">
@@ -360,13 +363,16 @@
                                 <span class="input-group-addon">.00</span>
                             </div>
 
+                            <a href="javascript:void(0);" class="thumbnail">
+                                <img src="" class="img-responsive" id="banner-img-prev" width="120" height="120">
+                            </a>
                             <b>公司宣传画</b>
                             <div class="input-group">
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
                                 <div class="form-line">
                                     <input type="file" id="banner-image" name="banner-image" class="form-control"/>
                                 </div>
-                                <label id="banner-image-error" class="error" for="banner-image"></label>
+                                <label id="banner-image-error" class="error" for="banner-image">不上传则不修改</label>
                             </div>
 
                             <b>公司宣传口号</b>
@@ -376,11 +382,14 @@
                                             type="text"
                                             id="banner-text"
                                             name="banner-text"
-                                            class="form-control date"
+                                            class="form-control"
                                             placeholder="公司宣传口号">
                                 </div>
                             </div>
 
+                            <a href="javascript:void(0);" class="thumbnail">
+                                <img src="" class="img-responsive" id="detail-img-prev" width="120" height="120">
+                            </a>
                             <b>服务详情图片</b>
                             <div class="input-group">
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
@@ -388,7 +397,8 @@
                                     <input type="file" id="service-detail-image" name="service-detail-image"
                                            class="form-control"/>
                                 </div>
-                                <label id="service-detail-image-error" class="error" for="service-detail-image"></label>
+                                <label id="service-detail-image-error" class="error"
+                                       for="service-detail-image">不上传则不修改</label>
                             </div>
 
                             <b>备注信息</b>

@@ -54,6 +54,9 @@ function getCompleteInfo(id) {
             $("input[name=service-price]").val(result['service_price']);
             $("input[name=banner-text]").val(result['banner_text']);
             $("textarea[name=additional]").val(result['additional']);
+            $("#logo-img-prev").prop("src", "../images/service/" + result['company_logo']);
+            $("#banner-img-prev").prop("src", "../images/service/" + result['banner_image']);
+            $("#detail-img-prev").prop("src", "../images/service/" + result['service_detail_image']);
         }
     })
 }
@@ -212,7 +215,7 @@ $("#service-advance__form").submit(function (event) {
         data: form_data,
         success: function (data) {
             $inputs.prop("disabled", false);
-            if (data.equals(1)) {
+            if (data == 1) {
                 showNotification(
                     "alert-success",
                     "修改成功",
