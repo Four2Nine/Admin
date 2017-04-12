@@ -238,17 +238,17 @@
                                 <div class="help-info">http://, https:// etc</div>
                                 <label id="company-website-error" class="error" for="company-website"></label>
 
-                                <b>联系人姓名</b>
+                                <b>负责人姓名</b>
                                 <div class="form-line">
                                     <input type="text"
                                            id="contact-name"
                                            name="contact-name"
                                            class="form-control"
-                                           placeholder="联系人姓名">
+                                           placeholder="负责人姓名">
                                 </div>
                                 <label id="contact-name-error" class="error" for="contact-name"></label>
 
-                                <b>联系电话</b>
+                                <b>负责人联系电话</b>
                                 <div class="form-line">
                                     <input type="text"
                                            id="contact-phone-number"
@@ -258,7 +258,7 @@
                                 </div>
                                 <label id="contact-phone-number-error" class="error" for="contact-phone-number"></label>
 
-                                <b>联系邮箱</b>
+                                <b>负责人联系邮箱</b>
                                 <div class="form-line">
                                     <input type="email"
                                            id="contact-email"
@@ -268,6 +268,17 @@
                                 </div>
                                 <label id="contact-email-error" class="error" for="contact-email"></label>
 
+
+                                <b>负责人介绍</b>
+                                <div class="help-info">不超过200字</div>
+                                <div class="input-group">
+                                    <div class="form-line">
+                                        <input class="form-control" id="contact-desc"
+                                               name="contact-desc"
+                                               placeholder="写一段话介绍负责人">
+                                    </div>
+                                    <label id="contact-desc-error" class="error" for="contact-desc"></label>
+                                </div>
                                 <!--<select class="form-control show-tick" title="审核">-->
                                 <!--<option>审核通过</option>-->
                                 <!--<option>审核拒绝</option>-->
@@ -296,13 +307,39 @@
                                 <b>请完善以下信息(可选)</b>
                             </div>
 
-                            <a href="javascript:void(0);" class="thumbnail">
-                                <img src="" class="img-responsive" id="logo-img-prev" width="120" height="120">
-                            </a>
+                            <input type="checkbox" id="contact2" name="contact2" class="filled-in" checked/>
+                            <label for="contact2">添加另一个负责人</label>
+
+                            <div id="contact2_panel" class="input-group">
+                                <b>负责人姓名</b>
+                                <div class="form-line">
+                                    <input type="text"
+                                           id="contact2-name"
+                                           name="contact2-name"
+                                           class="form-control"
+                                           placeholder="负责人姓名">
+                                </div>
+                                <label id="contact2-name-error" class="error" for="contact-name"></label>
+
+                                <b>负责人介绍</b>
+                                <div class="help-info">不超过200字</div>
+                                <div class="input-group">
+                                    <div class="form-line">
+                                        <input class="form-control" id="contact2-desc"
+                                               name="contact2-desc"
+                                               placeholder="写一段话介绍负责人">
+                                    </div>
+                                    <label id="contact2-desc-error" class="error" for="contact-desc"></label>
+                                </div>
+                            </div>
+
                             <div class="input-group">
                                 <input type="hidden" name="id" id="id" required="">
 
                                 <b>公司Logo</b>
+                                <a href="javascript:void(0);" class="thumbnail">
+                                    <img src="" class="img-responsive" id="logo-img-prev" width="120" height="120">
+                                </a>
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
                                 <div class="form-line">
                                     <input name="logo" type="file" id="logo" class="form-control"/>
@@ -363,10 +400,10 @@
                                 <span class="input-group-addon">.00</span>
                             </div>
 
+                            <b>公司宣传画</b>
                             <a href="javascript:void(0);" class="thumbnail">
                                 <img src="" class="img-responsive" id="banner-img-prev" width="120" height="120">
                             </a>
-                            <b>公司宣传画</b>
                             <div class="input-group">
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
                                 <div class="form-line">
@@ -387,10 +424,10 @@
                                 </div>
                             </div>
 
+                            <b>服务详情图片</b>
                             <a href="javascript:void(0);" class="thumbnail">
                                 <img src="" class="img-responsive" id="detail-img-prev" width="120" height="120">
                             </a>
-                            <b>服务详情图片</b>
                             <div class="input-group">
                                 <div class="help-info">*.jpg/*.jpeg/*.png, Max: 5MB</div>
                                 <div class="form-line">

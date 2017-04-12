@@ -9,6 +9,9 @@ require 'connection.db.php';
 require 'Constant.php';
 
 $id = $_POST['id'];
+$contact2_name = $_POST['contact2-name'] == null ? "" : $_POST['contact2-name'];
+$contact2_desc = $_POST['contact2-desc'] == null ? "" : $_POST['contact2-desc'];
+
 $city = $_POST['service-city']==null?"":$_POST['service-city'];
 $type = $_POST['service-type']==null?"":$_POST['service-type'];
 $industry = $_POST['industry']==null?"":$_POST['industry'];
@@ -65,16 +68,20 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `industry` = ?,
               `service_price` = ?,
               `banner_text` = ?,
-              `additional` = ?
+              `additional` = ?,
+              `contact2_name` = ?,
+              `contact2_desc` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("sssissi",
+    $stmt->bind_param("sssissssi",
         $type,
         $city,
         $industry,
         $price,
         $banner_text,
         $additional,
+        $contact2_name,
+        $contact2_desc,
         $id
     );
 } else if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 1) {
@@ -85,10 +92,12 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `service_price` = ?,
               `banner_text` = ?,
               `additional` = ?,
-              `service_detail_image` = ?
+              `service_detail_image` = ?,
+              `contact2_name` = ?,
+              `contact2_desc` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("sssisssi",
+    $stmt->bind_param("sssisssssi",
         $type,
         $city,
         $industry,
@@ -96,6 +105,8 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
         $banner_text,
         $additional,
         $filesUploadArray['detail-img'],
+        $contact2_name,
+        $contact2_desc,
         $id
     );
 } else if ($logo_flag == 0 && $banner_flag == 1 && $detail_flag == 0) {
@@ -106,10 +117,12 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `service_price` = ?,
               `banner_text` = ?,
               `additional` = ?,
-              `banner_image` = ?
+              `banner_image` = ?,
+              `contact2_name` = ?,
+              `contact2_desc` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("sssisssi",
+    $stmt->bind_param("sssisssssi",
         $type,
         $city,
         $industry,
@@ -117,6 +130,8 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
         $banner_text,
         $additional,
         $filesUploadArray['banner-image'],
+        $contact2_name,
+        $contact2_desc,
         $id
     );
 } else if ($logo_flag == 1 && $banner_flag == 0 && $detail_flag == 0) {
@@ -127,10 +142,12 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `service_price` = ?,
               `banner_text` = ?,
               `additional` = ?,
-              `company_logo` = ?
+              `company_logo` = ?,
+              `contact2_name` = ?,
+              `contact2_desc` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("sssisssi",
+    $stmt->bind_param("sssisssssi",
         $type,
         $city,
         $industry,
@@ -138,6 +155,8 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
         $banner_text,
         $additional,
         $filesUploadArray['logo'],
+        $contact2_name,
+        $contact2_desc,
         $id
     );
 } else if ($logo_flag == 0 && $banner_flag == 1 && $detail_flag == 1) {
@@ -149,10 +168,12 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `banner_text` = ?,
               `additional` = ?,
               `banner_image` = ?,
-              `service_detail_image` = ?
+              `service_detail_image` = ?,
+              `contact2_name` = ?,
+              `contact2_desc` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("sssissssi",
+    $stmt->bind_param("sssissssssi",
         $type,
         $city,
         $industry,
@@ -161,6 +182,8 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
         $additional,
         $filesUploadArray['banner-image'],
         $filesUploadArray['detail-img'],
+        $contact2_name,
+        $contact2_desc,
         $id
     );
 } else if ($logo_flag == 1 && $banner_flag == 0 && $detail_flag == 1) {
@@ -172,10 +195,12 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `banner_text` = ?,
               `additional` = ?,
               `company_logo` = ?,
-              `service_detail_image` = ?
+              `service_detail_image` = ?,
+              `contact2_name` = ?,
+              `contact2_desc` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("sssissssi",
+    $stmt->bind_param("sssissssssi",
         $type,
         $city,
         $industry,
@@ -184,6 +209,8 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
         $additional,
         $filesUploadArray['logo'],
         $filesUploadArray['detail-img'],
+        $contact2_name,
+        $contact2_desc,
         $id
     );
 } else if ($logo_flag == 1 && $banner_flag == 1 && $detail_flag == 0) {
@@ -195,10 +222,12 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `banner_text` = ?,
               `additional` = ?,
               `company_logo` = ?,
-              `banner_image` = ?
+              `banner_image` = ?,
+              `contact2_name` = ?,
+              `contact2_desc` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("sssisssssi",
+    $stmt->bind_param("sssisssssssi",
         $type,
         $city,
         $industry,
@@ -207,6 +236,8 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
         $additional,
         $filesUploadArray['logo'],
         $filesUploadArray['banner-image'],
+        $contact2_name,
+        $contact2_desc,
         $id
     );
 } else {
@@ -219,10 +250,12 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
               `additional` = ?,
               `company_logo` = ?,
               `banner_image`= ?,
-              `service_detail_image` = ?
+              `service_detail_image` = ?,
+              `contact2_name` = ?,
+              `contact2_desc` = ?
             WHERE `id` = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("sssisssssi",
+    $stmt->bind_param("sssisssssssi",
         $type,
         $city,
         $industry,
@@ -232,6 +265,8 @@ if ($logo_flag == 0 && $banner_flag == 0 && $detail_flag == 0) {
         $filesUploadArray['logo'],
         $filesUploadArray['banner-image'],
         $filesUploadArray['detail-img'],
+        $contact2_name,
+        $contact2_desc,
         $id
     );
 }

@@ -48,6 +48,10 @@ function getCompleteInfo(id) {
             $("input[name=contact-name]").val(result['contact_name']);
             $("input[name=contact-phone-number]").val(result['contact_phone_number']);
             $("input[name=contact-email]").val(result['contact_email']);
+            $("input[name=contact-desc]").val(result['contact_desc']);
+
+            $("input[name=contact2-name]").val(result['contact2_name']);
+            $("input[name=contact2-desc]").val(result['contact2_desc']);
             $("input[name=service-city]").val(result['service_city']);
             $("input[name=service-type]").val(result['service_type']);
             $("input[name=industry]").val(result['industry']);
@@ -76,6 +80,7 @@ $("#service-basic__form").submit(function (event) {
     var contact = $("#contact-name");
     var phone = $("#contact-phone-number");
     var email = $("#contact-email");
+    var desc = $("#contact-desc");
 
     if (checkEmpty(name)) {
         name.parents('.form-line').addClass('error');
@@ -107,10 +112,17 @@ $("#service-basic__form").submit(function (event) {
         $inputs.prop("disabled", false);
         return false;
     }
+    if (checkEmpty(desc)) {
+        desc.parents('.form-line').addClass('error');
+        $("#contact-desc-error").html("不能为空");
+        $inputs.prop("disabled", false);
+        return false;
+    }
 
     $(".form-control").parents(".form-line").remove('error');
     $(".error").html("");
 
+    console.log(serializedData);
     $.ajax({
         url: "/admin/controller/service.update.base.con.php",
         type: "post",
@@ -123,7 +135,9 @@ $("#service-basic__form").submit(function (event) {
                     "修改成功",
                     "top", "right",
                     "animated fadeInRight", "animated fadeOutRight");
-                getCompleteInfo(id);
+                setTimeout(function () {
+                    location.href = "service.complete.html?id=" + id;
+                }, 800);
             } else {
                 showNotification(
                     "alert-danger",
@@ -142,6 +156,8 @@ $("#service-advance__form").submit(function (event) {
 
     $inputs.prop("disabled", true);
 
+    var contact2_name = $("#contact2-name");
+    var contact2_desc = $("#contact2-desc");
     var logo_img = $("#logo");
     var city = $("#service-city");
     var type = $("#service-type");
@@ -197,6 +213,15 @@ $("#service-advance__form").submit(function (event) {
         form_data.append('detail-img', detail_img__file);
     }
 
+    if (contact2_desc.length > 200) {
+        $("#contact2-desc-error").html("介绍不能超过200字");
+        contact2_desc.parents('.form-line').addClass('error');
+        $inputs.prop("disabled", false);
+        return false;
+    }
+
+    form_data.append('contact2-name', contact2_name.val());
+    form_data.append('contact2-desc', contact2_desc.val());
     form_data.append('id', $("#id").val());
     form_data.append('service-city', city.val());
     form_data.append('service-type', type.val());
@@ -221,7 +246,9 @@ $("#service-advance__form").submit(function (event) {
                     "修改成功",
                     "top", "right",
                     "animated fadeInRight", "animated fadeOutRight");
-                getCompleteInfo(id);
+                setTimeout(function () {
+                    location.href = "service.complete.html?id=" + id;
+                }, 800);
             } else {
                 showNotification(
                     "alert-danger",
@@ -231,4 +258,18 @@ $("#service-advance__form").submit(function (event) {
             }
         }
     })
+});
+
+$("#contact2").change(function () {
+    if ($(this).is(':checked')) {
+        $("#contact2_panel").fadeIn(500);
+    } else {
+        swal({
+            title: "提交后第二负责人将会被删除",
+            type: "warning",
+            confirmButtonText: "知道了"
+        }, function () {
+            $("#contact2_panel").fadeOut(500);
+        });
+    }
 });
