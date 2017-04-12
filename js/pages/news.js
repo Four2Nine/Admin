@@ -35,8 +35,8 @@ function getNewsList() {
                 for (var item in result.info) {
                     html += "<tr>" +
                         "<td>" + item + "</td>" +
-                        "<td>" + result.info[item + ""]['title'] + "</td>" +
-                        "<td>" + result.info[item + ""]['content'] + "</td>" +
+                        "<td style='max-width: 200px;'>" + result.info[item + ""]['title'] + "</td>" +
+                        "<td style='max-width: 200px;'>" + result.info[item + ""]['content'].substring(0, 50) + "</td>" +
                         "<td>" + result.info[item + ""]['pushTime'] + "</td>" +
                         "<td>" +
                         "<div class='btn-group' role='group'>" +
