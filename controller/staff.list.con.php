@@ -8,12 +8,12 @@ $result = array();
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PWD, DB_NAME);
 $con->query("SET NAMES UTF8;");
 
-$sql = "SELECT `id`, `name`, `description`, `duties`, `email`, `phone` FROM `tb_staff` ORDER BY `create_time` DESC";
+$sql = "SELECT `id`, `name`, `description`, `duties`, `email`, `phone`, `is_top` FROM `tb_staff` ORDER BY `create_time` DESC ";
 $stmt = $con->prepare($sql);
 $stmt->execute();
 
 $stmt->store_result();
-$stmt->bind_result($id, $name, $desc, $duties, $email, $phone);
+$stmt->bind_result($id, $name, $desc, $duties, $email, $phone, $top);
 
 $result['staff'] = array();
 while ($stmt->fetch()) {
@@ -24,6 +24,7 @@ while ($stmt->fetch()) {
     $item['duties'] = $duties;
     $item['email'] = $email;
     $item['phone'] = $phone;
+    $item['top'] = $top;
 
     $result['staff'][$id] = $item;
 }

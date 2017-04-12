@@ -36,8 +36,12 @@ function getStaffList(){
             } else {
                 var html = "";
                 for (var item in result.staff) {
-                    html += "<tr>" +
-                        "<td>" + item + "</td>" +
+                    if (result.staff[item + ""]['top'] == 1) {
+                        html += "<tr class='success'>";
+                    } else {
+                        html += "<tr>";
+                    }
+                    html += "<td>" + item + "</td>" +
                         "<td>" + result.staff[item + ""]['name'] + "</td>" +
                         "<td>" + result.staff[item + ""]['duties'] + "</td>" +
                         "<td>" + result.staff[item + ""]['email'] + "</td>" +
@@ -48,6 +52,10 @@ function getStaffList(){
                         "onclick='detailStaff(" + item + ")' data-toggle='modal' data-target='#detailStaffModal'>details</button>" +
                         "<button type='button' class='btn btn-default btn-xs waves-effect material-icons'" +
                         "onclick='deleteStaff(" + item + ")'>delete</button>" +
+                        "<button type='button' class='btn btn-default btn-xs waves-effect material-icons'" +
+                        "onclick='topStaff(" + item + ")'>keyboard_capslock</button>" +
+                        "<button type='button' class='btn btn-default btn-xs waves-effect material-icons'" +
+                        "onclick='cancelTopStaff(" + item + ")'>keyboard_arrow_down</button>" +
                         "</div>" +
                         "</td>" +
                         "</tr>";
@@ -103,6 +111,62 @@ function detailStaff(id) {
             $("#up_phone").prop("value", result['detail']['phone']);
         }
     })
+}
+
+function topStaff(id) {
+    swal({
+        title: "将合伙人置顶",
+        text: "置顶后，该合伙人将会位于置顶合伙人的首位",
+        type: "info",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true
+    }, function () {
+        $.ajax({
+            url: "/admin/controller/staff.top.con.php",
+            data: {id: id, top: 1},
+            type: "post",
+
+            success: function (data) {
+                if (data == 1) {
+                    setTimeout(function () {
+                        swal("操作完成");
+                        getStaffList();
+                    }, 500);
+                }
+            }//success
+        });//ajax
+    });
+}
+
+function cancelTopStaff(id) {
+    swal({
+        title: "将合伙人取消置顶",
+        text: "该合伙人将不再置顶",
+        type: "info",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true
+    }, function () {
+        $.ajax({
+            url: "/admin/controller/staff.top.con.php",
+            data: {id: id, top: 0},
+            type: "post",
+
+            success: function (data) {
+                if (data == 1) {
+                    setTimeout(function () {
+                        swal("操作完成");
+                        getStaffList();
+                    }, 500);
+                }
+            }//success
+        });//ajax
+    });
 }
 
 $("#update_staff_form").submit(function (event) {
