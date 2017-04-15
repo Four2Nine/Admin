@@ -65,6 +65,7 @@ $("#add_news_form").submit(function (event) {
 
     var title = $("#title");
     var content = $("#content");
+    var url = $("#url");
     var image = $("#image");
 
     var form_data = new FormData();
@@ -86,6 +87,7 @@ $("#add_news_form").submit(function (event) {
 
     form_data.append('title', title.val());
     form_data.append('content', content.val());
+    form_data.append('url', url.val());
 
     swal({
         title: "确认添加资讯",
@@ -143,6 +145,7 @@ $("#update_news_form").submit(function (event) {
 
     var title = $("#title");
     var content = $("#content");
+    var url = $("#url");
     var image = $("#image");
 
     var form_data = new FormData();
@@ -165,6 +168,7 @@ $("#update_news_form").submit(function (event) {
     form_data.append('id', id.val());
     form_data.append('title', title.val());
     form_data.append('content', content.val());
+    form_data.append('url', url.val());
 
     $.ajax({
         url: "/admin/controller/news.update.con.php",
@@ -198,6 +202,7 @@ function detailNews(id) {
             $("#id").prop("value", result['detail']['id']);
             $("#title").prop("value", result['detail']['title']);
             $("#content").prop("value", result['detail']['content']);
+            $("#url").prop("value", result['detail']['url']);
 
             var image_name = result['detail']['image_path'];
             var image = $("#head-img");

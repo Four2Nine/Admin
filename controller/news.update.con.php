@@ -8,6 +8,7 @@ require 'Constant.php';
 $id = $_POST['id'];
 $title = $_POST['title'];
 $content = $_POST['content'];
+$url = $_POST['url'];
 $image_flag = $_POST["image-flag"];
 
 //指定上传图片的路径
@@ -35,22 +36,24 @@ $con->query("SET NAMES UTF8;");
 
 //定义SQL语句
 if ($image_flag == 1) {
-    $sql = "UPDATE `tb_news` SET `title` = ?, `content` = ?, `image_path` = ? WHERE `id` = ?";
+    $sql = "UPDATE `tb_news` SET `title` = ?, `content` = ?, `url` = ?, `image_path` = ? WHERE `id` = ?";
+    //绑定变量
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param('ssssi',
+        $title,
+        $content,
+        $url,
+        $fileUpload,
+        $id
+    );
+} else {
+    $sql = "UPDATE `tb_news` SET `title` = ?, `content` = ?, `url` = ? WHERE `id` = ?";
     //绑定变量
     $stmt = $con->prepare($sql);
     $stmt->bind_param('sssi',
         $title,
         $content,
-        $fileUpload,
-        $id
-    );
-} else {
-    $sql = "UPDATE `tb_news` SET `title` = ?, `content` = ? WHERE `id` = ?";
-    //绑定变量
-    $stmt = $con->prepare($sql);
-    $stmt->bind_param('ssi',
-        $title,
-        $content,
+        $url,
         $id
     );
 }

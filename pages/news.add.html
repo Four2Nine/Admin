@@ -211,6 +211,7 @@
                     <div class="body">
                         <form role="form" method="post" id="add_news_form">
 
+                            <b>标题</b>
                             <div class="input-group">
                                 <div class="form-line">
                                     <input type="text" id="title" name="title" class="form-control" placeholder="资讯标题"
@@ -219,6 +220,7 @@
                                 <label id="title-error" class="error" for="title"></label>
                             </div>
 
+                            <b>内容</b>
                             <div class="input-group">
                                 <div class="form-line">
                                     <textarea rows="6" class="form-control no-resize" id="content" name="content"
@@ -227,7 +229,16 @@
                                 <label id="content-error" class="error" for="content"></label>
                             </div>
 
-                            <label for="image">资讯图片</label>
+                            <b>链接</b>
+                            <div class="input-group">
+                                <div class="form-line">
+                                    <input type="text" id="url" name="url" class="form-control" placeholder="链接"
+                                           required>
+                                </div>
+                                <label id="url-error" class="error" for="title"></label>
+                            </div>
+
+                            <b>资讯图片</b>
                             <div class="input-group">
                                 <div class="form-line">
                                     <input type="file" id="image" name="image" class="form-control"/>
